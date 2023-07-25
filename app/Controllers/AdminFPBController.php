@@ -29,6 +29,11 @@ class AdminFPBController extends BaseController
             'lokasi_penempatan' => 'required',
             'kebutuhan_projek' => 'required',
             'keterangan' => 'required',
+            'namajenis' => 'required',
+            'idbarang' => 'required',
+            'tipe' => 'required',
+            'qty' => 'required',
+            'note' => 'required',
         ];
 
         $validationMessages = [
@@ -56,7 +61,22 @@ class AdminFPBController extends BaseController
             ],
             'keterangan' => [
                 'required' => 'keterangan harus diisi.',
-            ]
+            ],
+            'namajenis' => [
+                'required' => 'keterangan harus diisi.',
+            ],
+            'idbarang' => [
+                'required' => 'keterangan harus diisi.',
+            ],
+            'tipe' => [
+                'required' => 'keterangan harus diisi.',
+            ],
+            'qty' => [
+                'required' => 'keterangan harus diisi.',
+            ],
+            'note' => [
+                'required' => 'keterangan harus diisi.',
+            ],
         ];
 
         if (!$this->validate($validationRules, $validationMessages)) {
@@ -72,6 +92,11 @@ class AdminFPBController extends BaseController
             'lokasi_penempatan' => $this->request->getVar('lokasi_penempatan'),
             'kebutuhan_projek' => $this->request->getVar('kebutuhan_projek'),
             'keterangan' => $this->request->getVar('keterangan'),
+            'namajenis' => $this->request->getVar('namajenis'),
+            'idbarang' => $this->request->getVar('idbarang'),
+            'tipe' => $this->request->getVar('tipe'),
+            'qty' => $this->request->getVar('qty'),
+            'note' => $this->request->getVar('note'),
             'created_at' => date('Y-m-d H:i:s')
         ];
 
@@ -116,6 +141,11 @@ class AdminFPBController extends BaseController
             'lokasi_penempatan' => 'required',
             'kebutuhan_projek' => 'required',
             'keterangan' => 'required',
+            'namajenis' => 'required',
+            'idbarang' => 'required',
+            'tipe' => 'required',
+            'qty' => 'required',
+            'note' => 'required',
         ];
 
         $validationMessages = [
@@ -143,7 +173,22 @@ class AdminFPBController extends BaseController
             ],
             'keterangan' => [
                 'required' => 'keterangan harus diisi.',
-            ]
+            ],
+            'namajenis' => [
+                'required' => 'keterangan harus diisi.',
+            ],
+            'idbarang' => [
+                'required' => 'keterangan harus diisi.',
+            ],
+            'tipe' => [
+                'required' => 'keterangan harus diisi.',
+            ],
+            'qty' => [
+                'required' => 'keterangan harus diisi.',
+            ],
+            'note' => [
+                'required' => 'keterangan harus diisi.',
+            ],
         ];
 
         $validation = \Config\Services::validation();
@@ -162,6 +207,11 @@ class AdminFPBController extends BaseController
             'lokasi_penempatan' => $this->request->getPost('lokasi_penempatan'),
             'kebutuhan_projek' => $this->request->getPost('kebutuhan_projek'),
             'keterangan' => $this->request->getPost('keterangan'),
+            'namajenis' => $this->request->getVar('namajenis'),
+            'idbarang' => $this->request->getVar('idbarang'),
+            'tipe' => $this->request->getVar('tipe'),
+            'qty' => $this->request->getVar('qty'),
+            'note' => $this->request->getVar('note'),
             'updated_at' => date('Y-m-d H:i:s')
         ];
 

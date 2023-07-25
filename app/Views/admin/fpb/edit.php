@@ -81,6 +81,59 @@ Edit
                     </span>
                 <?php endif ?>
             </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="namajenis">Nama/Jenis</label>
+                    <select class="form-control" id="namajenis" placeholder="Pilih Nama/Jenis" value="<?= old('namajenis'); ?>" name="namajenis" required autocomplete="namajenis">
+                    <option selected>Choose...</option>
+                        <option>barang A</option>
+                        <option>barang B</option>
+                        <option>barang C</option>
+                        <option>barang D</option>
+                    </select>
+                    <?php if (session('errors.namajenis')) : ?>
+                    <span class="invalid-feedback" role="alert">
+                        <strong><?= session('errors.namajenis') ?></strong>
+                    </span>
+                <?php endif ?>
+                </div>
+                <div class="form-group">
+                    <label for="idbarang">ID Barang</label>
+                    <input type="text" class="form-control" id="idbarang" placeholder="Masukkan ID Barang" value="<?= old('idbarang'); ?>" name="idbarang" required autocomplete="idbarang">
+                    <?php if (session('errors.idbarang')) : ?>
+                    <span class="invalid-feedback" role="alert">
+                        <strong><?= session('errors.idbarang') ?></strong>
+                    </span>
+                <?php endif ?>
+                </div>
+                <div class="form-group">
+                    <label for="tipe">Tipe</label>
+                    <input type="text" class="form-control" id="tipe" placeholder="Masukkan Tipe" value="<?= old('tipe'); ?>" name="tipe" required autocomplete="tipe">
+                    <?php if (session('errors.tipe')) : ?>
+                    <span class="invalid-feedback" role="alert">
+                        <strong><?= session('errors.tipe') ?></strong>
+                    </span>
+                <?php endif ?>
+                </div>
+                <div class="form-group">
+                    <label for="qty">Qty</label>
+                    <input type="text" class="form-control" id="qty" placeholder="Masukkan Kuantitas" value="<?= old('qty'); ?>" name="qty" required autocomplete="qty">
+                    <?php if (session('errors.qty')) : ?>
+                    <span class="invalid-feedback" role="alert">
+                        <strong><?= session('errors.qty') ?></strong>
+                    </span>
+                <?php endif ?>
+                </div>
+                <div class="form-group">
+                    <label for="note">Note</label>
+                    <input type="text" class="form-control" id="note" placeholder="Masukkan Note" value="<?= old('note'); ?>" name="note" required autocomplete="note">
+                    <?php if (session('errors.note')) : ?>
+                    <span class="invalid-feedback" role="alert">
+                        <strong><?= session('errors.note') ?></strong>
+                    </span>
+                <?php endif ?>
+                </div>
+            </div>
         </div>
         <!-- /.card-body -->
         <div class="card-footer">

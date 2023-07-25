@@ -41,6 +41,26 @@ class CreateFPBTable extends Migration
             'keterangan' => [
                 'type'              => 'VARCHAR',
                 'constraint'        => 255
+            ],
+            'namajenis' => [
+                'type'              => 'VARCHAR',
+                'constraint'        => 255
+            ],
+            'idbarang' => [
+                'type'              => 'INT',
+                'constraint'        => 11
+            ],
+            'tipe' => [
+                'type'              => 'VARCHAR',
+                'constraint'        => 255
+            ],
+            'qty' => [
+                'type'              => 'INT',
+                'constraint'        => 11
+            ],
+            'note' => [
+                'type'              => 'VARCHAR',
+                'constraint'        => 255
             ]
         ]);
 

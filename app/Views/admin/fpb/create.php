@@ -15,8 +15,8 @@ Pengajuan Peminjaman
         <?= csrf_field() ?>
         <div class="card-body">
             <div class="form-group">
-                <label for="id">ID Barang</label>
-                <input type="text" class="form-control" id="id" placeholder="Masukkan Kode Barang" value="<?= old('id'); ?>" name="id" required autocomplete="id" autofocus>
+                <label for="id">ID FPB</label>
+                <input type="text" class="form-control" id="id" placeholder="Masukkan ID FPB" value="<?= old('id'); ?>" name="id" required autocomplete="id" autofocus>
                 <?php if (session('errors.id')) : ?>
                     <span class="invalid-feedback" role="alert">
                         <strong><?= session('errors.id') ?></strong>
@@ -43,7 +43,7 @@ Pengajuan Peminjaman
             </div>
             <div class="form-group">
                 <label for="nama">Nama</label>
-                <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama Barang" value="<?= old('nama'); ?>" name="nama" required autocomplete="nama">
+                <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama" value="<?= old('nama'); ?>" name="nama" required autocomplete="nama">
                 <?php if (session('errors.nama')) : ?>
                     <span class="invalid-feedback" role="alert">
                         <strong><?= session('errors.nama') ?></strong>
@@ -85,6 +85,59 @@ Pengajuan Peminjaman
                         <strong><?= session('errors.keterangan') ?></strong>
                     </span>
                 <?php endif ?>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="namajenis">Nama/Jenis</label>
+                    <select class="form-control" id="namajenis" placeholder="Pilih Nama/Jenis" value="<?= old('namajenis'); ?>" name="namajenis" required autocomplete="namajenis">
+                    <option selected>Choose...</option>
+                        <option>barang A</option>
+                        <option>barang B</option>
+                        <option>barang C</option>
+                        <option>barang D</option>
+                    </select>
+                    <?php if (session('errors.namajenis')) : ?>
+                    <span class="invalid-feedback" role="alert">
+                        <strong><?= session('errors.namajenis') ?></strong>
+                    </span>
+                <?php endif ?>
+                </div>
+                <div class="form-group">
+                    <label for="idbarang">ID Barang</label>
+                    <input type="text" class="form-control" id="idbarang" placeholder="Masukkan ID Barang" value="<?= old('idbarang'); ?>" name="idbarang" required autocomplete="idbarang">
+                    <?php if (session('errors.idbarang')) : ?>
+                    <span class="invalid-feedback" role="alert">
+                        <strong><?= session('errors.idbarang') ?></strong>
+                    </span>
+                <?php endif ?>
+                </div>
+                <div class="form-group">
+                    <label for="tipe">Tipe</label>
+                    <input type="text" class="form-control" id="tipe" placeholder="Masukkan Tipe" value="<?= old('tipe'); ?>" name="tipe" required autocomplete="tipe">
+                    <?php if (session('errors.tipe')) : ?>
+                    <span class="invalid-feedback" role="alert">
+                        <strong><?= session('errors.tipe') ?></strong>
+                    </span>
+                <?php endif ?>
+                </div>
+                <div class="form-group">
+                    <label for="qty">Qty</label>
+                    <input type="text" class="form-control" id="qty" placeholder="Masukkan Kuantitas" value="<?= old('qty'); ?>" name="qty" required autocomplete="qty">
+                    <?php if (session('errors.qty')) : ?>
+                    <span class="invalid-feedback" role="alert">
+                        <strong><?= session('errors.qty') ?></strong>
+                    </span>
+                <?php endif ?>
+                </div>
+                <div class="form-group">
+                    <label for="note">Note</label>
+                    <input type="text" class="form-control" id="note" placeholder="Masukkan Note" value="<?= old('note'); ?>" name="note" required autocomplete="note">
+                    <?php if (session('errors.note')) : ?>
+                    <span class="invalid-feedback" role="alert">
+                        <strong><?= session('errors.note') ?></strong>
+                    </span>
+                <?php endif ?>
+                </div>
             </div>
 
             <div class="">

@@ -43,6 +43,28 @@ FORM PEMINJAMAN BARANG
             <label for="keterangan">Keterangan</label>
             <input type="text" class="form-control" id="keterangan" value="<?= $fpb['keterangan']; ?>" readonly>
         </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="namajenis">Nama/Jenis</label>
+                <input type="text" class="form-control" id="namajenis" value="<?= $fpb['namajenis']; ?>" readonly>
+            </div>
+            <div class="form-group">
+                <label for="idbarang">ID Barang</label>
+                <input type="text" class="form-control" id="idbarang" value="<?= $fpb['idbarang']; ?>" readonly>
+            </div>
+            <div class="form-group">
+                <label for="tipe">Tipe</label>
+                <input type="text" class="form-control" id="tipe" value="<?= $fpb['tipe']; ?>" readonly>
+            </div>
+            <div class="form-group">
+                <label for="qty">Qty</label>
+                <input type="text" class="form-control" id="qty" value="<?= $fpb['qty']; ?>" readonly>
+            </div>
+            <div class="form-group">
+                <label for="note">Note</label>
+                <input type="text" class="form-control" id="note" value="<?= $fpb['note']; ?>" readonly>
+            </div>
+        </div>
     </div>
     <!-- /.card-body -->
     <div class="card-footer">

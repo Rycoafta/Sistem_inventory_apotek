@@ -21,13 +21,17 @@ class AdminAlatController extends BaseController
     public function store()
 {
     $validationRules = [
-        'nama' => 'required',
+        'kode_alat' => 'required',
+        'nama_alat' => 'required',
         'stok' => 'required'
     ];
 
     $validationMessages = [
-        'nama' => [
-            'required' => 'Nama barang harus diisi.'
+        'kode_alat' => [
+            'required' => 'kode barang harus diisi.'
+        ],
+        'nama_alat' => [
+            'required' => 'nama barang harus diisi.'
         ],
         'stok' => [
             'required' => 'Stok harus diisi'
@@ -39,7 +43,8 @@ class AdminAlatController extends BaseController
     }
 
     $data = [
-        'nama' => $this->request->getPost('nama'),
+        'kode_alat' => $this->request->getPost('kode_alat'),
+        'nama_alat' => $this->request->getPost('nama_alat'),
         'stok' => $this->request->getPost('stok')
     ];
 
@@ -76,13 +81,17 @@ class AdminAlatController extends BaseController
     public function update($id)
     {
         $validationRules = [
-            'nama' => 'required',
+            'kode_alat' => 'required',
+            'nama_alat' => 'required',
             'stok' => 'required'
         ];
 
         $validationMessages = [
-            'nama' => [
-                'required' => 'Nama alat harus diisi.'
+            'kode_alat' => [
+                'required' => 'kode alat harus diisi.'
+            ],
+            'nama_alat' => [
+                'required' => 'nama barang harus diisi.'
             ],
             'stok' => [
                 'required' => 'Stok harus diisi'
@@ -90,7 +99,8 @@ class AdminAlatController extends BaseController
         ];
 
         $data = [
-            'nama' => $this->request->getPost('nama'),
+            'kode_alat' => $this->request->getPost('kode_alat'),
+            'nama_alat' => $this->request->getPost('nama_alat'),
             'stok' => $this->request->getPost('stok')
         ];
 

@@ -8,5 +8,5 @@ class AlatModel extends Model
 {
     protected $table = 'alat';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['nama', 'stok'];
+    protected $allowedFields = ['kode_alat', 'nama_alat', 'stok'];
 }

@@ -15,11 +15,20 @@ INPUT BARANG
         <?= csrf_field() ?>
         <div class="card-body">
             <div class="form-group">
-                <label for="nama">Nama Barang</label>
-                <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama Barang" value="<?= old('nama'); ?>" name="nama" required autocomplete="nama">
-                <?php if (session('errors.nama')) : ?>
+                <label for="kode_alat">Kode Barang</label>
+                <input type="text" class="form-control" id="kode_alat" placeholder="Masukkan kode_alat Barang" value="<?= old('kode_alat'); ?>" name="kode_alat" required autocomplete="kode_alat">
+                <?php if (session('errors.kode_alat')) : ?>
                     <span class="invalid-feedback" role="alert">
-                        <strong><?= session('errors.nama') ?></strong>
+                        <strong><?= session('errors.kode_alat') ?></strong>
+                    </span>
+                <?php endif ?>
+            </div>
+            <div class="form-group">
+                <label for="nama_alat">Nama Barang</label>
+                <input type="text" class="form-control" id="nama_alat" placeholder="Masukkan nama_alat Barang" value="<?= old('nama_alat'); ?>" name="nama_alat" required autocomplete="nama_alat">
+                <?php if (session('errors.nama_alat')) : ?>
+                    <span class="invalid-feedback" role="alert">
+                        <strong><?= session('errors.nama_alat') ?></strong>
                     </span>
                 <?php endif ?>
             </div>

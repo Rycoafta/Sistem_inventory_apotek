@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\FPBModel;
+use App\Models\AlatModel;
 
 class AdminFPBController extends BaseController
 {
@@ -15,7 +16,9 @@ class AdminFPBController extends BaseController
 
     public function create()
     {
-        return view('admin/fpb/create');
+        $alatModel = new AlatModel();
+        $alats = $alatModel->findAll();
+        return view('admin/fpb/create', ['alats' => $alats]);
     }
 
     public function store()
@@ -24,12 +27,12 @@ class AdminFPBController extends BaseController
             'id' => 'required',
             'tanggal' => 'required',
             'ref' => 'required',
-            'nama' => 'required',
+            'nama_peminjam' => 'required',
             'divisi' => 'required',
             'lokasi_penempatan' => 'required',
             'kebutuhan_projek' => 'required',
             'keterangan' => 'required',
-            'namajenis' => 'required',
+            'nama_barang' => 'required',
             'idbarang' => 'required',
             'tipe' => 'required',
             'qty' => 'required',
@@ -47,7 +50,7 @@ class AdminFPBController extends BaseController
             'ref' => [
                 'required' => 'Ref harus diisi.',
             ],
-            'nama' => [
+            'nama_peminjam' => [
                 'required' => 'Nama harus diisi.',
             ],
             'divisi' => [
@@ -62,7 +65,7 @@ class AdminFPBController extends BaseController
             'keterangan' => [
                 'required' => 'keterangan harus diisi.',
             ],
-            'namajenis' => [
+            'nama_barang' => [
                 'required' => 'keterangan harus diisi.',
             ],
             'idbarang' => [
@@ -87,12 +90,12 @@ class AdminFPBController extends BaseController
             'id' => $this->request->getVar('id'),
             'tanggal' => $this->request->getVar('tanggal'),
             'ref' => $this->request->getVar('ref'),
-            'nama' => $this->request->getVar('nama'),
+            'nama_peminjam' => $this->request->getVar('nama'),
             'divisi' => $this->request->getVar('divisi'),
             'lokasi_penempatan' => $this->request->getVar('lokasi_penempatan'),
             'kebutuhan_projek' => $this->request->getVar('kebutuhan_projek'),
             'keterangan' => $this->request->getVar('keterangan'),
-            'namajenis' => $this->request->getVar('namajenis'),
+            'nama_barang' => $this->request->getVar('namajenis'),
             'idbarang' => $this->request->getVar('idbarang'),
             'tipe' => $this->request->getVar('tipe'),
             'qty' => $this->request->getVar('qty'),
@@ -120,6 +123,8 @@ class AdminFPBController extends BaseController
 
     public function edit($id)
     {
+        $alatModel = new AlatModel();
+        $alats = $alatModel->findAll();
         $fpbModel = new FPBModel();
         $fpb = $fpbModel->find($id);
 
@@ -136,12 +141,12 @@ class AdminFPBController extends BaseController
             'id' => "required|is_unique[fpb.id,id,$id]",
             'tanggal' => 'required',
             'ref' => 'required',
-            'nama' => 'required',
+            'nama_peminjam' => 'required',
             'divisi' => 'required',
             'lokasi_penempatan' => 'required',
             'kebutuhan_projek' => 'required',
             'keterangan' => 'required',
-            'namajenis' => 'required',
+            'nama_barang' => 'required',
             'idbarang' => 'required',
             'tipe' => 'required',
             'qty' => 'required',
@@ -159,7 +164,7 @@ class AdminFPBController extends BaseController
             'tanggal' => [
                 'required' => 'tanggal harus diisi.',
             ],
-            'nama' => [
+            'nama_peminjam' => [
                 'required' => 'Nama harus diisi.',
             ],
             'divisi' => [
@@ -174,7 +179,7 @@ class AdminFPBController extends BaseController
             'keterangan' => [
                 'required' => 'keterangan harus diisi.',
             ],
-            'namajenis' => [
+            'nama_barang' => [
                 'required' => 'keterangan harus diisi.',
             ],
             'idbarang' => [
@@ -202,12 +207,12 @@ class AdminFPBController extends BaseController
             'id' => $this->request->getPost('id'),
             'tanggal' => $this->request->getPost('tanggal'),
             'ref' => $this->request->getPost('ref'),
-            'nama' => $this->request->getPost('nama'),
+            'nama_peminjam' => $this->request->getPost('nama'),
             'divisi' => $this->request->getPost('divisi'),
             'lokasi_penempatan' => $this->request->getPost('lokasi_penempatan'),
             'kebutuhan_projek' => $this->request->getPost('kebutuhan_projek'),
             'keterangan' => $this->request->getPost('keterangan'),
-            'namajenis' => $this->request->getVar('namajenis'),
+            'nama_barang' => $this->request->getVar('namajenis'),
             'idbarang' => $this->request->getVar('idbarang'),
             'tipe' => $this->request->getVar('tipe'),
             'qty' => $this->request->getVar('qty'),

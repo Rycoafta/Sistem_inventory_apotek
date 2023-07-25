@@ -37,11 +37,11 @@ Edit
                 <?php endif ?>
             </div>
             <div class="form-group">
-                <label for="nama">Nama</label>
-                <input type="text" class="form-control <?= session('error.nama') ? 'is-invalid' : ''; ?>" id="nama" value="<?= old('nama') ?: $fpb['nama']; ?>" name="nama" required autofocus>
-                <?php if (session('error.nama')) : ?>
+                <label for="nama_peminjam">Nama</label>
+                <input type="text" class="form-control <?= session('error.nama_peminjam') ? 'is-invalid' : ''; ?>" id="nama_peminjam" value="<?= old('nama_peminjam') ?: $fpb['nama_peminjam']; ?>" name="nama_peminjam" required autofocus>
+                <?php if (session('error.nama_peminjam')) : ?>
                     <span class="invalid-feedback" role="alert">
-                        <strong><?= session('error.nama') ?></strong>
+                        <strong><?= session('error.nama_peminjam') ?></strong>
                     </span>
                 <?php endif ?>
             </div>
@@ -82,31 +82,21 @@ Edit
                 <?php endif ?>
             </div>
             <div class="form-row">
-                <div class="form-group">
-                    <label for="namajenis">Nama/Jenis</label>
-                    <select class="form-control" id="namajenis" placeholder="Pilih Nama/Jenis" value="<?= old('namajenis'); ?>" name="namajenis" required autocomplete="namajenis">
-                    <option selected>Choose...</option>
-                        <option>barang A</option>
-                        <option>barang B</option>
-                        <option>barang C</option>
-                        <option>barang D</option>
+                <div class="form-group col-3 mr-2 text-center">
+                    <label for="nama_barang">Nama Barang</label>
+                    <select class="form-control" id="nama_barang" placeholder="Pilih Nama/Jenis" value="<?= old('nama_barang'); ?>" name="nama_barang" required autocomplete="nama_barang">
+                    <option selected>Pilih...</option>
+                    <?php $i = 1; foreach ($alats as $alat) : ?>
+                        <option><?= $alat['kode_alat'] ?> || <?= $alat['nama_alat'] ?></option>
+                    <?php endforeach; ?>  
                     </select>
-                    <?php if (session('errors.namajenis')) : ?>
+                    <?php if (session('errors.nama_barang')) : ?>
                     <span class="invalid-feedback" role="alert">
-                        <strong><?= session('errors.namajenis') ?></strong>
+                        <strong><?= session('errors.nama_barang') ?></strong>
                     </span>
                 <?php endif ?>
                 </div>
-                <div class="form-group">
-                    <label for="idbarang">ID Barang</label>
-                    <input type="text" class="form-control" id="idbarang" placeholder="Masukkan ID Barang" value="<?= old('idbarang'); ?>" name="idbarang" required autocomplete="idbarang">
-                    <?php if (session('errors.idbarang')) : ?>
-                    <span class="invalid-feedback" role="alert">
-                        <strong><?= session('errors.idbarang') ?></strong>
-                    </span>
-                <?php endif ?>
-                </div>
-                <div class="form-group">
+                <div class="form-group col-3 mr-2 text-center">
                     <label for="tipe">Tipe</label>
                     <input type="text" class="form-control" id="tipe" placeholder="Masukkan Tipe" value="<?= old('tipe'); ?>" name="tipe" required autocomplete="tipe">
                     <?php if (session('errors.tipe')) : ?>
@@ -115,7 +105,7 @@ Edit
                     </span>
                 <?php endif ?>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-2.5 mr-2 text-center">
                     <label for="qty">Qty</label>
                     <input type="text" class="form-control" id="qty" placeholder="Masukkan Kuantitas" value="<?= old('qty'); ?>" name="qty" required autocomplete="qty">
                     <?php if (session('errors.qty')) : ?>
@@ -124,7 +114,7 @@ Edit
                     </span>
                 <?php endif ?>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-4 text-center">
                     <label for="note">Note</label>
                     <input type="text" class="form-control" id="note" placeholder="Masukkan Note" value="<?= old('note'); ?>" name="note" required autocomplete="note">
                     <?php if (session('errors.note')) : ?>

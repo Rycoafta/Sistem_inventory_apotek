@@ -144,7 +144,14 @@
                                 </p>
                             </a>
                         </li>
-                        
+                        <li class="nav-item">
+                            <a href="/history" class="nav-link text-white">
+                                <i class="nav-icon fas fa-clock-rotate-left"></i>
+                                <p>
+                                    History
+                                </p>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a href="/logout" class="nav-link text-white">
                                 <i class="nav-icon fas fa-sign-out"></i>

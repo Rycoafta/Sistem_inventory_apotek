@@ -24,8 +24,8 @@ FORM PEMINJAMAN BARANG
             <input type="text" class="form-control" id="nama" value="<?= $fpb['ref']; ?>" readonly>
         </div>
         <div class="form-group">
-            <label for="nama">Nama</label>
-            <input type="text" class="form-control" id="nama" value="<?= $fpb['nama']; ?>" readonly>
+            <label for="nama_peminjam">Nama</label>
+            <input type="text" class="form-control" id="nama_peminjam" value="<?= $fpb['nama_peminjam']; ?>" readonly>
         </div>
         <div class="form-group">
             <label for="divisi">Divisi</label>
@@ -44,23 +44,19 @@ FORM PEMINJAMAN BARANG
             <input type="text" class="form-control" id="keterangan" value="<?= $fpb['keterangan']; ?>" readonly>
         </div>
         <div class="form-row">
-            <div class="form-group">
-                <label for="namajenis">Nama/Jenis</label>
-                <input type="text" class="form-control" id="namajenis" value="<?= $fpb['namajenis']; ?>" readonly>
+            <div class="form-group col-3 mr-2 text-center">
+                <label for="nama_barang">Nama Barang</label>
+                <input type="text" class="form-control" id="nama_barang" value="<?= $fpb['nama_barang']; ?>" readonly>
             </div>
-            <div class="form-group">
-                <label for="idbarang">ID Barang</label>
-                <input type="text" class="form-control" id="idbarang" value="<?= $fpb['idbarang']; ?>" readonly>
-            </div>
-            <div class="form-group">
+            <div class="form-group col-3 mr-2 text-center">
                 <label for="tipe">Tipe</label>
                 <input type="text" class="form-control" id="tipe" value="<?= $fpb['tipe']; ?>" readonly>
             </div>
-            <div class="form-group">
+            <div class="form-group col-2.5 mr-2 text-center">
                 <label for="qty">Qty</label>
                 <input type="text" class="form-control" id="qty" value="<?= $fpb['qty']; ?>" readonly>
             </div>
-            <div class="form-group">
+            <div class="form-group col-4 text-center">
                 <label for="note">Note</label>
                 <input type="text" class="form-control" id="note" value="<?= $fpb['note']; ?>" readonly>
             </div>

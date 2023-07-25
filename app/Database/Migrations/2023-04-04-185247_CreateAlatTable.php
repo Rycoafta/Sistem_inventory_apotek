@@ -14,7 +14,11 @@ class CreateAlatTable extends Migration
                 'constraint'        => 11,
                 'auto_increment'    => true
             ],
-            'nama' => [
+            'kode_alat' => [
+                'type'              => 'VARCHAR',
+                'constraint'        => 255
+            ],
+            'nama_alat' => [
                 'type'              => 'VARCHAR',
                 'constraint'        => 255
             ],

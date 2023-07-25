@@ -17,6 +17,8 @@ Data Peminjaman Barang
             <thead>
                 <tr>
                     <th>No</th>
+                    <th>ID Barang</th>
+                    <th>Nama Barang</th>
                     <th>Ref./WO/Tanggal</th>
                     <th>Status</th>
                     <th>Option</th>
@@ -27,14 +29,13 @@ Data Peminjaman Barang
                 foreach ($fpbs as $fpb) : ?>
                     <tr>
                         <td><?= $i++ ?></td>
+                        <td><?= $fpb['idbarang'] ?></td>
+                        <td><?= $fpb['nama_barang'] ?></td>
                         <td><?= $fpb['ref'] ?></td>
                         <td></td>
                         <td class="manage-row">
                             <a href="<?= route_to('fpb/show', $fpb['id']) ?>" class="show-button">
                                 <i class="fa-solid fa-eye"></i>
-                            </a>
-                            <a href="<?= route_to('fpb/edit', $fpb['id']) ?>" class="edit-button">
-                                <i class="fa-solid fa-marker"></i>
                             </a>
                             <!-- Button trigger modal -->
                             <a href="<?= route_to('fpb/delete', $fpb['id']) ?>" class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm<?= $fpb['id'] ?>">
@@ -68,6 +69,8 @@ Data Peminjaman Barang
             <tfoot>
                 <tr>
                     <th>No</th>
+                    <th>ID Barang</th>
+                    <th>Nama Barang</th>
                     <th>Ref./WO/Tanggal</th>
                     <th>Status</th>
                     <th>Option</th>

@@ -64,11 +64,9 @@ $routes->get('alat/edit/(:num)', 'AdminAlatController::edit/$1', ['as' => 'alat/
 $routes->post('alat/update/(:num)', 'AdminAlatController::update/$1', ['as' => 'alat/update']);
 $routes->delete('alat/delete/(:num)', 'AdminAlatController::destroy/$1', ['as' => 'alat/delete']);
 
-// DIAGNOSIS
-$routes->get('diagnosis', 'DiagnosisController::index', ['as' => 'diagnosis']);
-// $routes->post('diagnosis/hasil', 'DiagnosisController::hasil', ['as' => 'diagnosis/hasil']);
-// $routes->get('diagnosis/hasil', 'DiagnosisController::hasil', ['as' => 'diagnosis/hasil']);
-$routes->match(['get', 'post'], 'diagnosis/hasil', 'DiagnosisController::hasil');
+//CRUD HISTORY
+$routes->get('history', 'AdminHistoryController::index');
+$routes->get('history/show/(:num)', 'AdminHistoryController::show/$1', ['as' => 'history/show']);
 
 /*
  * --------------------------------------------------------------------

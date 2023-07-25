@@ -17,6 +17,7 @@ Inventory
             <thead>
                 <tr>
                     <th>No</th>
+                    <th>ID Barang</th>
                     <th>Nama Barang</th>
                     <th>Stok</th>
                     <th>Option</th>
@@ -27,7 +28,8 @@ Inventory
                 foreach ($alats as $alat) : ?>
                     <tr>
                         <td><?= $i++ ?></td>
-                        <td><?= $alat['nama'] ?></td>
+                        <td><?= $alat['kode_alat'] ?></td>
+                        <td><?= $alat['nama_alat'] ?></td>
                         <td><?= $alat['stok'] ?></td>
                  
                         <td class="manage-row">
@@ -70,6 +72,7 @@ Inventory
                 <tr>
                     <th>No</th>
                     <th>Nama Pelanggan</th>
+                    <th>ID Barang</th>
                     <th>Stok</th>
                     <th>Aksi</th>
                 </tr>

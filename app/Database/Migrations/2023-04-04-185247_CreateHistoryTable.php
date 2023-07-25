@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateFPBTable extends Migration
+class CreateHistoryTable extends Migration
 {
     public function up()
     {
@@ -22,7 +22,7 @@ class CreateFPBTable extends Migration
                 'type'              => 'VARCHAR',
                 'constraint'        => 255
             ],
-            'nama_peminjam' => [
+            'nama' => [
                 'type'              => 'VARCHAR',
                 'constraint'        => 255
             ],
@@ -42,7 +42,7 @@ class CreateFPBTable extends Migration
                 'type'              => 'VARCHAR',
                 'constraint'        => 255
             ],
-            'nama_barang' => [
+            'namajenis' => [
                 'type'              => 'VARCHAR',
                 'constraint'        => 255
             ],
@@ -66,11 +66,11 @@ class CreateFPBTable extends Migration
 
         $this->forge->addKey('id', true);
 
-        $this->forge->createTable('fpb');
+        $this->forge->createTable('history');
     }
 
     public function down()
     {
-        $this->forge->dropTable('fpb');
+        $this->forge->dropTable('history');
     }
 }

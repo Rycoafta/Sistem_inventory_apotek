@@ -10,13 +10,17 @@ DETAIL
         <h3 class="card-title">DETAIL BARANG</h3>
     </div>
     <!-- /.card-header -->
+    <div class="form-group">
+            <label for="kode_alat">Kode Barang</label>
+            <input type="text" class="form-control" id="kode_alat" value="<?= $alat['kode_alat']; ?>" readonly>
+        </div>
         <div class="form-group">
-            <label for="nama">Nama Barang</label>
-            <input type="text" class="form-control" id="nama" value="<?= $fpp['nama']; ?>" readonly>
+            <label for="nama_alat">Nama Barang</label>
+            <input type="text" class="form-control" id="nama_alat" value="<?= $alat['nama_alat']; ?>" readonly>
         </div>
         <div class="form-group">
             <label for="stok">Stok</label>
-            <input type="text" class="form-control" id="stok" value="<?= $fpp['stok']; ?>" readonly>
+            <input type="text" class="form-control" id="stok" value="<?= $alat['stok']; ?>" readonly>
         </div>
     </div>
     <!-- /.card-body -->

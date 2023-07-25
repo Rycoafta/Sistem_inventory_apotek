@@ -15,15 +15,20 @@ EDIT DETAIL BARANG
         <?= csrf_field() ?>
         <div class="card-body">
             <div class="form-group">
-                <label for="id">ID Barang</label>
-                <input type="text" class="form-control" id="id" value="<?= $alat['id']; ?>" readonly name="id">
+                <label for="kode_alat">Kode Barang</label>
+                <input type="text" class="form-control <?= session('error.kode_alat') ? 'is-invalid' : ''; ?>" id="kode_alat" value="<?= old('kode_alat') ?: $alat['kode_alat']; ?>" name="kode_alat" required autofocus>
+                <?php if (session('error.kode_alat')) : ?>
+                    <span class="invalid-feedback" role="alert">
+                        <strong><?= session('error.kode_alat') ?></strong>
+                    </span>
+                <?php endif ?>
             </div>
             <div class="form-group">
-                <label for="nama">Nama Barang</label>
-                <input type="text" class="form-control <?= session('error.nama') ? 'is-invalid' : ''; ?>" id="nama" value="<?= old('nama') ?: $alat['nama']; ?>" name="nama" required autofocus>
-                <?php if (session('error.nama')) : ?>
+                <label for="nama_alat">Nama Barang</label>
+                <input type="text" class="form-control <?= session('error.nama_alat') ? 'is-invalid' : ''; ?>" id="nama_alat" value="<?= old('nama_alat') ?: $alat['nama_alat']; ?>" name="nama_alat" required autofocus>
+                <?php if (session('error.nama_alat')) : ?>
                     <span class="invalid-feedback" role="alert">
-                        <strong><?= session('error.nama') ?></strong>
+                        <strong><?= session('error.nama_alat') ?></strong>
                     </span>
                 <?php endif ?>
             </div>

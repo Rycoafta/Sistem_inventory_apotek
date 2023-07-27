@@ -81,49 +81,68 @@ Edit
                     </span>
                 <?php endif ?>
             </div>
-            <div class="form-row">
-                <div class="form-group col-3 mr-2 text-center">
-                    <label for="nama_barang">Nama Barang</label>
-                    <select class="form-control" id="nama_barang" placeholder="Pilih Nama/Jenis" value="<?= old('nama_barang'); ?>" name="nama_barang" required autocomplete="nama_barang">
-                    <option selected>Pilih...</option>
-                    <?php $i = 1; foreach ($alats as $alat) : ?>
-                        <option><?= $alat['kode_alat'] ?> || <?= $alat['nama_alat'] ?></option>
-                    <?php endforeach; ?>  
-                    </select>
-                    <?php if (session('errors.nama_barang')) : ?>
-                    <span class="invalid-feedback" role="alert">
-                        <strong><?= session('errors.nama_barang') ?></strong>
-                    </span>
-                <?php endif ?>
-                </div>
-                <div class="form-group col-3 mr-2 text-center">
-                    <label for="tipe">Tipe</label>
-                    <input type="text" class="form-control" id="tipe" placeholder="Masukkan Tipe" value="<?= old('tipe'); ?>" name="tipe" required autocomplete="tipe">
-                    <?php if (session('errors.tipe')) : ?>
-                    <span class="invalid-feedback" role="alert">
-                        <strong><?= session('errors.tipe') ?></strong>
-                    </span>
-                <?php endif ?>
-                </div>
-                <div class="form-group col-2.5 mr-2 text-center">
-                    <label for="qty">Qty</label>
-                    <input type="text" class="form-control" id="qty" placeholder="Masukkan Kuantitas" value="<?= old('qty'); ?>" name="qty" required autocomplete="qty">
-                    <?php if (session('errors.qty')) : ?>
-                    <span class="invalid-feedback" role="alert">
-                        <strong><?= session('errors.qty') ?></strong>
-                    </span>
-                <?php endif ?>
-                </div>
-                <div class="form-group col-4 text-center">
-                    <label for="note">Note</label>
-                    <input type="text" class="form-control" id="note" placeholder="Masukkan Note" value="<?= old('note'); ?>" name="note" required autocomplete="note">
-                    <?php if (session('errors.note')) : ?>
-                    <span class="invalid-feedback" role="alert">
-                        <strong><?= session('errors.note') ?></strong>
-                    </span>
-                <?php endif ?>
+            <div class="formbarang">
+                <div class="row duplicate-row">
+                    <div class="form-group col-3 mr-2 text-center">
+                        <label for="nama_barang">Nama Barang</label>
+                        <select class="form-control" id="nama_barang" placeholder="Pilih Nama/Jenis" value="<?= old('nama_barang'); ?>" name="nama_barang" required autocomplete="nama_barang">
+                        <option selected>Pilih...</option>
+                        <?php $i = 1; foreach ($alats as $alat) : ?>
+                            <option><?= $alat['kode_alat'] ?> || <?= $alat['nama_alat'] ?></option>
+                        <?php endforeach; ?>  
+                        </select>
+                        <?php if (session('errors.nama_barang')) : ?>
+                        <span class="invalid-feedback" role="alert">
+                            <strong><?= session('errors.nama_barang') ?></strong>
+                        </span>
+                    <?php endif ?>
+                    </div>
+                    <div class="form-group col-3 mr-2 text-center">
+                        <label for="tipe">Tipe</label>
+                        <input type="text" class="form-control" id="tipe" placeholder="Masukkan Tipe" value="<?= old('tipe'); ?>" name="tipe" required autocomplete="tipe">
+                        <?php if (session('errors.tipe')) : ?>
+                        <span class="invalid-feedback" role="alert">
+                            <strong><?= session('errors.tipe') ?></strong>
+                        </span>
+                    <?php endif ?>
+                    </div>
+                    <div class="form-group col-1 mr-2 text-center">
+                        <label for="qty">Qty</label>
+                        <input type="text" class="form-control" id="qty" placeholder="Masukkan Kuantitas" value="<?= old('qty'); ?>" name="qty" required autocomplete="qty">
+                        <?php if (session('errors.qty')) : ?>
+                        <span class="invalid-feedback" role="alert">
+                            <strong><?= session('errors.qty') ?></strong>
+                        </span>
+                    <?php endif ?>
+                    </div>
+                    <div class="form-group col-4 mr-2 text-center">
+                        <label for="note">Note</label>
+                        <input type="text" class="form-control" id="note" placeholder="Masukkan Note" value="<?= old('note'); ?>" name="note" required autocomplete="note">
+                        <?php if (session('errors.note')) : ?>
+                        <span class="invalid-feedback" role="alert">
+                            <strong><?= session('errors.note') ?></strong>
+                        </span>
+                    <?php endif ?>
+                    </div>
                 </div>
             </div>
+            <div class="">
+                <button type="button" class="btn btn-outline-success" id="addbtn">Add</button>
+                <button type="button" class="btn btn-outline-danger" id="removebtn">Remove</button>
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script>
+                $(document).ready(function(){
+                    $("#addbtn").click(function{
+                        $(".formbarang .duplicate-row:last-child").clone().appendTo(".formbarang");
+                    });
+                    $("#removebtn").click(function(
+                        if($(".formbarang .duplicate-row").length > 1){
+                            $(this).parents(".duplicate-row").remove();
+                        }
+                    ));
+                });
+            </script>
         </div>
         <!-- /.card-body -->
         <div class="card-footer">

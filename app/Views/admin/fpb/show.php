@@ -7,7 +7,7 @@ FORM PEMINJAMAN BARANG
 <?= $this->section('content') ?>
 <div class="card card-primary m-2">
     <div class="card-header">
-        <h3 class="card-title">Detail Peminjaman</h3>
+        <h3 class="card-title">Detail Permintaan</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -43,22 +43,24 @@ FORM PEMINJAMAN BARANG
             <label for="keterangan">Keterangan</label>
             <input type="text" class="form-control" id="keterangan" value="<?= $fpb['keterangan']; ?>" readonly>
         </div>
-        <div class="form-row">
-            <div class="form-group col-3 mr-2 text-center">
-                <label for="nama_barang">Nama Barang</label>
-                <input type="text" class="form-control" id="nama_barang" value="<?= $fpb['nama_barang']; ?>" readonly>
-            </div>
-            <div class="form-group col-3 mr-2 text-center">
-                <label for="tipe">Tipe</label>
-                <input type="text" class="form-control" id="tipe" value="<?= $fpb['tipe']; ?>" readonly>
-            </div>
-            <div class="form-group col-2.5 mr-2 text-center">
-                <label for="qty">Qty</label>
-                <input type="text" class="form-control" id="qty" value="<?= $fpb['qty']; ?>" readonly>
-            </div>
-            <div class="form-group col-4 text-center">
-                <label for="note">Note</label>
-                <input type="text" class="form-control" id="note" value="<?= $fpb['note']; ?>" readonly>
+        <div class="formbarang">
+            <div class="row duplicate-row">
+                <div class="form-group col-3 mr-2 text-center">
+                    <label for="nama_barang">Nama Barang</label>
+                    <input type="text" class="form-control" id="nama_barang" value="<?= $fpb['nama_barang']; ?>" readonly>
+                </div>
+                <div class="form-group col-3 mr-2 text-center">
+                    <label for="tipe">Tipe</label>
+                    <input type="text" class="form-control" id="tipe" value="<?= $fpb['tipe']; ?>" readonly>
+                </div>
+                <div class="form-group col-1 mr-2 text-center">
+                    <label for="qty">Qty</label>
+                    <input type="text" class="form-control" id="qty" value="<?= $fpb['qty']; ?>" readonly>
+                </div>
+                <div class="form-group col-4 mr-2 text-center">
+                    <label for="note">Note</label>
+                    <input type="text" class="form-control" id="note" value="<?= $fpb['note']; ?>" readonly>
+                </div>
             </div>
         </div>
     </div>

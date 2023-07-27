@@ -25,7 +25,16 @@ class AdminFPPController extends BaseController
         'jenis_kebutuhan' => 'required',
         'nama_pelanggan' => 'required',
         'lokasi_penempatan' => 'required',
-        'keterangan' => 'required'
+        'ref' => 'required',
+        'ref_fpb' => 'required',
+        'keterangan' => 'required',
+        'nama_barang' => 'required',
+        'id_barang' => 'required',
+        'tipe' => 'required',
+        'harga_satuan' => 'required',
+        'qty' => 'required',
+        'jumlah' => 'required',
+        'vendor' => 'required'
     ];
 
     $validationMessages = [
@@ -39,10 +48,37 @@ class AdminFPPController extends BaseController
             'required' => 'nama pelanggan harus diisi.'
         ],
         'lokasi_penempatan' => [
-            'required' => 'lokasi penempata harus diisi.'
-        ], 
+            'required' => 'lokasi penempatan harus diisi.'
+        ],
+        'ref' => [
+            'required' => 'Nomor harus diisi.'
+        ],
+        'ref_fpb' => [
+            'required' => 'ID FPB harus diisi.'
+        ],
         'keterangan' => [
-            'required' => 'jketerangan harus diisi.'
+            'required' => 'keterangan harus diisi.'
+        ],
+        'nama_barang' => [
+            'required' => 'nama/jenis harus diisi.'
+        ],
+        'id_barang' => [
+            'required' => 'id barang harus diisi.'
+        ],
+        'tipe' => [
+            'required' => 'tipe harus diisi.'
+        ],
+        'harga_satuan' => [
+            'required' => 'harga satuan terendah harus diisi.'
+        ],
+        'qty' => [
+            'required' => 'kuantitas harus diisi.'
+        ],
+        'jumlah' => [
+            'required' => 'jumlah Harga harus diisi.'
+        ],
+        'vendor' => [
+            'required' => 'vendor/supplier harus diisi.'
         ],
     ];
 
@@ -55,7 +91,16 @@ class AdminFPPController extends BaseController
         'jenis_kebutuhan' => $this->request->getVar('jenis_kebutuhan'),
         'nama_pelanggan' => $this->request->getVar('nama_pelanggan'),
         'lokasi_penempatan' => $this->request->getVar('lokasi_penempatan'),
-        'keterangan' => $this->request->getVar('keterangan')
+        'ref' => $this->request->getVar('lokasi_penempatan'),
+        'ref_fpb' => $this->request->getVar('lokasi_penempatan'),
+        'keterangan' => $this->request->getVar('keterangan'),
+        'nama_barang' => $this->request->getVar('keterangan'),
+        'id_barang' => $this->request->getVar('keterangan'),
+        'tipe' => $this->request->getVar('keterangan'),
+        'harga_satuan' => $this->request->getVar('keterangan'),
+        'qty' => $this->request->getVar('keterangan'),
+        'jumlah' => $this->request->getVar('keterangan'),
+        'vendor' => $this->request->getVar('keterangan'),
     ];
     
     $fppModel = new FPPModel();
@@ -96,7 +141,16 @@ class AdminFPPController extends BaseController
             'jenis_kebutuhan' => 'required',
             'nama_pelanggan' => 'required',
             'lokasi_penempatan' => 'required',
-            'keterangan' => 'required'
+            'ref' => 'required',
+            'ref_fpb' => 'required',
+            'keterangan' => 'required',
+            'nama_barang' => 'required',
+            'id_barang' => 'required',
+            'tipe' => 'required',
+            'harga_satuan' => 'required',
+            'qty' => 'required',
+            'jumlah' => 'required',
+            'vendor' => 'required'
         ];
 
         $validationMessages = [
@@ -114,11 +168,38 @@ class AdminFPPController extends BaseController
                 'required' => 'nama pelanggan harus diisi.'
             ],
             'lokasi_penempatan' => [
-                'required' => 'lokasi penempata harus diisi.'
-            ], 
+                'required' => 'lokasi penempatan harus diisi.'
+            ],
+            'ref' => [
+                'required' => 'Nomor harus diisi.'
+            ],
+            'ref_fpb' => [
+                'required' => 'ID FPB harus diisi.'
+            ],
             'keterangan' => [
-                'required' => 'jketerangan harus diisi.'
-            ]
+                'required' => 'keterangan harus diisi.'
+            ],
+            'nama_barang' => [
+                'required' => 'nama/jenis harus diisi.'
+            ],
+            'id_barang' => [
+                'required' => 'id barang harus diisi.'
+            ],
+            'tipe' => [
+                'required' => 'tipe harus diisi.'
+            ],
+            'harga_satuan' => [
+                'required' => 'harga satuan terendah harus diisi.'
+            ],
+            'qty' => [
+                'required' => 'kuantitas harus diisi.'
+            ],
+            'jumlah' => [
+                'required' => 'jumlah Harga harus diisi.'
+            ],
+            'vendor' => [
+                'required' => 'vendor/supplier harus diisi.'
+            ],
         ];
 
         $data = [
@@ -127,7 +208,16 @@ class AdminFPPController extends BaseController
             'jenis_kebutuhan' => $this->request->getPost('jenis_kebutuhan'),
             'nama_pelanggan' => $this->request->getPost('nama_pelanggan'),
             'lokasi_penempatan' => $this->request->getPost('lokasi_penempatan'),
+            'ref' => $this->request->getVar('lokasi_penempatan'),
+            'ref_fpb' => $this->request->getVar('lokasi_penempatan'),
             'keterangan' => $this->request->getPost('keterangan'),
+            'nama_barang' => $this->request->getVar('keterangan'),
+            'id_barang' => $this->request->getVar('keterangan'),
+            'tipe' => $this->request->getVar('keterangan'),
+            'harga_satuan' => $this->request->getVar('keterangan'),
+            'qty' => $this->request->getVar('keterangan'),
+            'jumlah' => $this->request->getVar('keterangan'),
+            'vendor' => $this->request->getVar('keterangan'),
             'updated_at' => date('Y-m-d H:i:s')
         ];
 

@@ -84,7 +84,7 @@ Pengajuan Pembelian
             </div>
             <div class="row">
                 <div class="form-group col-3 mr-2 text-center">
-                    <label for="nama_barang">Nama Barang</label>
+                    <label for="nama_barang">Nama/Jenis</label>
                     <input type="text" class="form-control" id="nama_barang" placeholder="Masukkan Nama/Jenis" value="<?= old('nama_barang'); ?>" name="nama_barang" required autocomplete="nama_barang">
                     <?php if (session('errors.nama_barang')) : ?>
                     <span class="invalid-feedback" role="alert">

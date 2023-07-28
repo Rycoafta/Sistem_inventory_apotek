@@ -29,7 +29,7 @@ class Database extends Config
         'hostname' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'database' => 'ikan_bilis',
+        'database' => 'sistem-inventory',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,

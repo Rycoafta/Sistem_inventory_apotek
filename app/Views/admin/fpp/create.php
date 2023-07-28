@@ -82,8 +82,9 @@ Pengajuan Pembelian
                     </span>
                 <?php endif ?>
             </div>
-            <div class="row">
-                <div class="form-group col-3 mr-2 text-center">
+            <div class="formfppbarang">
+                <div class="row">
+                    <div class="form-group col-3 mr-2 text-center">
                     <label for="nama_barang">Nama/Jenis</label>
                     <input type="text" class="form-control" id="nama_barang" placeholder="Masukkan Nama/Jenis" value="<?= old('nama_barang'); ?>" name="nama_barang" required autocomplete="nama_barang">
                     <?php if (session('errors.nama_barang')) : ?>
@@ -147,7 +148,24 @@ Pengajuan Pembelian
                     <?php endif ?>
                 </div>
             </div>
-            
+            </div>
+            <div class="">
+                <button type="button" class="btn btn-outline-success addbtn">Add</button>
+                <button type="button" class="btn btn-outline-danger removebtn">Remove</button>
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script>
+                $(document).ready(function(){
+                    $(document).on('click','.addbtn',function(){
+                        $(".formfppbarang .duplicate-row:last-child").clone().appendTo(".formfppbarang");
+                    });
+                    $(document).on('click','.removebtn',function(){
+                        if($(".formfppbarang .duplicate-row").length > 1){
+                            $(".duplicate-row:last-child").remove();
+                        }
+                    });
+                });
+            </script>
             <div class="">
                 <button type="submit" class="btn btn-primary">Ajukan</button>
             </div>

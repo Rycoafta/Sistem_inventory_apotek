@@ -62,6 +62,7 @@
             </ul>
 
             <!-- Right navbar links -->
+            <?php if(session()->get('role')== 1) { ?>
             <ul class="navbar-nav ml-auto">
                 <li>
                     <div class="user-panel d-flex">
@@ -74,25 +75,145 @@
                     </div>
                 </li>
             </ul>
+            <?php } ?>
 
+            <?php if(session()->get('role')== 2) { ?>
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <div class="user-panel d-flex">
+                        <div class="image">
+                            <img src="<?= base_url('assets/img/default.png') ?>" class="img-circle elevation-2" alt="User Image">
+                        </div>
+                        <div class="info">
+                            <a href="#" class="d-block text-white">General Manager</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <?php } ?>
+
+            <?php if(session()->get('role')== 3) { ?>
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <div class="user-panel d-flex">
+                        <div class="image">
+                            <img src="<?= base_url('assets/img/default.png') ?>" class="img-circle elevation-2" alt="User Image">
+                        </div>
+                        <div class="info">
+                            <a href="#" class="d-block text-white">Manager</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <?php } ?>
+
+            <?php if(session()->get('role')== 4) { ?>
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <div class="user-panel d-flex">
+                        <div class="image">
+                            <img src="<?= base_url('assets/img/default.png') ?>" class="img-circle elevation-2" alt="User Image">
+                        </div>
+                        <div class="info">
+                            <a href="#" class="d-block text-white">Supervisor</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <?php } ?>
+
+            <?php if(session()->get('role')== 5) { ?>
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <div class="user-panel d-flex">
+                        <div class="image">
+                            <img src="<?= base_url('assets/img/default.png') ?>" class="img-circle elevation-2" alt="User Image">
+                        </div>
+                        <div class="info">
+                            <a href="#" class="d-block text-white">General Manager Business & Development</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <?php } ?>
+
+            <?php if(session()->get('role')== 6) { ?>
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <div class="user-panel d-flex">
+                        <div class="image">
+                            <img src="<?= base_url('assets/img/default.png') ?>" class="img-circle elevation-2" alt="User Image">
+                        </div>
+                        <div class="info">
+                            <a href="#" class="d-block text-white">Manager Business & Development</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <?php } ?>
+
+            <?php if(session()->get('role')== 7) { ?>
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <div class="user-panel d-flex">
+                        <div class="image">
+                            <img src="<?= base_url('assets/img/default.png') ?>" class="img-circle elevation-2" alt="User Image">
+                        </div>
+                        <div class="info">
+                            <a href="#" class="d-block text-white">Supervisor Business & Development</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <?php } ?>
+
+            <?php if(session()->get('role')== 8) { ?>
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <div class="user-panel d-flex">
+                        <div class="image">
+                            <img src="<?= base_url('assets/img/default.png') ?>" class="img-circle elevation-2" alt="User Image">
+                        </div>
+                        <div class="info">
+                            <a href="#" class="d-block text-white">Staff Warehouse</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <?php } ?>
+
+            <?php if(session()->get('role')== 9) { ?>
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <div class="user-panel d-flex">
+                        <div class="image">
+                            <img src="<?= base_url('assets/img/default.png') ?>" class="img-circle elevation-2" alt="User Image">
+                        </div>
+                        <div class="info">
+                            <a href="#" class="d-block text-white">Staff</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <?php } ?>
         </nav>
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar elevation-4">
-            <!-- Brand Logo -->
-            <a href="#" class="brand-link text-center" style="background-color : grey">
-                <img class="w-100" src="<?= base_url('assets/img/logo_cni.png') ?>" alt="">
-            </a>
+    <aside class="main-sidebar elevation-4">
+        <!-- Brand Logo -->
+        <a href="#" class="brand-link text-center" style="background-color : grey">
+            <img class="w-100" src="<?= base_url('assets/img/logo_cni.png') ?>" alt="">
+        </a>
 
-            <!-- Sidebar -->
-            <div class="sidebar bg-dark">
-                <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 d-flex">
-                    <div class="info d-block">
-                        <h3>MENU</h3>
-                    </div>
+        <!-- Sidebar -->
+        <div class="sidebar bg-dark">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 d-flex">
+                <div class="info d-block">
+                    <h3>MENU</h3>
                 </div>
+            </div>
 
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -104,54 +225,311 @@
                                 </p>
                             </a>
                         </li>
+                            <?php if(session()->get('role')== 1) { ?>
                         <li class="nav-item">
-                <a class="nav-link text-white">
-                <i class="nav-icon fas fa-pen-to-square"></i>
-                <p>
-                    Form
-                    <i class="right fas fa-angle-left"></i>
-                </p>
-                </a>
-                <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="/fpb" class="nav-link">
-                    <i class="nav-icon fas fa-toolbox"></i>
-                    <p>FPB</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/fpp" class="nav-link">
-                    <i class="nav-icon fas fa-solid fa-shop"></i>
-                    <p>FPP</p>
-                    </a>
-                </li>
-                </ul>
-            </li>
-                        
-                        <li class="nav-item">
+                            <a class="nav-link text-white">
+                            <i class="nav-icon fas fa-pen-to-square"></i>
+                            <p>
+                                Form
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/fpb" class="nav-link">
+                                <i class="nav-icon fas fa-toolbox"></i>
+                                <p>FPB</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/fpp" class="nav-link">
+                                <i class="nav-icon fas fa-solid fa-shop"></i>
+                                <p>FPP</p>
+                                </a>
+                            </li>
+                            </ul>
+                            <li class="nav-item">
                             <a href="/alat" class="nav-link text-white">
                                 <i class="nav-icon fas fa-briefcase"></i>
                                 <p>
                                     Inventory
                                 </p>
                             </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/solusi" class="nav-link text-white">
-                                <i class="nav-icon fas fa-envelope"></i>
-                                <p>
-                                    Mailbox
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
+                            </li>
+                            <li class="nav-item">
                             <a href="/history" class="nav-link text-white">
                                 <i class="nav-icon fas fa-clock-rotate-left"></i>
                                 <p>
                                     History
                                 </p>
                             </a>
+                            </li>
                         </li>
+                        <?php } ?>
+                        <?php if(session()->get('role')== 2) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link text-white">
+                            <i class="nav-icon fas fa-pen-to-square"></i>
+                            <p>
+                                Form 
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/fpb" class="nav-link">
+                                <i class="nav-icon fas fa-toolbox"></i>
+                                <p>FPB</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/fpp" class="nav-link">
+                                <i class="nav-icon fas fa-solid fa-shop"></i>
+                                <p>FPP</p>
+                                </a>
+                            </li>
+                            </ul>
+                            <li class="nav-item">
+                            <a href="/history" class="nav-link text-white">
+                                <i class="nav-icon fas fa-clock-rotate-left"></i>
+                                <p>
+                                    History
+                                </p>
+                            </a>
+                            </li>
+                        </li>
+                        <?php } ?>
+                        <?php if(session()->get('role')== 3) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link text-white">
+                            <i class="nav-icon fas fa-pen-to-square"></i>
+                            <p>
+                                Form 
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/fpb" class="nav-link">
+                                <i class="nav-icon fas fa-toolbox"></i>
+                                <p>FPB</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/fpp" class="nav-link">
+                                <i class="nav-icon fas fa-solid fa-shop"></i>
+                                <p>FPP</p>
+                                </a>
+                            </li>
+                            </ul>
+                            <li class="nav-item">
+                            <a href="/history" class="nav-link text-white">
+                                <i class="nav-icon fas fa-clock-rotate-left"></i>
+                                <p>
+                                    History
+                                </p>
+                            </a>
+                            </li>
+                        </li>
+                        <?php } ?>
+                        <?php if(session()->get('role')== 4) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link text-white">
+                            <i class="nav-icon fas fa-pen-to-square"></i>
+                            <p>
+                                Form 
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/fpb" class="nav-link">
+                                <i class="nav-icon fas fa-toolbox"></i>
+                                <p>FPB</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/fpp" class="nav-link">
+                                <i class="nav-icon fas fa-solid fa-shop"></i>
+                                <p>FPP</p>
+                                </a>
+                            </li>
+                            </ul>
+                            <li class="nav-item">
+                            <a href="/history" class="nav-link text-white">
+                                <i class="nav-icon fas fa-clock-rotate-left"></i>
+                                <p>
+                                    History
+                                </p>
+                            </a>
+                            </li>
+                        </li>
+                        <?php } ?>
+
+                        <?php if(session()->get('role')== 5) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link text-white">
+                            <i class="nav-icon fas fa-pen-to-square"></i>
+                            <p>
+                                Form 
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/fpb" class="nav-link">
+                                <i class="nav-icon fas fa-toolbox"></i>
+                                <p>FPB</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/fpp" class="nav-link">
+                                <i class="nav-icon fas fa-solid fa-shop"></i>
+                                <p>FPP</p>
+                                </a>
+                            </li>
+                            </ul>
+                            <li class="nav-item">
+                            <a href="/history" class="nav-link text-white">
+                                <i class="nav-icon fas fa-clock-rotate-left"></i>
+                                <p>
+                                    History
+                                </p>
+                            </a>
+                            </li>
+                        </li>
+                        <?php } ?>
+
+                        <?php if(session()->get('role')== 6) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link text-white">
+                            <i class="nav-icon fas fa-pen-to-square"></i>
+                            <p>
+                                Form 
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/fpb" class="nav-link">
+                                <i class="nav-icon fas fa-toolbox"></i>
+                                <p>FPB</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/fpp" class="nav-link">
+                                <i class="nav-icon fas fa-solid fa-shop"></i>
+                                <p>FPP</p>
+                                </a>
+                            </li>
+                            </ul>
+                            <li class="nav-item">
+                            <a href="/history" class="nav-link text-white">
+                                <i class="nav-icon fas fa-clock-rotate-left"></i>
+                                <p>
+                                    History
+                                </p>
+                            </a>
+                            </li>
+                        </li>
+                        <?php } ?>
+
+                        <?php if(session()->get('role')== 7) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link text-white">
+                            <i class="nav-icon fas fa-pen-to-square"></i>
+                            <p>
+                                Form 
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/fpb" class="nav-link">
+                                <i class="nav-icon fas fa-toolbox"></i>
+                                <p>FPB</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/fpp" class="nav-link">
+                                <i class="nav-icon fas fa-solid fa-shop"></i>
+                                <p>FPP</p>
+                                </a>
+                            </li>
+                            </ul>
+                            <li class="nav-item">
+                            <a href="/history" class="nav-link text-white">
+                                <i class="nav-icon fas fa-clock-rotate-left"></i>
+                                <p>
+                                    History
+                                </p>
+                            </a>
+                            </li>
+                        </li>
+                        <?php } ?>
+
+                        <?php if(session()->get('role')== 8) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link text-white">
+                            <i class="nav-icon fas fa-pen-to-square"></i>
+                            <p>
+                                Form 
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/fpp" class="nav-link">
+                                <i class="nav-icon fas fa-solid fa-shop"></i>
+                                <p>FPP</p>
+                                </a>
+                            </li>
+                            </ul>
+                            <li class="nav-item">
+                            <a href="/alat" class="nav-link text-white">
+                                <i class="nav-icon fas fa-briefcase"></i>
+                                <p>
+                                    Inventory
+                                </p>
+                            </a>
+                            </li>
+                            <li class="nav-item">
+                            <a href="/history" class="nav-link text-white">
+                                <i class="nav-icon fas fa-clock-rotate-left"></i>
+                                <p>
+                                    History
+                                </p>
+                            </a>
+                            </li>
+                        </li>
+                        <?php } ?>
+
+                        <?php if(session()->get('role')== 9) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link text-white">
+                            <i class="nav-icon fas fa-pen-to-square"></i>
+                            <p>
+                                Form 
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/fpb" class="nav-link">
+                                <i class="nav-icon fas fa-toolbox"></i>
+                                <p>FPB</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/fpp" class="nav-link">
+                                <i class="nav-icon fas fa-solid fa-shop"></i>
+                                <p>FPP</p>
+                                </a>
+                            </li>
+                            </ul>
+                        </li>
+                        <?php } ?>
+                    
                         <li class="nav-item">
                             <a href="/logout" class="nav-link text-white">
                                 <i class="nav-icon fas fa-sign-out"></i>
@@ -164,7 +542,7 @@
                 </nav>
             </div>
             <!-- /.sidebar -->
-        </aside>
+    </aside>
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">

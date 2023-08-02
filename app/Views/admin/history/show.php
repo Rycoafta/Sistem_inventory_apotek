@@ -43,26 +43,24 @@ HISTORY
             <label for="keterangan">Keterangan</label>
             <input type="text" class="form-control" id="keterangan" value="<?= $history2['keterangan']; ?>" readonly>
         </div>
-        <div class="form-row">
-            <div class="form-group">
-                <label for="nama_barang">Nama Barang</label>
-                <input type="text" class="form-control" id="nama_barang" value="<?= $history2['nama_barang']; ?>" readonly>
-            </div>
-            <div class="form-group">
-                <label for="idbarang">ID Barang</label>
-                <input type="text" class="form-control" id="idbarang" value="<?= $history2['idbarang']; ?>" readonly>
-            </div>
-            <div class="form-group">
-                <label for="tipe">Tipe</label>
-                <input type="text" class="form-control" id="tipe" value="<?= $history2['tipe']; ?>" readonly>
-            </div>
-            <div class="form-group">
-                <label for="qty">Qty</label>
-                <input type="text" class="form-control" id="qty" value="<?= $history2['qty']; ?>" readonly>
-            </div>
-            <div class="form-group">
-                <label for="note">Note</label>
-                <input type="text" class="form-control" id="note" value="<?= $history2['note']; ?>" readonly>
+        <div class="formbarang">
+            <div class="row duplicate-row">
+                <div class="form-group col-3 mr-2 text-center">
+                    <label for="nama_barang">Nama Barang</label>
+                    <input type="text" class="form-control" id="nama_barang" value="<?= $history2['nama_barang']; ?>" readonly>
+                </div>
+                <div class="form-group col-3 mr-2 text-center">
+                    <label for="tipe">Tipe</label>
+                    <input type="text" class="form-control" id="tipe" value="<?= $history2['tipe']; ?>" readonly>
+                </div>
+                <div class="form-group col-1 mr-2 text-center">
+                    <label for="qty">Qty</label>
+                    <input type="text" class="form-control" id="qty" value="<?= $history2['qty']; ?>" readonly>
+                </div>
+                <div class="form-group col-4 mr-2 text-center">
+                    <label for="note">Note</label>
+                    <input type="text" class="form-control" id="note" value="<?= $history2['note']; ?>" readonly>
+                </div>
             </div>
         </div>
     </div>

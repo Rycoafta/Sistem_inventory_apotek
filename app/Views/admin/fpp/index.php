@@ -28,7 +28,7 @@ FPP
                     <tr>
                         <td><?= $i++ ?></td>
                         <td><?= $fpp['nama_pelanggan'] ?></td>
-                        <td></td>
+                        <td><?= $fpp['status_fpp'] ?></td>
                         <td class="manage-row">
                             <a href="<?= route_to('fpp/show', $fpp['id']) ?>" class="show-button">
                                 <i class="fa-solid fa-eye"></i>

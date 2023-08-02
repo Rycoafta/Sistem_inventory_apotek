@@ -46,10 +46,6 @@ class CreateFPBTable extends Migration
                 'type'              => 'VARCHAR',
                 'constraint'        => 255
             ],
-            'idbarang' => [
-                'type'              => 'INT',
-                'constraint'        => 11
-            ],
             'tipe' => [
                 'type'              => 'VARCHAR',
                 'constraint'        => 255
@@ -61,7 +57,11 @@ class CreateFPBTable extends Migration
             'note' => [
                 'type'              => 'VARCHAR',
                 'constraint'        => 255
-            ]
+            ],
+            'status_fpb' => [
+                'type'              => 'VARCHAR',
+                'constraint'        => 255
+            ],
         ]);
 
         $this->forge->addKey('id', true);

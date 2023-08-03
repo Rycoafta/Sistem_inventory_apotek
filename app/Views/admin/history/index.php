@@ -38,16 +38,16 @@ HISTORY
             </thead>
             <tbody>
                 <?php $i = 1;
-                foreach ($users as $user) : ?>
+                foreach ($historys2 as $history) : ?>
                     <tr>
                         <td><?= $i++ ?></td>
-                        <td><?= $history1['nama_peminjam'] ?></td>
-                        <td><?= $history1['nama_barang'] ?></td>
-                        <td><?= $history1['ref'] ?></td>
-                        <td><?= $history1['lokasi_penempatan'] ?></td>
+                        <td><?= $history['nama_peminjam'] ?></td>
+                        <td><?= $history['nama_barang'] ?></td>
+                        <td><?= $history['ref'] ?></td>
+                        <td><?= $history['lokasi_penempatan'] ?></td>
                         <td></td>
                         <td class="manage-row">
-                            <a href="<?= route_to('user/show', $user['id']) ?>" class="show-button">
+                            <a href="<?= route_to('history/show', $history['id']) ?>" class="show-button">
                                 <i class="fa-solid fa-eye"></i>
                             </a>
                         </td>
@@ -83,13 +83,13 @@ HISTORY
             </thead>
             <tbody>
                 <?php $i = 1;
-                foreach ($users as $user) : ?>
+                foreach ($historys1 as $history) : ?>
                     <tr>
                         <td><?= $i++ ?></td>
                         <td><?= $history['nama_pelanggan'] ?></td>
                         <td></td>
                         <td class="manage-row">
-                            <a href="<?= route_to('user/show', $user['id']) ?>" class="show-button">
+                            <a href="<?= route_to('history/show2', $history['id']) ?>" class="show-button">
                                 <i class="fa-solid fa-eye"></i>
                             </a>
                         </td>

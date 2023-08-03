@@ -76,6 +76,7 @@ $routes->delete('user/delete/(:num)', 'AdminUserController::destroy/$1', ['as' =
 //CRUD HISTORY
 $routes->get('history', 'AdminHistoryController::index');
 $routes->get('history/show/(:num)', 'AdminHistoryController::show/$1', ['as' => 'history/show']);
+$routes->get('history/show2/(:num)', 'AdminHistoryController::show2/$1', ['as' => 'history/show2']);
 
 /*
  * --------------------------------------------------------------------

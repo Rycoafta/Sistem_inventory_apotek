@@ -18,16 +18,26 @@ class AdminHistoryController extends BaseController
     }
     public function show($id)
     {
-        $fppModel = new FPPModel();
         $fpbModel = new FPBModel();
-        $history1 = $fppModel->find($id);
         $history2 = $fpbModel->find($id);
 
-        if (!$history1 || !$history2) {
+        if ($history2) {
             return redirect()->back()->with('error', 'history not found.');
         }
 
-        return view('admin/history/show', compact('history1', 'history2'));
+        return view('admin/history/show', compact('history2'));
+    }
+
+    public function show2($id)
+    {
+        $fppModel = new FPPModel();
+        $history1 = $fppModel->find($id);
+
+        if (!$history1) {
+            return redirect()->back()->with('error', 'history not found.');
+        }
+
+        return view('admin/history/show2', compact('history1'));
     }
 
 }

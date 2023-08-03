@@ -28,8 +28,13 @@ HISTORY
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Username</th>
-                    <th>Password</th>
+                    <th>ID Barang</th>
+                    <th>Nama Peminjam</th>
+                    <th>Nama/Jenis</th>
+                    <th>Ref./WO/Tanggal</th>
+                    <th>Lokasi Penempatan</th>
+                    <th>Status</th>
+                    <th>Option</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,8 +42,12 @@ HISTORY
                 foreach ($users as $user) : ?>
                     <tr>
                         <td><?= $i++ ?></td>
-                        <td><?= $user['username'] ?></td>
-                        <td><?= $user['password'] ?></td>
+                        <td><?= $history['idbarang'] ?></td>
+                        <td><?= $history['nama_peminjam'] ?></td>
+                        <td><?= $history['nama_barang'] ?></td>
+                        <td><?= $history['ref'] ?></td>
+                        <td><?= $history['lokasi_penempatan'] ?></td>
+                        <td></td>
                         <td class="manage-row">
                             <a href="<?= route_to('user/show', $user['id']) ?>" class="show-button">
                                 <i class="fa-solid fa-eye"></i>
@@ -50,9 +59,7 @@ HISTORY
             <tfoot>
                 <tr>
                     <th>No</th>
-                    <th>ID Barang</th>
-                    <th>Nama Peminjam</th>
-                    <th>Nama/Jenis</th>
+                    <th>Nama</th>
                     <th>Ref./WO/Tanggal</th>
                     <th>Lokasi Penempatan</th>
                     <th>Status</th>
@@ -80,7 +87,7 @@ HISTORY
                 foreach ($users as $user) : ?>
                     <tr>
                         <td><?= $i++ ?></td>
-                        <td><?= $user['nama_pelanggan'] ?></td>
+                        <td><?= $history['nama_pelanggan'] ?></td>
                         <td></td>
                         <td class="manage-row">
                             <a href="<?= route_to('user/show', $user['id']) ?>" class="show-button">

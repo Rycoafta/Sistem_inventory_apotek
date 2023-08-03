@@ -85,7 +85,7 @@ Edit
                 <div class="row duplicate-row">
                     <div class="form-group col-3 mr-2 text-center">
                         <label for="nama_barang">Nama Barang</label>
-                        <select class="form-control" id="nama_barang" placeholder="Pilih Nama/Jenis" value="<?= old('nama_barang'); ?>" name="nama_barang" required autocomplete="nama_barang">
+                        <select class="form-control" id="nama_barang" placeholder="Pilih Nama/Jenis" value="<?= old('nama_barang') ?: $fpb['nama_barang']; ?>" name="nama_barang" required autocomplete="nama_barang">
                         <option selected>Pilih...</option>
                         <?php $i = 1; foreach ($alats as $alat) : ?>
                             <option><?= $alat['kode_alat'] ?> || <?= $alat['nama_alat'] ?></option>
@@ -99,7 +99,7 @@ Edit
                     </div>
                     <div class="form-group col-3 mr-2 text-center">
                         <label for="tipe">Tipe</label>
-                        <input type="text" class="form-control" id="tipe" placeholder="Masukkan Tipe" value="<?= old('tipe'); ?>" name="tipe" required autocomplete="tipe">
+                        <input type="text" class="form-control" id="tipe" placeholder="Masukkan Tipe" value="<?= old('tipe') ?: $fpb['tipe']; ?>" name="tipe" required autocomplete="tipe">
                         <?php if (session('errors.tipe')) : ?>
                         <span class="invalid-feedback" role="alert">
                             <strong><?= session('errors.tipe') ?></strong>
@@ -108,7 +108,7 @@ Edit
                     </div>
                     <div class="form-group col-1 mr-2 text-center">
                         <label for="qty">Qty</label>
-                        <input type="text" class="form-control" id="qty" placeholder="Masukkan Kuantitas" value="<?= old('qty'); ?>" name="qty" required autocomplete="qty">
+                        <input type="text" class="form-control" id="qty" placeholder="Masukkan Kuantitas" value="<?= old('qty') ?: $fpb['qty']; ?>" name="qty" required autocomplete="qty">
                         <?php if (session('errors.qty')) : ?>
                         <span class="invalid-feedback" role="alert">
                             <strong><?= session('errors.qty') ?></strong>
@@ -117,7 +117,7 @@ Edit
                     </div>
                     <div class="form-group col-4 mr-2 text-center">
                         <label for="note">Note</label>
-                        <input type="text" class="form-control" id="note" placeholder="Masukkan Note" value="<?= old('note'); ?>" name="note" required autocomplete="note">
+                        <input type="text" class="form-control" id="note" placeholder="Masukkan Note" value="<?= old('note') ?: $fpb['note']; ?>" name="note" required autocomplete="note">
                         <?php if (session('errors.note')) : ?>
                         <span class="invalid-feedback" role="alert">
                             <strong><?= session('errors.note') ?></strong>
@@ -144,6 +144,9 @@ Edit
                 });
             </script>
         </div>
+        <?php
+            $sql="UPDATE fpb SET status_fpb='pending'";
+            ?>
         <!-- /.card-body -->
         <div class="card-footer">
             <button type="submit" class="btn btn-primary">Simpan</button>

@@ -69,7 +69,11 @@ class CreateFPPTable extends Migration
             'vendor' => [
                 'type'              => 'VARCHAR',
                 'constraint'        => 255
-            ]
+            ],
+            'status_fpp' => [
+                'type'              => 'VARCHAR',
+                'constraint'        => 255
+            ],
         ]);
 
         $this->forge->addKey('id', true);

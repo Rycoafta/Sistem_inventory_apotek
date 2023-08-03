@@ -128,7 +128,7 @@ class AdminFPBController extends BaseController
             return redirect()->back()->with('error', 'fpb not found.');
         }
 
-        return view('admin/fpb/edit', compact('fpb'));
+        return view('admin/fpb/edit', compact('fpb','alats'));
     }
 
     public function update($id)
@@ -186,6 +186,9 @@ class AdminFPBController extends BaseController
             'note' => [
                 'required' => 'keterangan harus diisi.',
             ],
+            'status_fpb' => [
+                'required' => 'status harus diisi.'
+            ]
         ];
 
         $validation = \Config\Services::validation();

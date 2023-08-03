@@ -44,11 +44,11 @@ EDIT AKUN
             <div class="form-group">
                 <label for="role">Role</label>
                 <select class="form-control <?= session('errors.role') ? 'is-invalid' : ''; ?>" id="role" name="role" required autocomplete="role">
-        <option value="<?= old('role') ?: $user['role']; ?>" selected>Select Role</option>
-        <option value="1">Admin</option>
-        <option value="2">User</option>
-        <!-- Add more options as needed -->
-    </select>
+                <option value="<?= old('role') ?: $user['role']; ?>" selected>Select Role</option>
+                <option value="1">Admin</option>
+                <option value="2">User</option>
+                <!-- Add more options as needed -->
+                </select>
     <?php if (session('error.role')) : ?>
                     <span class="invalid-feedback" role="alert">
                         <strong><?= session('error.role') ?></strong>

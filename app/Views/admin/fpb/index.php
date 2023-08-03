@@ -42,10 +42,26 @@ Data Peminjaman Barang
                         <?php if(session()->get('role')== 2) { ?>
                         <td><?= $fpb['status_fpb'] ?></td>
                         <?php } ?>
+                        <td><?= $fpb['status_fpb'] ?></td>
                         <td class="manage-row">
                             <a href="<?= route_to('fpb/show', $fpb['id']) ?>" class="show-button">
                                 <i class="fa-solid fa-eye"></i>
                             </a>
+                            <?php if(session()->get('role')== 4) { ?>
+                            <a href="<?= route_to('fpb/edit', $fpb['id']) ?>" class="check-button">
+                                <i class="fa-solid fa-check"></i>
+                            </a>
+                            <?php } ?>
+                            <?php if(session()->get('role')== 3) { ?>
+                            <a href="<?= route_to('fpb/edit', $fpb['id']) ?>" class="check-button">
+                                <i class="fa-solid fa-check"></i>
+                            </a>
+                            <?php } ?>
+                            <?php if(session()->get('role')== 2) { ?>
+                            <a href="<?= route_to('fpb/edit', $fpb['id']) ?>" class="check-button">
+                                <i class="fa-solid fa-check"></i>
+                            </a>
+                            <?php } ?>
                             <!-- Button trigger modal -->
                             <a href="<?= route_to('fpb/delete', $fpb['id']) ?>" class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm<?= $fpb['id'] ?>">
                                 <i class="fa-solid fa-trash-can"></i>
@@ -70,7 +86,6 @@ Data Peminjaman Barang
                                     </div>
                                 </div>
                             </div>
-
                         </td>
                     </tr>
                 <?php endforeach; ?>

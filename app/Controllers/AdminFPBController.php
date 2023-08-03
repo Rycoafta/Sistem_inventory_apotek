@@ -128,8 +128,9 @@ class AdminFPBController extends BaseController
             return redirect()->back()->with('error', 'fpb not found.');
         }
 
-        return view('admin/fpb/edit', compact('fpb'));
+        return view('admin/fpb/edit', compact('fpb','alats'));
     }
+
 
     public function update($id)
     {
@@ -146,6 +147,7 @@ class AdminFPBController extends BaseController
             'tipe' => 'required',
             'qty' => 'required',
             'note' => 'required',
+            'status_fpb' => 'required'
         ];
 
         $validationMessages = [
@@ -186,6 +188,9 @@ class AdminFPBController extends BaseController
             'note' => [
                 'required' => 'keterangan harus diisi.',
             ],
+            'status_fpb' => [
+                'required' => 'status harus diisi.'
+            ]
         ];
 
         $validation = \Config\Services::validation();
@@ -208,7 +213,7 @@ class AdminFPBController extends BaseController
             'tipe' => $this->request->getVar('tipe'),
             'qty' => $this->request->getVar('qty'),
             'note' => $this->request->getVar('note'),
-            'status_fpb' => $sql="Pending",
+            'status_fpb' => $this->request->getVar('status_fpb'),
             'updated_at' => date('Y-m-d H:i:s')
         ];
 
@@ -232,4 +237,5 @@ class AdminFPBController extends BaseController
 
         return redirect()->to('/fpb');
     }
+
 }

@@ -264,6 +264,14 @@
                                 </p>
                             </a>
                             </li>
+                            <li class="nav-item">
+                            <a href="/user" class="nav-link text-white">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>
+                                    USER
+                                </p>
+                            </a>
+                            </li>
                         </li>
                         <?php } ?>
                         <?php if(session()->get('role')== 2) { ?>

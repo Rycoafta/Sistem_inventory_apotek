@@ -10,7 +10,13 @@ class AdminAlatController extends BaseController
     {
         $alatModel = new AlatModel();
         $alats = $alatModel->findAll();
-        return view('admin/alat/index', ['alats' => $alats]);
+        if(session()->get('role')==1){
+            return view('admin/alat/index', ['alats' => $alats]);
+        } else if(session()->get('role')==8){
+            return view('admin/alat/index', ['alats' => $alats]);
+        } else {
+            return redirect()->to('/dashboard');
+        }
     }
 
     public function create()

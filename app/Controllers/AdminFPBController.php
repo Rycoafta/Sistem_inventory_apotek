@@ -33,7 +33,6 @@ class AdminFPBController extends BaseController
             'kebutuhan_projek' => 'required',
             'keterangan' => 'required',
             'nama_barang' => 'required',
-            'idbarang' => 'required',
             'tipe' => 'required',
             'qty' => 'required',
             'note' => 'required',
@@ -68,9 +67,6 @@ class AdminFPBController extends BaseController
             'nama_barang' => [
                 'required' => 'keterangan harus diisi.',
             ],
-            'idbarang' => [
-                'required' => 'keterangan harus diisi.',
-            ],
             'tipe' => [
                 'required' => 'keterangan harus diisi.',
             ],
@@ -81,7 +77,7 @@ class AdminFPBController extends BaseController
                 'required' => 'keterangan harus diisi.',
             ],
         ];
-
+        
         if (!$this->validate($validationRules, $validationMessages)) {
             return redirect()->back()->withInput()->with('validation', $this->validator);
         }
@@ -90,19 +86,18 @@ class AdminFPBController extends BaseController
             'id' => $this->request->getVar('id'),
             'tanggal' => $this->request->getVar('tanggal'),
             'ref' => $this->request->getVar('ref'),
-            'nama_peminjam' => $this->request->getVar('nama'),
+            'nama_peminjam' => $this->request->getVar('nama_peminjam'),
             'divisi' => $this->request->getVar('divisi'),
             'lokasi_penempatan' => $this->request->getVar('lokasi_penempatan'),
             'kebutuhan_projek' => $this->request->getVar('kebutuhan_projek'),
             'keterangan' => $this->request->getVar('keterangan'),
-            'nama_barang' => $this->request->getVar('namajenis'),
-            'idbarang' => $this->request->getVar('idbarang'),
+            'nama_barang' => $this->request->getVar('nama_barang'),
             'tipe' => $this->request->getVar('tipe'),
             'qty' => $this->request->getVar('qty'),
             'note' => $this->request->getVar('note'),
             'created_at' => date('Y-m-d H:i:s')
         ];
-
+        
         $fpbModel = new FPBModel();
         $fpbModel->insert($data);
 
@@ -147,7 +142,6 @@ class AdminFPBController extends BaseController
             'kebutuhan_projek' => 'required',
             'keterangan' => 'required',
             'nama_barang' => 'required',
-            'idbarang' => 'required',
             'tipe' => 'required',
             'qty' => 'required',
             'note' => 'required',
@@ -182,9 +176,6 @@ class AdminFPBController extends BaseController
             'nama_barang' => [
                 'required' => 'keterangan harus diisi.',
             ],
-            'idbarang' => [
-                'required' => 'keterangan harus diisi.',
-            ],
             'tipe' => [
                 'required' => 'keterangan harus diisi.',
             ],
@@ -207,13 +198,12 @@ class AdminFPBController extends BaseController
             'id' => $this->request->getPost('id'),
             'tanggal' => $this->request->getPost('tanggal'),
             'ref' => $this->request->getPost('ref'),
-            'nama_peminjam' => $this->request->getPost('nama'),
+            'nama_peminjam' => $this->request->getPost('nama_peminjam'),
             'divisi' => $this->request->getPost('divisi'),
             'lokasi_penempatan' => $this->request->getPost('lokasi_penempatan'),
             'kebutuhan_projek' => $this->request->getPost('kebutuhan_projek'),
             'keterangan' => $this->request->getPost('keterangan'),
-            'nama_barang' => $this->request->getVar('namajenis'),
-            'idbarang' => $this->request->getVar('idbarang'),
+            'nama_barang' => $this->request->getVar('nama_barang'),
             'tipe' => $this->request->getVar('tipe'),
             'qty' => $this->request->getVar('qty'),
             'note' => $this->request->getVar('note'),

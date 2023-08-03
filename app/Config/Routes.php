@@ -64,6 +64,15 @@ $routes->get('alat/edit/(:num)', 'AdminAlatController::edit/$1', ['as' => 'alat/
 $routes->post('alat/update/(:num)', 'AdminAlatController::update/$1', ['as' => 'alat/update']);
 $routes->delete('alat/delete/(:num)', 'AdminAlatController::destroy/$1', ['as' => 'alat/delete']);
 
+// CRUD USER
+$routes->get('user', 'AdminUserController::index');
+$routes->get('user/create', 'AdminUserController::create');
+$routes->post('user/store', 'AdminUserController::store', ['as' => 'user/store']);
+$routes->get('user/show/(:num)', 'AdminUserController::show/$1', ['as' => 'user/show']);
+$routes->get('user/edit/(:num)', 'AdminUserController::edit/$1', ['as' => 'user/edit']);
+$routes->post('user/update/(:num)', 'AdminUserController::update/$1', ['as' => 'user/update']);
+$routes->delete('user/delete/(:num)', 'AdminUserController::destroy/$1', ['as' => 'user/delete']);
+
 //CRUD HISTORY
 $routes->get('history', 'AdminHistoryController::index');
 $routes->get('history/show/(:num)', 'AdminHistoryController::show/$1', ['as' => 'history/show']);

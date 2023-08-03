@@ -43,7 +43,7 @@ Pengajuan Peminjaman
             </div>
             <div class="form-group">
                 <label for="nama_peminjam">Nama</label>
-                <input type="text" class="form-control" id="nama_peminjam" placeholder="Masukkan nama_peminjam" value="<?= old('nama_peminjam'); ?>" name="nama_peminjam" required autocomplete="nama_peminjam">
+                <input type="text" class="form-control" id="nama_peminjam" placeholder="Masukkan Nama" value="<?= old('nama_peminjam'); ?>" name="nama_peminjam" required autocomplete="nama_peminjam">
                 <?php if (session('errors.nama_peminjam')) : ?>
                     <span class="invalid-feedback" role="alert">
                         <strong><?= session('errors.nama_peminjam') ?></strong>
@@ -86,15 +86,14 @@ Pengajuan Peminjaman
                     </span>
                 <?php endif ?>
             </div>
-            <div class="formbarang">
-                <div class="row duplicate-row">
+            <div class="row">
                     <div class="form-group col-3 mr-2 text-center">
                         <label for="nama_barang">Nama Barang</label>
                         <select class="form-control" id="nama_barang" placeholder="Pilih Nama/Jenis" value="<?= old('nama_barang'); ?>" name="nama_barang" required autocomplete="nama_barang">
                         <option selected>Pilih...</option>
-                    <?php $i = 1; foreach ($alats as $alat) : ?>
+                            <?php $i = 1; foreach ($alats as $alat) : ?>
                             <option><?= $alat['kode_alat'] ?> || <?= $alat['nama_alat'] ?></option>
-                    <?php endforeach; ?>
+                        <?php endforeach; ?>
                         </select>
                         <?php if (session('errors.nama_barang')) : ?>
                         <span class="invalid-feedback" role="alert">
@@ -131,23 +130,6 @@ Pengajuan Peminjaman
                     </div>
                 </div>
             </div>
-            <div class="">
-                <button type="button" class="btn btn-outline-success addbtn">Add</button>
-                <button type="button" class="btn btn-outline-danger removebtn">Remove</button>
-            </div>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            <script>
-                $(document).ready(function(){
-                    $(document).on('click','.addbtn',function(){
-                        $(".formbarang .duplicate-row:last-child").clone().appendTo(".formbarang");
-                    });
-                    $(document).on('click','.removebtn',function(){
-                        if($(".formbarang .duplicate-row").length > 1){
-                            $(".duplicate-row:last-child").remove();
-                        }
-                    });
-                });
-            </script>
 
             <div class="">
                 <button type="submit" class="btn btn-primary">Ajukan</button>

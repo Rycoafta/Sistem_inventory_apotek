@@ -29,7 +29,8 @@ class CreateUserTable extends Migration
                 ],
                 'image' => [
                     'type' => 'VARCHAR',
-                    'constraint' => 255
+                    'constraint' => 255,
+                    'null' => true
                 ],
                 'role' => [
                     'type' => 'INT',

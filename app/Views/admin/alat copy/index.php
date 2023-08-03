@@ -1,14 +1,14 @@
 <?= $this->extend('layouts/admin/app') ?>
 <?= $this->section('title') ?>
-Data Peminjaman Barang
+USER
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Tabel List Peminjaman</h3>
+        <h3 class="card-title">List Akun</h3>
         <div class="card-tools">
-            <a href="<?= route_to('fpb/create') ?>" class="btn btn-sm btn-secondary">Pengajuan Peminjaman</a>
+            <a href="<?= route_to('user/create') ?>" class="btn btn-sm btn-secondary">Buat Akun</a>
         </div>
     </div>
     <!-- /.card-header -->
@@ -17,30 +17,34 @@ Data Peminjaman Barang
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>ID Barang || Nama Barang</th>
-                    <th>Ref./WO/Tanggal</th>
-                    <th>Status</th>
+                    <th>Username</th>
+                    <th>E-mail</th>
+                    <th>Role</th>
                     <th>Option</th>
                 </tr>
             </thead>
             <tbody>
                 <?php $i = 1;
-                foreach ($fpbs as $fpb) : ?>
+                foreach ($users as $user) : ?>
                     <tr>
                         <td><?= $i++ ?></td>
-                        <td><?= $fpb['nama_barang'] ?></td>
-                        <td><?= $fpb['ref'] ?></td>
-                        <td></td>
+                        <td><?= $user['username'] ?></td>
+                        <td><?= $user['email'] ?></td>
+                        <td><?= $user['role'] ?></td>
+                 
                         <td class="manage-row">
-                            <a href="<?= route_to('fpb/show', $fpb['id']) ?>" class="show-button">
+                            <a href="<?= route_to('user/show', $user['id']) ?>" class="show-button">
                                 <i class="fa-solid fa-eye"></i>
                             </a>
+                            <a href="<?= route_to('user/edit', $user['id']) ?>" class="edit-button">
+                                <i class="fa-solid fa-marker"></i>
+                            </a>
                             <!-- Button trigger modal -->
-                            <a href="<?= route_to('fpb/delete', $fpb['id']) ?>" class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm<?= $fpb['id'] ?>">
+                            <a href="<?= route_to('user/delete', $user['id']) ?>" class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm<?= $user['id'] ?>">
                                 <i class="fa-solid fa-trash-can"></i>
                             </a>
                             <!-- Modal -->
-                            <div class="modal fade bd-example-modal-sm<?= $fpb['id'] ?>" tabindex="-1" role="dialog" aria-hidden="">
+                            <div class="modal fade bd-example-modal-sm<?= $user['id'] ?>" tabindex="-1" role="dialog" aria-hidden="">
                                 <div class="modal-dialog ">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -49,7 +53,7 @@ Data Peminjaman Barang
                                         </div>
                                         <div class="modal-body">Apakah Anda yakin ingin menghapus data?</div>
                                         <div class="modal-footer">
-                                            <form action="<?= route_to('fpb/delete', $fpb['id']) ?>" method="POST">
+                                            <form action="<?= route_to('user/delete', $user['id']) ?>" method="POST">
                                                 <?= csrf_field() ?>
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="submit" class="btn btn-danger light" name="" id="" value="Hapus">
@@ -67,9 +71,9 @@ Data Peminjaman Barang
             <tfoot>
                 <tr>
                     <th>No</th>
-                    <th>ID Barang || Nama Barang</th>
-                    <th>Ref./WO/Tanggal</th>
-                    <th>Status</th>
+                    <th>Username</th>
+                    <th>E-mail</th>
+                    <th>Role</th>
                     <th>Option</th>
                 </tr>
             </tfoot>

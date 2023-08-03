@@ -20,7 +20,7 @@ Edit
             </div>
             <div class="form-group">
                 <label for="tanggal">Tanggal</label>
-                <input type="date" class="form-control <?= session('error.tanggal') ? 'is-invalid' : ''; ?>" id="tanggal" value="<?= old('tanggal') ?: $fpb['tanggal']; ?>" name="tanggal" required autofocus>
+                <input type="datetime" class="form-control <?= session('error.tanggal') ? 'is-invalid' : ''; ?>" id="tanggal" value="<?= old('tanggal') ?: $fpb['tanggal']; ?>" name="tanggal" readonly>
                 <?php if (session('error.tanggal')) : ?>
                     <span class="invalid-feedback" role="alert">
                         <strong><?= session('error.tanggal') ?></strong>
@@ -29,10 +29,10 @@ Edit
             </div>
             <div class="form-group">
                 <label for="ref">Ref./WO/Tanggal</label>
-                <input type="text" class="form-control" id="ref" placeholder="Masukkan Ref./WO/Tanggal" value="<?= old('ref'); ?>" name="ref" required autocomplete="ref">
-                <?php if (session('errors.ref')) : ?>
+                <input type="text" class="form-control <?= session('error.ref') ? 'is-invalid' : ''; ?>" id="ref" value="<?= old('ref') ?: $fpb['ref']; ?>" name="ref" required autofocus>
+                <?php if (session('error.ref')) : ?>
                     <span class="invalid-feedback" role="alert">
-                        <strong><?= session('errors.ref') ?></strong>
+                        <strong><?= session('error.ref') ?></strong>
                     </span>
                 <?php endif ?>
             </div>
@@ -85,12 +85,7 @@ Edit
                 <div class="row duplicate-row">
                     <div class="form-group col-3 mr-2 text-center">
                         <label for="nama_barang">Nama Barang</label>
-                        <select class="form-control" id="nama_barang" placeholder="Pilih Nama/Jenis" value="<?= old('nama_barang') ?: $fpb['nama_barang']; ?>" name="nama_barang" required autocomplete="nama_barang">
-                        <option selected>Pilih...</option>
-                        <?php $i = 1; foreach ($alats as $alat) : ?>
-                            <option><?= $alat['kode_alat'] ?> || <?= $alat['nama_alat'] ?></option>
-                        <?php endforeach; ?>  
-                        </select>
+                        <input type="text" class="form-control" id="nama_barang" placeholder="Pilih Nama/Jenis" value="<?= old('nama_barang') ?: $fpb['nama_barang']; ?>" name="nama_barang" readonly="nama_barang">
                         <?php if (session('errors.nama_barang')) : ?>
                         <span class="invalid-feedback" role="alert">
                             <strong><?= session('errors.nama_barang') ?></strong>
@@ -126,24 +121,30 @@ Edit
                     </div>
                 </div>
             </div>
-            <div class="">
-                <button type="button" class="btn btn-outline-success" id="addbtn">Add</button>
-                <button type="button" class="btn btn-outline-danger" id="removebtn">Remove</button>
+            <div>
+                <label for="status_fpb">Status</label>
+                    <select class="form-control <?= session('errors.status_fpb') ? 'is-invalid' : ''; ?>" id="status_fpb" name="status_fpb" required autocomplete="status_fpb">
+                        <option value="<?= old('status_fpb') ?: $fpb['status_fpb']; ?>" selected>Pilih status...</option>
+                        <?php if(session()->get('role')== 4) { ?>
+                        <option value="Diterima Supervisor">Terima</option>
+                        <option value="Ditolak Supervisor">Tolak</option>
+                        <!-- Add more options as needed -->
+                        </select>
+                        <?php } ?>
+                        <?php if(session()->get('role')== 3) { ?>
+                        <option value="Diterima Manager">Terima</option>
+                        <option value="Ditolak Manager">Tolak</option>
+                        <!-- Add more options as needed -->
+                        </select>
+                        <?php } ?>
+                        <?php if(session()->get('role')== 2) { ?>
+                        <option value="Diterima General Manager">Terima</option>
+                        <option value="Ditolak General Manager">Tolak</option>
+                        <!-- Add more options as needed -->
+                        </select>
+                        <?php } ?>
             </div>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            <script>
-                $(document).ready(function(){
-                    $("#addbtn").click(function{
-                        $(".formbarang .duplicate-row:last-child").clone().appendTo(".formbarang");
-                    });
-                    $("#removebtn").click(function(
-                        if($(".formbarang .duplicate-row").length > 1){
-                            $(this).parents(".duplicate-row").remove();
-                        }
-                    ));
-                });
-            </script>
-        </div>
+            
         <?php
             $sql="UPDATE fpb SET status_fpb='pending'";
             ?>

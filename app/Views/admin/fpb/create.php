@@ -25,7 +25,7 @@ Pengajuan Peminjaman
             </div>
             <div class="form-group">
                 <label for="tanggal">Tanggal</label>
-                <input type="date" class="form-control" id="tanggal" placeholder="Masukkan Tanggal" value="<?= old('tanggal'); ?>" name="tanggal" required autocomplete="tanggal">
+                <input type="datetime-local" class="form-control" id="tanggal" placeholder="Masukkan Tanggal" value="<?= old('tanggal'); ?>" name="tanggal" required autocomplete="tanggal">
                 <?php if (session('errors.tanggal')) : ?>
                     <span class="invalid-feedback" role="alert">
                         <strong><?= session('errors.tanggal') ?></strong>
@@ -87,53 +87,52 @@ Pengajuan Peminjaman
                 <?php endif ?>
             </div>
             <div class="row">
-                    <div class="form-group col-3 mr-2 text-center">
-                        <label for="nama_barang">Nama Barang</label>
-                        <select class="form-control" id="nama_barang" placeholder="Pilih Nama/Jenis" value="<?= old('nama_barang'); ?>" name="nama_barang" required autocomplete="nama_barang">
-                        <option selected>Pilih...</option>
-                            <?php $i = 1; foreach ($alats as $alat) : ?>
-                            <option><?= $alat['kode_alat'] ?> || <?= $alat['nama_alat'] ?></option>
-                        <?php endforeach; ?>
-                        </select>
-                        <?php if (session('errors.nama_barang')) : ?>
-                        <span class="invalid-feedback" role="alert">
-                            <strong><?= session('errors.nama_barang') ?></strong>
-                        </span>
-                    <?php endif ?>
-                    </div>
-                    <div class="form-group col-3 mr-2 text-center">
-                        <label for="tipe">Tipe</label>
-                        <input type="text" class="form-control" id="tipe" placeholder="Masukkan Tipe" value="<?= old('tipe'); ?>" name="tipe" required autocomplete="tipe">
-                        <?php if (session('errors.tipe')) : ?>
-                        <span class="invalid-feedback" role="alert">
-                            <strong><?= session('errors.tipe') ?></strong>
-                        </span>
-                    <?php endif ?>
-                    </div>
-                    <div class="form-group col-1 mr-2 text-center">
-                        <label for="qty">Qty</label>
-                        <input type="text" class="form-control" id="qty" placeholder="Masukkan Kuantitas" value="<?= old('qty'); ?>" name="qty" required autocomplete="qty">
-                        <?php if (session('errors.qty')) : ?>
-                        <span class="invalid-feedback" role="alert">
-                            <strong><?= session('errors.qty') ?></strong>
-                        </span>
-                    <?php endif ?>
-                    </div>
-                    <div class="form-group col-4 mr-2 text-center">
-                        <label for="note">Note</label>
-                        <input type="text" class="form-control" id="note" placeholder="Masukkan Note" value="<?= old('note'); ?>" name="note" required autocomplete="note">
-                        <?php if (session('errors.note')) : ?>
-                        <span class="invalid-feedback" role="alert">
-                            <strong><?= session('errors.note') ?></strong>
-                        </span>
-                    <?php endif ?>
-                    </div>
+                <div class="form-group col-3 mr-2 text-center">
+                    <label for="nama_barang">Nama Barang</label>
+                    <select class="form-control" id="nama_barang" placeholder="Pilih Nama/Jenis" value="<?= old('nama_barang'); ?>" name="nama_barang" required autocomplete="nama_barang">
+                    <option selected>Pilih...</option>
+                        <?php $i = 1; foreach ($alats as $alat) : ?>
+                        <option><?= $alat['kode_alat'] ?> || <?= $alat['nama_alat'] ?></option>
+                    <?php endforeach; ?>
+                    </select>
+                    <?php if (session('errors.nama_barang')) : ?>
+                    <span class="invalid-feedback" role="alert">
+                        <strong><?= session('errors.nama_barang') ?></strong>
+                    </span>
+                <?php endif ?>
                 </div>
+                <div class="form-group col-3 mr-2 text-center">
+                    <label for="tipe">Tipe</label>
+                    <input type="text" class="form-control" id="tipe" placeholder="Masukkan Tipe" value="<?= old('tipe'); ?>" name="tipe" required autocomplete="tipe">
+                    <?php if (session('errors.tipe')) : ?>
+                    <span class="invalid-feedback" role="alert">
+                        <strong><?= session('errors.tipe') ?></strong>
+                    </span>
+                <?php endif ?>
+                </div>
+                <div class="form-group col-1 mr-2 text-center">
+                    <label for="qty">Qty</label>
+                    <input type="text" class="form-control" id="qty" placeholder="Masukkan Kuantitas" value="<?= old('qty'); ?>" name="qty" required autocomplete="qty">
+                    <?php if (session('errors.qty')) : ?>
+                    <span class="invalid-feedback" role="alert">
+                        <strong><?= session('errors.qty') ?></strong>
+                    </span>
+                <?php endif ?>
+                </div>
+                <div class="form-group col-4 mr-2 text-center">
+                    <label for="note">Note</label>
+                    <input type="text" class="form-control" id="note" placeholder="Masukkan Note" value="<?= old('note'); ?>" name="note" required autocomplete="note">
+                    <?php if (session('errors.note')) : ?>
+                    <span class="invalid-feedback" role="alert">
+                        <strong><?= session('errors.note') ?></strong>
+                    </span>
+                <?php endif ?>
+                </div>  
             </div>
 
             <div class="">
                 <button type="submit" class="btn btn-primary">Ajukan</button>
-            </div>
+            </div> 
         </div>
         <!-- /.card-body -->
     </form>

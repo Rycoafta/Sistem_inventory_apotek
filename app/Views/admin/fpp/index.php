@@ -29,16 +29,55 @@ FPP
                         <td><?= $i++ ?></td>
                         <td><?= $fpp['nama_pelanggan'] ?></td>
                         <?php if(session()->get('role')== 8) { ?>
-                        <td><?= $fpp['status_fpp'] ?></td>
+                            <td><?= $fpp['status_fpp'] ?></td>
                         <?php } ?>
                         <?php if(session()->get('role')== 7) { ?>
-                        <td><?= $fpp['status_fpp'] ?></td>
+                            <?php if($fpp['status_fpp'] == "Pending") { ?>
+                                <td>
+                                    <div class="text-center">
+                                        <label>Setuju</label>
+                                        <a href="<?= route_to('fpp/status', $fpp['id']) ?>"><button type="button" class="btn btn-success"><i class="fa fa-check"></i></button></a>
+                                        <label>Revisi</label>
+                                        <a href="<?= route_to('fpp/revisi', $fpp['id']) ?>"><button type="button" class="btn btn-warning"><i class="fa fa-file-text-o"></i></button></a>
+                                        <label>Tolak</label>
+                                        <a href="<?= route_to('fpp/reject', $fpp['id']) ?>"><button type="button" class="btn btn-danger"><i class="fa fa-times"></i></button></a>
+                                    </div>
+                                </td>
+                            <?php } else { ?>
+                                <td><?= $fpp['status_fpp'] ?></td>
+                            <?php } ?>
                         <?php } ?>
                         <?php if(session()->get('role')== 6) { ?>
-                        <td><?= $fpp['status_fpp'] ?></td>
+                            <?php if($fpp['status_fpp'] == "Disetujui Supervisor Business & Development") { ?>
+                                <td>
+                                    <div class="text-center">
+                                        <label>Setuju</label>
+                                        <a href="<?= route_to('fpp/status', $fpp['id']) ?>"><button type="button" class="btn btn-success"><i class="fa fa-check"></i></button></a>
+                                        <label>Revisi</label>
+                                        <a href="<?= route_to('fpp/revisi', $fpp['id']) ?>"><button type="button" class="btn btn-warning"><i class="fa fa-file-text-o"></i></button></a>
+                                        <label>Tolak</label>
+                                        <a href="<?= route_to('fpp/reject', $fpp['id']) ?>"><button type="button" class="btn btn-danger"><i class="fa fa-times"></i></button></a>
+                                    </div>
+                                </td>
+                            <?php } else { ?>
+                                <td><?= $fpp['status_fpp'] ?></td>
+                            <?php } ?>
                         <?php } ?>
                         <?php if(session()->get('role')== 5) { ?>
-                        <td><?= $fpp['status_fpp'] ?></td>
+                            <?php if($fpp['status_fpp'] == "Disetujui Manager Business & Development") { ?>
+                                <td>
+                                    <div class="text-center">
+                                        <label>Setuju</label>
+                                        <a href="<?= route_to('fpp/status', $fpp['id']) ?>"><button type="button" class="btn btn-success"><i class="fa fa-check"></i></button></a>
+                                        <label>Revisi</label>
+                                        <a href="<?= route_to('fpp/revisi', $fpp['id']) ?>"><button type="button" class="btn btn-warning"><i class="fa fa-file-text-o"></i></button></a>
+                                        <label>Tolak</label>
+                                        <a href="<?= route_to('fpp/reject', $fpp['id']) ?>"><button type="button" class="btn btn-danger"><i class="fa fa-times"></i></button></a>
+                                    </div>
+                                </td>
+                            <?php } else { ?>
+                                <td><?= $fpp['status_fpp'] ?></td>
+                            <?php } ?>
                         <?php } ?>
                         <td class="manage-row">
                             <a href="<?= route_to('fpp/show', $fpp['id']) ?>" class="show-button">

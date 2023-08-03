@@ -1,14 +1,14 @@
 <?= $this->extend('layouts/admin/app') ?>
 <?= $this->section('title') ?>
-Data Peminjaman Barang
+Data Permintaan Barang
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Tabel List Peminjaman</h3>
+        <h3 class="card-title">Tabel List Permintaan</h3>
         <div class="card-tools">
-            <a href="<?= route_to('fpb/create') ?>" class="btn btn-sm btn-secondary">Pengajuan Peminjaman</a>
+            <a href="<?= route_to('fpb/create') ?>" class="btn btn-sm btn-secondary">Pengajuan Permintaan</a>
         </div>
     </div>
     <!-- /.card-header -->
@@ -31,16 +31,55 @@ Data Peminjaman Barang
                         <td><?= $fpb['nama_barang'] ?></td>
                         <td><?= $fpb['ref'] ?></td>
                         <?php if(session()->get('role')== 9) { ?>
-                        <td><?= $fpb['status_fpb'] ?></td>
+                            <td><?= $fpb['status_fpb'] ?></td>
                         <?php } ?>
                         <?php if(session()->get('role')== 4) { ?>
-                        <td><?= $fpb['status_fpb'] ?></td>
+                            <?php if($fpb['status_fpb'] == "Pending") { ?>
+                                <td>
+                                    <div class="text-center">
+                                        <label>Setuju</label>
+                                        <a href="<?= route_to('fpb/status', $fpb['id']) ?>"><button type="button" class="btn btn-success"><i class="fa fa-check"></i></button></a>
+                                        <label>Revisi</label>
+                                        <a href="<?= route_to('fpb/revisi', $fpb['id']) ?>"><button type="button" class="btn btn-warning"><i class="fa fa-file-text-o"></i></button></a>
+                                        <label>Tolak</label>
+                                        <a href="<?= route_to('fpb/reject', $fpb['id']) ?>"><button type="button" class="btn btn-danger"><i class="fa fa-times"></i></button></a>
+                                    </div>
+                                </td>
+                            <?php } else { ?>
+                                <td><?= $fpb['status_fpb'] ?></td>
+                            <?php } ?>
                         <?php } ?>
                         <?php if(session()->get('role')== 3) { ?>
-                        <td><?= $fpb['status_fpb'] ?></td>
+                            <?php if($fpb['status_fpb'] == "Disetujui Supervisor") { ?>
+                                <td>
+                                    <div class="text-center">
+                                        <label>Setuju</label>
+                                        <a href="<?= route_to('fpb/status', $fpb['id']) ?>"><button type="button" class="btn btn-success"><i class="fa fa-check"></i></button></a>
+                                        <label>Revisi</label>
+                                        <a href="<?= route_to('fpb/revisi', $fpb['id']) ?>"><button type="button" class="btn btn-warning"><i class="fa fa-file-text-o"></i></button></a>
+                                        <label>Tolak</label>
+                                        <a href="<?= route_to('fpb/reject', $fpb['id']) ?>"><button type="button" class="btn btn-danger"><i class="fa fa-times"></i></button></a>
+                                    </div>
+                                </td>
+                            <?php } else { ?>
+                                <td><?= $fpb['status_fpb'] ?></td>
+                            <?php } ?>
                         <?php } ?>
                         <?php if(session()->get('role')== 2) { ?>
-                        <td><?= $fpb['status_fpb'] ?></td>
+                            <?php if($fpb['status_fpb'] == "Disetujui Manager") { ?>
+                                <td>
+                                    <div class="text-center">
+                                        <label>Setuju</label>
+                                        <a href="<?= route_to('fpb/status', $fpb['id']) ?>"><button type="button" class="btn btn-success"><i class="fa fa-check"></i></button></a>
+                                        <label>Revisi</label>
+                                        <a href="<?= route_to('fpb/revisi', $fpb['id']) ?>"><button type="button" class="btn btn-warning"><i class="fa fa-file-text-o"></i></button></a>
+                                        <label>Tolak</label>
+                                        <a href="<?= route_to('fpb/reject', $fpb['id']) ?>"><button type="button" class="btn btn-danger"><i class="fa fa-times"></i></button></a>
+                                    </div>
+                                </td>
+                            <?php } else { ?>
+                                <td><?= $fpb['status_fpb'] ?></td>
+                            <?php } ?>
                         <?php } ?>
                         <td class="manage-row">
                             <a href="<?= route_to('fpb/show', $fpb['id']) ?>" class="show-button">

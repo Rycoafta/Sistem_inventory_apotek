@@ -45,6 +45,9 @@ $routes->get('fpp/show/(:segment)', 'AdminFPPController::show/$1', ['as' => 'fpp
 $routes->get('fpp/edit/(:segment)', 'AdminFPPController::edit/$1', ['as' => 'fpp/edit']);
 $routes->post('fpp/update/(:segment)', 'AdminFPPController::update/$1', ['as' => 'fpp/update']);
 $routes->delete('fpp/delete/(:segment)', 'AdminFPPController::destroy/$1', ['as' => 'fpp/delete']);
+$routes->get('fpp/status/(:num)', 'AdminfppController::status/$1', ['as' => 'fpp/status']);
+$routes->get('fpp/revisi/(:num)', 'AdminfppController::revisi/$1', ['as' => 'fpp/revisi']);
+$routes->get('fpp/reject/(:num)', 'AdminfppController::reject/$1', ['as' => 'fpp/reject']);
 
 // CRUD FPB
 $routes->get('fpb', 'AdminFPBController::index');
@@ -54,6 +57,9 @@ $routes->get('fpb/show/(:num)', 'AdminFPBController::show/$1', ['as' => 'fpb/sho
 $routes->get('fpb/edit/(:num)', 'AdminFPBController::edit/$1', ['as' => 'fpb/edit']);
 $routes->post('fpb/update/(:num)', 'AdminFPBController::update/$1', ['as' => 'fpb/update']);
 $routes->delete('fpb/delete/(:num)', 'AdminFPBController::destroy/$1', ['as' => 'fpb/delete']);
+$routes->get('fpb/status/(:num)', 'AdminFPBController::status/$1', ['as' => 'fpb/status']);
+$routes->get('fpb/revisi/(:num)', 'AdminFPBController::revisi/$1', ['as' => 'fpb/revisi']);
+$routes->get('fpb/reject/(:num)', 'AdminFPBController::reject/$1', ['as' => 'fpb/reject']);
 
 // CRUD ALAT
 $routes->get('alat', 'AdminAlatController::index');

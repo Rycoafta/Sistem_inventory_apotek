@@ -28,9 +28,8 @@ HISTORY
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>ID Barang</th>
                     <th>Nama Peminjam</th>
-                    <th>Nama/Jenis</th>
+                    <th>Nama Barang</th>
                     <th>Ref./WO/Tanggal</th>
                     <th>Lokasi Penempatan</th>
                     <th>Status</th>
@@ -42,11 +41,10 @@ HISTORY
                 foreach ($users as $user) : ?>
                     <tr>
                         <td><?= $i++ ?></td>
-                        <td><?= $history['idbarang'] ?></td>
-                        <td><?= $history['nama_peminjam'] ?></td>
-                        <td><?= $history['nama_barang'] ?></td>
-                        <td><?= $history['ref'] ?></td>
-                        <td><?= $history['lokasi_penempatan'] ?></td>
+                        <td><?= $history1['nama_peminjam'] ?></td>
+                        <td><?= $history1['nama_barang'] ?></td>
+                        <td><?= $history1['ref'] ?></td>
+                        <td><?= $history1['lokasi_penempatan'] ?></td>
                         <td></td>
                         <td class="manage-row">
                             <a href="<?= route_to('user/show', $user['id']) ?>" class="show-button">
@@ -59,7 +57,8 @@ HISTORY
             <tfoot>
                 <tr>
                     <th>No</th>
-                    <th>Nama</th>
+                    <th>Nama Peminjam</th>
+                    <th>Nama/Jenis</th>
                     <th>Ref./WO/Tanggal</th>
                     <th>Lokasi Penempatan</th>
                     <th>Status</th>

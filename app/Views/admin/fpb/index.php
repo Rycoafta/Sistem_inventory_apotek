@@ -17,8 +17,7 @@ Data Peminjaman Barang
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>ID Barang</th>
-                    <th>Nama Barang</th>
+                    <th>ID Barang || Nama Barang</th>
                     <th>Ref./WO/Tanggal</th>
                     <th>Status</th>
                     <th>Option</th>
@@ -29,7 +28,6 @@ Data Peminjaman Barang
                 foreach ($fpbs as $fpb) : ?>
                     <tr>
                         <td><?= $i++ ?></td>
-                        <td><?= $fpb['idbarang'] ?></td>
                         <td><?= $fpb['nama_barang'] ?></td>
                         <td><?= $fpb['ref'] ?></td>
                         <td><?= $fpb['status_fpb'] ?></td>
@@ -69,8 +67,7 @@ Data Peminjaman Barang
             <tfoot>
                 <tr>
                     <th>No</th>
-                    <th>ID Barang</th>
-                    <th>Nama Barang</th>
+                    <th>ID Barang || Nama Barang</th>
                     <th>Ref./WO/Tanggal</th>
                     <th>Status</th>
                     <th>Option</th>

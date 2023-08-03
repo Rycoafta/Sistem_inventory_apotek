@@ -30,7 +30,18 @@ Data Peminjaman Barang
                         <td><?= $i++ ?></td>
                         <td><?= $fpb['nama_barang'] ?></td>
                         <td><?= $fpb['ref'] ?></td>
+                        <?php if(session()->get('role')== 9) { ?>
                         <td><?= $fpb['status_fpb'] ?></td>
+                        <?php } ?>
+                        <?php if(session()->get('role')== 4) { ?>
+                        <td><?= $fpb['status_fpb'] ?></td>
+                        <?php } ?>
+                        <?php if(session()->get('role')== 3) { ?>
+                        <td><?= $fpb['status_fpb'] ?></td>
+                        <?php } ?>
+                        <?php if(session()->get('role')== 2) { ?>
+                        <td><?= $fpb['status_fpb'] ?></td>
+                        <?php } ?>
                         <td class="manage-row">
                             <a href="<?= route_to('fpb/show', $fpb['id']) ?>" class="show-button">
                                 <i class="fa-solid fa-eye"></i>

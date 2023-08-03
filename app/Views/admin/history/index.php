@@ -45,7 +45,7 @@ HISTORY
                         <td><?= $history['nama_barang'] ?></td>
                         <td><?= $history['ref'] ?></td>
                         <td><?= $history['lokasi_penempatan'] ?></td>
-                        <td></td>
+                        <td><?= $history['status_fpb'] ?></td>
                         <td class="manage-row">
                             <a href="<?= route_to('history/show', $history['id']) ?>" class="show-button">
                                 <i class="fa-solid fa-eye"></i>
@@ -87,7 +87,7 @@ HISTORY
                     <tr>
                         <td><?= $i++ ?></td>
                         <td><?= $history['nama_pelanggan'] ?></td>
-                        <td></td>
+                        <td><?= $history['status_fpp'] ?></p></td>
                         <td class="manage-row">
                             <a href="<?= route_to('history/show2', $history['id']) ?>" class="show-button">
                                 <i class="fa-solid fa-eye"></i>

@@ -101,10 +101,10 @@ class AdminFPPController extends BaseController
         'qty' => $this->request->getVar('qty'),
         'jumlah' => $this->request->getVar('jumlah'),
         'vendor' => $this->request->getVar('vendor'),
-        'status_fpp' => $sql="pending"
+        'status_fpp' => $sql="Pending"
     ];
     
-    $sql="UPDATE fpb SET status_fpp='pending'";
+    
     $fppModel = new FPPModel();
     $fppModel->insert($data);
 
@@ -220,11 +220,11 @@ class AdminFPPController extends BaseController
             'qty' => $this->request->getVar('qty'),
             'jumlah' => $this->request->getVar('jumlah'),
             'vendor' => $this->request->getVar('vendor'),
-            'status_fpp' => $sql="pending",
+            'status_fpp' => $sql="Pending",
             'updated_at' => date('Y-m-d H:i:s')
         ];
 
-        $sql="UPDATE fpb SET status_fpp='pending'";
+        $sql="UPDATE fpb SET status_fpp='Pending'";
         $fppModel = new FPPModel();
         $fpp = $fppModel->find($id);
 

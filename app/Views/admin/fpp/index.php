@@ -28,7 +28,18 @@ FPP
                     <tr>
                         <td><?= $i++ ?></td>
                         <td><?= $fpp['nama_pelanggan'] ?></td>
+                        <?php if(session()->get('role')== 8) { ?>
                         <td><?= $fpp['status_fpp'] ?></td>
+                        <?php } ?>
+                        <?php if(session()->get('role')== 7) { ?>
+                        <td><?= $fpp['status_fpp'] ?></td>
+                        <?php } ?>
+                        <?php if(session()->get('role')== 6) { ?>
+                        <td><?= $fpp['status_fpp'] ?></td>
+                        <?php } ?>
+                        <?php if(session()->get('role')== 5) { ?>
+                        <td><?= $fpp['status_fpp'] ?></td>
+                        <?php } ?>
                         <td class="manage-row">
                             <a href="<?= route_to('fpp/show', $fpp['id']) ?>" class="show-button">
                                 <i class="fa-solid fa-eye"></i>

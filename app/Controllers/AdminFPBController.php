@@ -95,7 +95,7 @@ class AdminFPBController extends BaseController
             'tipe' => $this->request->getVar('tipe'),
             'qty' => $this->request->getVar('qty'),
             'note' => $this->request->getVar('note'),
-            'status_fpb' => $sql="pending",
+            'status_fpb' => $sql="Pending",
             'created_at' => date('Y-m-d H:i:s')
         ];
         
@@ -208,7 +208,7 @@ class AdminFPBController extends BaseController
             'tipe' => $this->request->getVar('tipe'),
             'qty' => $this->request->getVar('qty'),
             'note' => $this->request->getVar('note'),
-            'status_fpb' => $sql="pending",
+            'status_fpb' => $sql="Pending",
             'updated_at' => date('Y-m-d H:i:s')
         ];
 

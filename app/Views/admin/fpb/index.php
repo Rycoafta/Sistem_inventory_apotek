@@ -17,8 +17,9 @@ Data Permintaan Barang
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>ID Barang || Nama Barang</th>
+                    <th>Tanggal</th>
                     <th>Ref./WO/Tanggal</th>
+                    <th>Lokasi</th>
                     <th>Status</th>
                     <th>Option</th>
                 </tr>
@@ -28,8 +29,9 @@ Data Permintaan Barang
                 foreach ($fpbs as $fpb) : ?>
                     <tr>
                         <td><?= $i++ ?></td>
-                        <td><?= $fpb['nama_barang'] ?></td>
+                        <td><?= $fpb['tanggal'] ?></td>
                         <td><?= $fpb['ref'] ?></td>
+                        <td><?= $fpb['lokasi_penempatan'] ?></td>
                         <?php if(session()->get('role')== 9) { ?>
                             <td><?= $fpb['status_fpb'] ?></td>
                         <?php } ?>
@@ -81,26 +83,10 @@ Data Permintaan Barang
                                 <td><?= $fpb['status_fpb'] ?></td>
                             <?php } ?>
                         <?php } ?>
-                        <td><?= $fpb['status_fpb'] ?></td>
                         <td class="manage-row">
                             <a href="<?= route_to('fpb/show', $fpb['id']) ?>" class="show-button">
                                 <i class="fa-solid fa-eye"></i>
                             </a>
-                            <?php if(session()->get('role')== 4) { ?>
-                            <a href="<?= route_to('fpb/edit', $fpb['id']) ?>" class="check-button">
-                                <i class="fa-solid fa-check"></i>
-                            </a>
-                            <?php } ?>
-                            <?php if(session()->get('role')== 3) { ?>
-                            <a href="<?= route_to('fpb/edit', $fpb['id']) ?>" class="check-button">
-                                <i class="fa-solid fa-check"></i>
-                            </a>
-                            <?php } ?>
-                            <?php if(session()->get('role')== 2) { ?>
-                            <a href="<?= route_to('fpb/edit', $fpb['id']) ?>" class="check-button">
-                                <i class="fa-solid fa-check"></i>
-                            </a>
-                            <?php } ?>
                             <!-- Button trigger modal -->
                             <a href="<?= route_to('fpb/delete', $fpb['id']) ?>" class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm<?= $fpb['id'] ?>">
                                 <i class="fa-solid fa-trash-can"></i>

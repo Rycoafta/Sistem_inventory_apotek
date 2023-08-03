@@ -17,7 +17,9 @@ FPP
             <thead>
                 <tr>
                     <th>No</th>
+                    <th>Tanggal</th>
                     <th>Nama Pelanggan</th>
+                    <th>Ref</th>
                     <th>Status</th>
                     <th>Option</th>
                 </tr>
@@ -27,7 +29,9 @@ FPP
                 foreach ($fpps as $fpp) : ?>
                     <tr>
                         <td><?= $i++ ?></td>
+                        <td><?= $fpp['tanggal'] ?></td>
                         <td><?= $fpp['nama_pelanggan'] ?></td>
+                        <td><?= $fpp['ref'] ?></td>
                         <?php if(session()->get('role')== 8) { ?>
                             <td><?= $fpp['status_fpp'] ?></td>
                         <?php } ?>
@@ -118,9 +122,11 @@ FPP
             <tfoot>
                 <tr>
                     <th>No</th>
+                    <th>Tanggal</th>
                     <th>Nama Pelanggan</th>
+                    <th>Ref</th>
                     <th>Status</th>
-                    <th>Aksi</th>
+                    <th>Option</th>
                 </tr>
             </tfoot>
         </table>

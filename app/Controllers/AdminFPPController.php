@@ -256,90 +256,90 @@ class AdminFPPController extends BaseController
     public function status($id)
     {
         
-        if(session()->get('role') == 4){
+        if(session()->get('role') == 7){
             $data = [
-                'status_fpb' => $sql="Disetujui Supervisor Business & Development",
+                'status_fpp' => $sql="Disetujui Supervisor Business & Development",
             ];
-        }else if(session()->get('role') == 3){
+        }else if(session()->get('role') == 6){
             $data = [
-                'status_fpb' => $sql="Disetujui Manager Business & Development",
+                'status_fpp' => $sql="Disetujui Manager Business & Development",
             ];
-        }else if(session()->get('role') == 2){
+        }else if(session()->get('role') == 5){
             $data = [
-                'status_fpb' => $sql="Disetujui General Manager Business & Development",
+                'status_fpp' => $sql="Disetujui General Manager Business & Development",
             ];
         }
         
 
-        $fpbModel = new FPBModel();
-        $fpb = $fpbModel->find($id);
+        $fppModel = new FPPModel();
+        $fpp = $fppModel->find($id);
 
-        if (!$fpb) {
-            return redirect()->back()->with('error', 'fpb not found.');
+        if (!$fpp) {
+            return redirect()->back()->with('error', 'fpp not found.');
         }
 
-        $fpbModel->update($id, $data);
+        $fppModel->update($id, $data);
 
-        return redirect()->to('/fpb')->with('success', 'fpb updated successfully.');
+        return redirect()->to('/fpp')->with('success', 'fpp updated successfully.');
     }
 
     public function revisi($id)
     {
         
-        if(session()->get('role') == 4){
+        if(session()->get('role') == 7){
             $data = [
-                'status_fpb' => $sql="Supervisor Business & Development Minta Revisi",
+                'status_fpp' => $sql="Supervisor Business & Development Minta Revisi",
             ];
-        }else if(session()->get('role') == 3){
+        }else if(session()->get('role') == 6){
             $data = [
-                'status_fpb' => $sql="Manager Business & Development Minta Revisi",
+                'status_fpp' => $sql="Manager Business & Development Minta Revisi",
             ];
-        }else if(session()->get('role') == 2){
+        }else if(session()->get('role') == 5){
             $data = [
-                'status_fpb' => $sql="General Manager Business & Development Minta Revisi",
+                'status_fpp' => $sql="General Manager Business & Development Minta Revisi",
             ];
         }
         
 
-        $fpbModel = new FPBModel();
-        $fpb = $fpbModel->find($id);
+        $fppModel = new FPPModel();
+        $fpp = $fppModel->find($id);
 
-        if (!$fpb) {
-            return redirect()->back()->with('error', 'fpb not found.');
+        if (!$fpp) {
+            return redirect()->back()->with('error', 'fpp not found.');
         }
 
-        $fpbModel->update($id, $data);
+        $fppModel->update($id, $data);
 
-        return redirect()->to('/fpb')->with('success', 'fpb updated successfully.');
+        return redirect()->to('/fpp')->with('success', 'fpp updated successfully.');
     }
 
     public function reject($id)
     {
         
-        if(session()->get('role') == 4){
+        if(session()->get('role') == 7){
             $data = [
-                'status_fpb' => $sql="Ditolak Supervisor Business & Development",
+                'status_fpp' => $sql="Ditolak Supervisor Business & Development",
             ];
-        }else if(session()->get('role') == 3){
+        }else if(session()->get('role') == 6){
             $data = [
-                'status_fpb' => $sql="Ditolak Manager Business & Development",
+                'status_fpp' => $sql="Ditolak Manager Business & Development",
             ];
-        }else if(session()->get('role') == 2){
+        }else if(session()->get('role') == 5){
             $data = [
-                'status_fpb' => $sql="Ditolak General Manager Business & Development",
+                'status_fpp' => $sql="Ditolak General Manager Business & Development",
             ];
         }
         
 
-        $fpbModel = new FPBModel();
-        $fpb = $fpbModel->find($id);
+        $fppModel = new FPPModel();
+        $fpp = $fppModel->find($id);
 
-        if (!$fpb) {
-            return redirect()->back()->with('error', 'fpb not found.');
+        if (!$fpp) {
+            return redirect()->back()->with('error', 'fpp not found.');
         }
 
-        $fpbModel->update($id, $data);
+        $fppModel->update($id, $data);
 
-        return redirect()->to('/fpb')->with('success', 'fpb updated successfully.');
+        return redirect()->to('/fpp')->with('success', 'fpp updated successfully.');
     }
 }

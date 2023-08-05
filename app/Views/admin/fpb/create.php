@@ -92,7 +92,7 @@ Pengajuan Peminjaman
                     <select class="form-control" id="nama_barang" placeholder="Pilih Nama/Jenis" value="<?= old('nama_barang'); ?>" name="nama_barang" required autocomplete="nama_barang">
                     <option selected>Pilih...</option>
                         <?php $i = 1; foreach ($alats as $alat) : ?>
-                        <option><?= $alat['kode_alat'] ?> || <?= $alat['nama_alat'] ?></option>
+                        <option><?= $alat['nama_alat'] ?></option>
                     <?php endforeach; ?>
                     </select>
                     <?php if (session('errors.nama_barang')) : ?>

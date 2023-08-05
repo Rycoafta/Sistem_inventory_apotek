@@ -60,6 +60,7 @@ $routes->delete('fpb/delete/(:num)', 'AdminFPBController::destroy/$1', ['as' => 
 $routes->get('fpb/status/(:num)', 'AdminFPBController::status/$1', ['as' => 'fpb/status']);
 $routes->get('fpb/revisi/(:num)', 'AdminFPBController::revisi/$1', ['as' => 'fpb/revisi']);
 $routes->get('fpb/reject/(:num)', 'AdminFPBController::reject/$1', ['as' => 'fpb/reject']);
+$routes->get('fpb/done/(:num)', 'AdminFPBController::done/$1', ['as' => 'fpb/done']);
 
 // CRUD ALAT
 $routes->get('alat', 'AdminAlatController::index');

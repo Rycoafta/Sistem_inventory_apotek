@@ -35,7 +35,14 @@ Data Permintaan Barang
                         <td><?= $fpb['ref'] ?></td>
                         <td><?= $fpb['lokasi_penempatan'] ?></td>
                         <?php if(session()->get('role')== 9) { ?>
-                            <td><?= $fpb['status_fpb'] ?></td>
+                            <?php if($fpb['status_fpb'] == "Disetujui General Manager") { ?>
+                                <td>
+                                    <label>Selesaikan</label>
+                                    <a href="<?= route_to('fpb/done', $fpb['id']) ?>"><button type="button" class="btn btn-success"><i class="fa fa-check"></i></button></a>
+                                </td>
+                            <?php } else { ?>
+                                <td><?= $fpb['status_fpb'] ?></td>
+                            <?php } ?>
                         <?php } ?>
                         <?php if(session()->get('role')== 4) { ?>
                             <?php if($fpb['status_fpb'] == "Pending") { ?>

@@ -1,5 +1,18 @@
 <!DOCTYPE html>
 <html lang="id">
+<style></style>
+
+<style>
+    body{
+      background-image: url('assets/img/bground.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+</style>
 
 <head>
     <meta charset="utf-8">

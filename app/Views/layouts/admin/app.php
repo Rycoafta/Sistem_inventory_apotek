@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin | <?= $this->renderSection('title') ?></title>
+    <title>PT CNI | <?= $this->renderSection('title') ?></title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -29,19 +29,19 @@
     <script src="https://kit.fontawesome.com/2a99f4df77.js" crossorigin="anonymous"></script>
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="57x57" href="<?= base_url('assets/favicon/apple-icon-57x57.png') ?>">
-    <link rel="apple-touch-icon" sizes="60x60" href="<?= base_url('assets/favicon/apple-icon-60x60.png') ?>">
-    <link rel="apple-touch-icon" sizes="72x72" href="<?= base_url('assets/favicon/apple-icon-72x72.png') ?>">
-    <link rel="apple-touch-icon" sizes="76x76" href="<?= base_url('assets/favicon/apple-icon-76x76.png') ?>">
-    <link rel="apple-touch-icon" sizes="114x114" href="<?= base_url('assets/favicon/apple-icon-114x114.png') ?>">
-    <link rel="apple-touch-icon" sizes="120x120" href="<?= base_url('assets/favicon/apple-icon-120x120.png') ?>">
-    <link rel="apple-touch-icon" sizes="144x144" href="<?= base_url('assets/favicon/apple-icon-144x144.png') ?>">
-    <link rel="apple-touch-icon" sizes="152x152" href="<?= base_url('assets/favicon/apple-icon-152x152.png') ?>">
-    <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url('assets/favicon/apple-icon-180x180.png') ?>">
-    <link rel="icon" type="image/png" sizes="192x192" href="<?= base_url('assets/favicon/android-icon-192x192.png') ?>">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url('assets/favicon/favicon-32x32.png') ?>">
-    <link rel="icon" type="image/png" sizes="96x96" href="<?= base_url('assets/favicon/favicon-96x96.png') ?>">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/favicon/favicon-16x16.png') ?>">
+    <link rel="apple-touch-icon" sizes="57x57" href="<?= base_url('assets/img/logo_cni.png') ?>">
+    <link rel="apple-touch-icon" sizes="60x60" href="<?= base_url('assets/img/logo_cni.png') ?>">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?= base_url('assets/img/logo_cni.png') ?>">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?= base_url('assets/img/logo_cni.png') ?>">
+    <link rel="apple-touch-icon" sizes="114x114" href="<?= base_url('assets/img/logo_cni.png') ?>">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?= base_url('assets/img/logo_cni.png') ?>">
+    <link rel="apple-touch-icon" sizes="144x144" href="<?= base_url('assets/img/logo_cni.png') ?>">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?= base_url('assets/img/logo_cni.png') ?>">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url('assets/img/logo_cni.png') ?>">
+    <link rel="icon" type="image/png" sizes="192x192" href="<?= base_url('assets/img/logo_cni.png') ?>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url('assets/img/logo_cni.png') ?>">
+    <link rel="icon" type="image/png" sizes="96x96" href="<?= base_url('assets/img/logo_cni.png') ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/img/logo_cni.png') ?>">
     <link rel="manifest" href="<?= base_url('assets/favicon/manifest.json') ?>">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
@@ -209,11 +209,12 @@
         <!-- Sidebar -->
         <div class="sidebar bg-dark">
             <!-- Sidebar user panel (optional) -->
+         
             <div class="user-panel mt-3 d-flex">
-                <div class="info d-block">
-                    <h3>MENU</h3>
+                    <div class="info d-block">
+                        <h3>MENU</h3>
+                    </div>
                 </div>
-            </div>
 
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">

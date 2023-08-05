@@ -30,9 +30,12 @@ HISTORY
                     <th>No</th>
                     <th>Tanggal</th>
                     <th>Ref./WO/Tanggal</th>
+                    <th>Nama</th>
+                    <th>Divisi</th>
                     <th>Lokasi</th>
+                    <th>Kebutuhan</th>
+                    <th>Keterangan</th>
                     <th>Status</th>
-                    <th>Option</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,13 +45,12 @@ HISTORY
                         <td><?= $i++ ?></td>
                         <td><?= $history['tanggal'] ?></td>
                         <td><?= $history['ref'] ?></td>
+                        <td><?= $history['nama_peminjam'] ?></td>
+                        <td><?= $history['divisi'] ?></td>
                         <td><?= $history['lokasi_penempatan'] ?></td>
+                        <td><?= $history['kebutuhan_projek'] ?></td>
+                        <td><?= $history['keterangan'] ?></td>
                         <td><?= $history['status_fpb'] ?></td>
-                        <td class="manage-row">
-                            <a href="<?= route_to('history/show', $history['id']) ?>" class="show-button">
-                                <i class="fa-solid fa-eye"></i>
-                            </a>
-                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -57,9 +59,12 @@ HISTORY
                     <th>No</th>
                     <th>Tanggal</th>
                     <th>Ref./WO/Tanggal</th>
+                    <th>Nama</th>
+                    <th>Divisi</th>
                     <th>Lokasi</th>
+                    <th>Kebutuhan</th>
+                    <th>Keterangan</th>
                     <th>Status</th>
-                    <th>Option</th>
                 </tr>
             </tfoot>
         </table>
@@ -74,10 +79,12 @@ HISTORY
                 <tr>
                     <th>No</th>
                     <th>Tanggal</th>
+                    <th>Jenis Kebutuhan</th>
                     <th>Nama Pelanggan</th>
+                    <th>Lokasi</th>
                     <th>Ref</th>
+                    <th>Keterangan</th>
                     <th>Status</th>
-                    <th>Option</th>
                 </tr>
             </thead>
             <tbody>
@@ -86,14 +93,12 @@ HISTORY
                     <tr>
                         <td><?= $i++ ?></td>
                         <td><?= $history['tanggal'] ?></td>
+                        <td><?= $history['jenis_kebutuhan'] ?></td>
                         <td><?= $history['nama_pelanggan'] ?></td>
+                        <td><?= $history['lokasi_penempatan'] ?></td>
                         <td><?= $history['ref'] ?></td>
+                        <td><?= $history['keterangan'] ?></td>
                         <td><?= $history['status_fpp'] ?></td>
-                        <td class="manage-row">
-                            <a href="<?= route_to('history/show2', $history['id']) ?>" class="show-button">
-                                <i class="fa-solid fa-eye"></i>
-                            </a>
-                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -101,10 +106,12 @@ HISTORY
                 <tr>
                     <th>No</th>
                     <th>Tanggal</th>
+                    <th>Jenis Kebutuhan</th>
                     <th>Nama Pelanggan</th>
+                    <th>Lokasi</th>
                     <th>Ref</th>
+                    <th>Keterangan</th>
                     <th>Status</th>
-                    <th>Option</th>
                 </tr>
             </tfoot>
         </table>

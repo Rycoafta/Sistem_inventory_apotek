@@ -364,6 +364,14 @@ class AdminFPBController extends BaseController
             $alatModel->update($alatData['id'], $data_2);
 
             return redirect()->to('/fpb')->with('success', 'FPB updated successfully.');
+        } else {
+            $data = [
+                'status_fpb' => 'Stok Barang Tidak Mencukupi!',
+            ];
+
+            $fpbModel->update($id, $data);
+
+            return redirect()->to('/fpb')->with('success', 'FPB updated successfully.');
         }
 
         return redirect()->back()->with('error', 'FPB update failed. Either Alat not found or insufficient stock.');

@@ -6,10 +6,10 @@ FPP
 <?= $this->section('content') ?>
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">FPP</h3>
+        <h3 class="card-title">Tabel List Penambahan</h3>
         <div class="card-tools">
             <?php if(session()->get('role')== 8) { ?>
-            <a href="<?= route_to('fpp/create') ?>" class="btn btn-sm btn-secondary">Pengajuan Permintaan</a>
+            <a href="<?= route_to('fpp/create') ?>" class="btn btn-sm btn-secondary">Pengajuan Penambahan</a>
             <?php } ?>
         </div>
     </div>
@@ -36,8 +36,7 @@ FPP
                         <td><?= $fpp['ref'] ?></td>
                         <?php if(session()->get('role')== 8) { ?>
                             <td><?= $fpp['status_fpp'] ?></td>
-                        <?php } ?>
-                        <?php if(session()->get('role')== 7) { ?>
+                        <?php } else if(session()->get('role')== 7) { ?>
                             <?php if($fpp['status_fpp'] == "Pending") { ?>
                                 <td>
                                     <div class="text-center">
@@ -52,8 +51,7 @@ FPP
                             <?php } else { ?>
                                 <td><?= $fpp['status_fpp'] ?></td>
                             <?php } ?>
-                        <?php } ?>
-                        <?php if(session()->get('role')== 6) { ?>
+                        <?php } else if(session()->get('role')== 6) { ?>
                             <?php if($fpp['status_fpp'] == "Disetujui Supervisor Business & Development") { ?>
                                 <td>
                                     <div class="text-center">
@@ -68,8 +66,7 @@ FPP
                             <?php } else { ?>
                                 <td><?= $fpp['status_fpp'] ?></td>
                             <?php } ?>
-                        <?php } ?>
-                        <?php if(session()->get('role')== 5) { ?>
+                        <?php } else if(session()->get('role')== 5) { ?>
                             <?php if($fpp['status_fpp'] == "Disetujui Manager Business & Development") { ?>
                                 <td>
                                     <div class="text-center">
@@ -84,6 +81,10 @@ FPP
                             <?php } else { ?>
                                 <td><?= $fpp['status_fpp'] ?></td>
                             <?php } ?>
+                        <?php } else if(session()->get('role')== 9) { ?>
+                            <td>Classified</td>
+                        <?php } else { ?>
+                            <td><?= $fpp['status_fpp'] ?></td>
                         <?php } ?>
                         <td class="manage-row">
                             <a href="<?= route_to('fpp/show', $fpp['id']) ?>" class="show-button">

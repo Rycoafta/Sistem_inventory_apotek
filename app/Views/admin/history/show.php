@@ -17,11 +17,11 @@ HISTORY
         </div>
         <div class="form-group">
             <label for="tanggal">Tanggal</label>
-            <input type="datetime" class="form-control" id="nama" value="<?= $history2['tanggal']; ?>" readonly>
+            <input type="datetime" class="form-control" id="tanggal" value="<?= $history2['tanggal']; ?>" readonly>
         </div>
         <div class="form-group">
             <label for="ref">Ref./WO/Tanggal</label>
-            <input type="text" class="form-control" id="nama" value="<?= $history2['ref']; ?>" readonly>
+            <input type="text" class="form-control" id="ref" value="<?= $history2['ref']; ?>" readonly>
         </div>
         <div class="form-group">
             <label for="nama_peminjam">Nama</label>

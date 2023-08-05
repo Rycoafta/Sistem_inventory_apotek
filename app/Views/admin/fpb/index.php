@@ -43,8 +43,7 @@ Data Permintaan Barang
                             <?php } else { ?>
                                 <td><?= $fpb['status_fpb'] ?></td>
                             <?php } ?>
-                        <?php } ?>
-                        <?php if(session()->get('role')== 4) { ?>
+                        <?php } else  if(session()->get('role')== 4) { ?>
                             <?php if($fpb['status_fpb'] == "Pending") { ?>
                                 <td>
                                     <div class="text-center">
@@ -59,8 +58,7 @@ Data Permintaan Barang
                             <?php } else { ?>
                                 <td><?= $fpb['status_fpb'] ?></td>
                             <?php } ?>
-                        <?php } ?>
-                        <?php if(session()->get('role')== 3) { ?>
+                        <?php } else if(session()->get('role')== 3) { ?>
                             <?php if($fpb['status_fpb'] == "Disetujui Supervisor") { ?>
                                 <td>
                                     <div class="text-center">
@@ -75,8 +73,7 @@ Data Permintaan Barang
                             <?php } else { ?>
                                 <td><?= $fpb['status_fpb'] ?></td>
                             <?php } ?>
-                        <?php } ?>
-                        <?php if(session()->get('role')== 2) { ?>
+                        <?php } else if(session()->get('role')== 2) { ?>
                             <?php if($fpb['status_fpb'] == "Disetujui Manager") { ?>
                                 <td>
                                     <div class="text-center">
@@ -91,6 +88,10 @@ Data Permintaan Barang
                             <?php } else { ?>
                                 <td><?= $fpb['status_fpb'] ?></td>
                             <?php } ?>
+                        <?php } else if(session()->get('role')== 8) { ?>
+                            <td>Classified</td>
+                        <?php } else { ?>
+                            <td><?= $fpb['status_fpb'] ?></td>
                         <?php } ?>
                         <td class="manage-row">
                             <a href="<?= route_to('fpb/show', $fpb['id']) ?>" class="show-button">
@@ -136,8 +137,9 @@ Data Permintaan Barang
             <tfoot>
                 <tr>
                     <th>No</th>
-                    <th>ID Barang || Nama Barang</th>
+                    <th>Tanggal</th>
                     <th>Ref./WO/Tanggal</th>
+                    <th>Lokasi</th>
                     <th>Status</th>
                     <th>Option</th>
                 </tr>

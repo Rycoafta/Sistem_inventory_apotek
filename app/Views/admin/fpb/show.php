@@ -17,11 +17,11 @@ FORM PEMINJAMAN BARANG
         </div>
         <div class="form-group">
             <label for="tanggal">Tanggal</label>
-            <input type="datetime" class="form-control" id="nama" value="<?= $fpb['tanggal']; ?>" readonly>
+            <input type="datetime" class="form-control" id="tanggal" value="<?= $fpb['tanggal']; ?>" readonly>
         </div>
         <div class="form-group">
             <label for="ref">Ref./WO/Tanggal</label>
-            <input type="text" class="form-control" id="nama" value="<?= $fpb['ref']; ?>" readonly>
+            <input type="text" class="form-control" id="ref" value="<?= $fpb['ref']; ?>" readonly>
         </div>
         <div class="form-group">
             <label for="nama_peminjam">Nama</label>

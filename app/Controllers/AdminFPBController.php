@@ -328,41 +328,44 @@ class AdminFPBController extends BaseController
 
     public function done($id)
     {
-        if($alats('nama_alat') == $fpb('nama_barang')){
-            if($alats('stok') >= $fpb('qty')){
-                $data = [
-                    'status_fpb' => $sql="Selesai",
-                ];
-
-                $data_2 = [
-                    'stok' => $this->request->getPost('stok')
-                ];
-            } else {
-                $data = [
-                    'status_fpb' => $sql="Stok barang tidak mencukupi!"
-                ];
-            }
-        } else {
-            $data = [
-                'status_fpb' => $sql="Barang tidak terdaftar!"
-            ];
-        }
-
         $alatModel = new AlatModel();
         $alats = $alatModel->findAll();
         $fpbModel = new FPBModel();
         $fpb = $fpbModel->find($id);
 
         if (!$fpb) {
-            return redirect()->back()->with('error', 'fpb not found.');
+            return redirect()->back()->with('error', 'FPB not found.');
         }
         if (!$alats) {
-            return redirect()->back()->with('error', 'alat not found.');
+            return redirect()->back()->with('error', 'Alat not found.');
         }
 
-        $fpbModel->update($id, $data);
-        $alatModel->update($data_2);
+        // Check if Alat and FPB data exists
+        $alatData = null;
+        $fpbData = null;
+        foreach ($alats as $alat) {
+            if ($alat['nama_alat'] == $fpb['nama_barang']) {
+                $alatData = $alat;
+                break;
+            }
+        }
 
-        return redirect()->to('/fpb')->with('success', 'fpb updated successfully.');
+        // If Alat data and stock are sufficient, update the records
+        if ($alatData && $alatData['stok'] >= $fpb['qty']) {
+            $data = [
+                'status_fpb' => 'Selesai',
+            ];
+
+            $data_2 = [
+                'stok' => $alatData['stok'] - $fpb['qty'],
+            ];
+
+            $fpbModel->update($id, $data);
+            $alatModel->update($alatData['id'], $data_2);
+
+            return redirect()->to('/fpb')->with('success', 'FPB updated successfully.');
+        }
+
+        return redirect()->back()->with('error', 'FPB update failed. Either Alat not found or insufficient stock.');
     }
 }

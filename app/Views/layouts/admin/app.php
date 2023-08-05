@@ -492,12 +492,6 @@
                                 <p>FPB</p>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="/fpp" class="nav-link">
-                                <i class="nav-icon fas fa-solid fa-shop"></i>
-                                <p>FPP</p>
-                                </a>
-                            </li>
                             </ul>
                         </li>
                         <?php } ?>

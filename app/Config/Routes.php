@@ -22,10 +22,10 @@ $routes->set404Override();
 // $routes->setAutoRoute(false);
 
 /*
- * --------------------------------------------------------------------
- * Route Definitions
- * --------------------------------------------------------------------
- */
+* --------------------------------------------------------------------
+* Route Definitions
+* --------------------------------------------------------------------
+*/
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.

@@ -9,126 +9,42 @@ Edit
     </div>
     <!-- /.card-header -->
     <!-- form start -->
-    <form method="POST" action="<?= route_to('fpb/update', $fpb['id']); ?>">
+    <form method="POST" action="<?= route_to('alat/update', $alat['id']); ?>">
         <?= csrf_field() ?>
         <div class="card-body">
             <div class="form-group">
-                <label for="id">ID</label>
-                <input type="text" class="form-control" id="id" value="<?= $fpb['id']; ?>" readonly name="id">
-            </div>
-            <div class="form-group">
-                <label for="tanggal">Tanggal</label>
-                <input type="datetime" class="form-control <?= session('error.tanggal') ? 'is-invalid' : ''; ?>" id="tanggal" value="<?= old('tanggal') ?: $fpb['tanggal']; ?>" name="tanggal" required autofocus>
-                <?php if (session('error.tanggal')) : ?>
+                <label for="kode_alat">ID Barang</label>
+                <input type="text" class="form-control" kode_alat="kode_alat" value="<?= $alat['kode_alat']; ?>" name="kode_alat" required autofocus>
+                <?php if (session('error.kode_alat')) : ?>
                     <span class="invalid-feedback" role="alert">
-                        <strong><?= session('error.tanggal') ?></strong>
+                        <strong><?= session('error.kode_alat') ?></strong>
                     </span>
                 <?php endif ?>
             </div>
             <div class="form-group">
-                <label for="ref">Ref./WO/Tanggal</label>
-                <input type="text" class="form-control <?= session('error.ref') ? 'is-invalid' : ''; ?>" id="ref" value="<?= old('ref') ?: $fpb['ref']; ?>" name="ref" required autofocus>
-                <?php if (session('error.ref')) : ?>
+                <label for="nama_alat">Nama Barang</label>
+                <input type="text" class="form-control" nama_alat="nama_alat" value="<?= $alat['nama_alat']; ?>" name="nama_alat" required autofocus>
+                <?php if (session('error.nama_alat')) : ?>
                     <span class="invalid-feedback" role="alert">
-                        <strong><?= session('error.ref') ?></strong>
+                        <strong><?= session('error.nama_alat') ?></strong>
                     </span>
                 <?php endif ?>
             </div>
             <div class="form-group">
-                <label for="nama_peminjam">Nama</label>
-                <input type="text" class="form-control <?= session('error.nama_peminjam') ? 'is-invalid' : ''; ?>" id="nama_peminjam" value="<?= old('nama_peminjam') ?: $fpb['nama_peminjam']; ?>" name="nama_peminjam" required autofocus>
-                <?php if (session('error.nama_peminjam')) : ?>
+                <label for="stok">Stok</label>
+                <input type="text" class="form-control" stok="stok" value="<?= $alat['stok']; ?>" name="stok" required autofocus>
+                <?php if (session('error.stok')) : ?>
                     <span class="invalid-feedback" role="alert">
-                        <strong><?= session('error.nama_peminjam') ?></strong>
+                        <strong><?= session('error.stok') ?></strong>
                     </span>
                 <?php endif ?>
             </div>
-            <div class="form-group">
-                <label for="divisi">Divisi</label>
-                <input type="text" class="form-control <?= session('error.divisi') ? 'is-invalid' : ''; ?>" id="divisi" value="<?= old('divisi') ?: $fpb['divisi']; ?>" name="divisi" required autofocus>
-                <?php if (session('error.divisi')) : ?>
-                    <span class="invalid-feedback" role="alert">
-                        <strong><?= session('error.divisi') ?></strong>
-                    </span>
-                <?php endif ?>
-            </div>
-            <div class="form-group">
-                <label for="lokasi_penempatan">Lokasi Penempatan</label>
-                <input type="text" class="form-control <?= session('error.lokasi_penempatan') ? 'is-invalid' : ''; ?>" id="lokasi_penempatan" value="<?= old('lokasi_penempatan') ?: $fpb['lokasi_penempatan']; ?>" name="lokasi_penempatan" required autofocus>
-                <?php if (session('error.lokasi_penempatan')) : ?>
-                    <span class="invalid-feedback" role="alert">
-                        <strong><?= session('error.lokasi_penempatan') ?></strong>
-                    </span>
-                <?php endif ?>
-            </div>
-            <div class="form-group">
-                <label for="kebutuhan_projek">Kebutuhan Projek</label>
-                <input type="text" class="form-control <?= session('error.kebutuhan_projek') ? 'is-invalid' : ''; ?>" id="kebutuhan_projek" value="<?= old('kebutuhan_projek') ?: $fpb['kebutuhan_projek']; ?>" name="kebutuhan_projek" required autofocus>
-                <?php if (session('error.kebutuhan_projek')) : ?>
-                    <span class="invalid-feedback" role="alert">
-                        <strong><?= session('error.kebutuhan_projek') ?></strong>
-                    </span>
-                <?php endif ?>
-            </div>
-            <div class="form-group">
-                <label for="keterangan">Keterangan</label>
-                <input type="text" class="form-control <?= session('error.keterangan') ? 'is-invalid' : ''; ?>" id="keterangan" value="<?= old('keterangan') ?: $fpb['keterangan']; ?>" name="keterangan" required autofocus>
-                <?php if (session('error.keterangan')) : ?>
-                    <span class="invalid-feedback" role="alert">
-                        <strong><?= session('error.keterangan') ?></strong>
-                    </span>
-                <?php endif ?>
-            </div>
-            <div class="formbarang">
-                <div class="row duplicate-row">
-                    <div class="form-group col-3 mr-2 text-center">
-                        <label for="nama_barang">Nama Barang</label>
-                        <select class="form-control" id="nama_barang" placeholder="Pilih Nama/Jenis" value="<?= old('nama_barang') ?: $fpb['nama_barang']; ?>" name="nama_barang" required autocomplete="nama_barang">
-                            <option>Pilih...</option>
-                            <?php $i = 1; foreach ($alats as $alat) : ?>
-                            <option><?= $alat['kode_alat'] ?> || <?= $alat['nama_alat'] ?></option>
-                        <?php endforeach; ?>
-                        </select>
-                        <?php if (session('errors.nama_barang')) : ?>
-                        <span class="invalid-feedback" role="alert">
-                            <strong><?= session('errors.nama_barang') ?></strong>
-                        </span>
-                    <?php endif ?>
-                    </div>
-                    <div class="form-group col-3 mr-2 text-center">
-                        <label for="tipe">Tipe</label>
-                        <input type="text" class="form-control" id="tipe" placeholder="Masukkan Tipe" value="<?= old('tipe') ?: $fpb['tipe']; ?>" name="tipe" required autocomplete="tipe">
-                        <?php if (session('errors.tipe')) : ?>
-                        <span class="invalid-feedback" role="alert">
-                            <strong><?= session('errors.tipe') ?></strong>
-                        </span>
-                    <?php endif ?>
-                    </div>
-                    <div class="form-group col-1 mr-2 text-center">
-                        <label for="qty">Qty</label>
-                        <input type="text" class="form-control" id="qty" placeholder="Masukkan Kuantitas" value="<?= old('qty') ?: $fpb['qty']; ?>" name="qty" required autocomplete="qty">
-                        <?php if (session('errors.qty')) : ?>
-                        <span class="invalid-feedback" role="alert">
-                            <strong><?= session('errors.qty') ?></strong>
-                        </span>
-                    <?php endif ?>
-                    </div>
-                    <div class="form-group col-4 mr-2 text-center">
-                        <label for="note">Note</label>
-                        <input type="text" class="form-control" id="note" placeholder="Masukkan Note" value="<?= old('note') ?: $fpb['note']; ?>" name="note" required autocomplete="note">
-                        <?php if (session('errors.note')) : ?>
-                        <span class="invalid-feedback" role="alert">
-                            <strong><?= session('errors.note') ?></strong>
-                        </span>
-                    <?php endif ?>
-                    </div>
-                </div>
-            </div>
-
+            
+            
         <!-- /.card-body -->
         <div class="card-footer">
             <button type="submit" class="btn btn-primary">Simpan</button>
-            <a href="<?= route_to('fpb'); ?>" class="btn btn-secondary">Batal</a>
+            <a href="<?= route_to('alat'); ?>" class="btn btn-secondary">Batal</a>
         </div>
     </form>
 </div>

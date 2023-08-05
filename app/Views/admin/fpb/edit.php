@@ -20,7 +20,7 @@ Edit
             </div>
             <div class="form-group">
                 <label for="tanggal">Tanggal</label>
-                <input type="datetime" class="form-control <?= session('error.tanggal') ? 'is-invalid' : ''; ?>" id="tanggal" value="<?= old('tanggal') ?: $fpb['tanggal']; ?>" name="tanggal" readonly>
+                <input type="datetime-local" class="form-control <?= session('error.tanggal') ? 'is-invalid' : ''; ?>" id="tanggal" value="<?= old('tanggal') ?: $fpb['tanggal']; ?>" name="tanggal" required autofocus>
                 <?php if (session('error.tanggal')) : ?>
                     <span class="invalid-feedback" role="alert">
                         <strong><?= session('error.tanggal') ?></strong>
@@ -82,10 +82,15 @@ Edit
                 <?php endif ?>
             </div>
             <div class="formbarang">
-                <div class="row duplicate-row">
+            <div class="row duplicate-row">
                     <div class="form-group col-3 mr-2 text-center">
                         <label for="nama_barang">Nama Barang</label>
-                        <input type="text" class="form-control" id="nama_barang" placeholder="Pilih Nama/Jenis" value="<?= old('nama_barang') ?: $fpb['nama_barang']; ?>" name="nama_barang" readonly="nama_barang">
+                        <select class="form-control" id="nama_barang" placeholder="Pilih Nama/Jenis" value="<?= old('nama_barang') ?: $fpb['nama_barang']; ?>" name="nama_barang" required autocomplete="nama_barang">
+                        <option selected>Pilih...</option>
+                        <?php $i = 1; foreach ($alats as $alat) : ?>
+                            <option><?= $alat['kode_alat'] ?> || <?= $alat['nama_alat'] ?></option>
+                        <?php endforeach; ?>  
+                        </select>
                         <?php if (session('errors.nama_barang')) : ?>
                         <span class="invalid-feedback" role="alert">
                             <strong><?= session('errors.nama_barang') ?></strong>
@@ -120,29 +125,6 @@ Edit
                     <?php endif ?>
                     </div>
                 </div>
-            </div>
-            <div>
-                <label for="status_fpb">Status</label>
-                    <select class="form-control <?= session('errors.status_fpb') ? 'is-invalid' : ''; ?>" id="status_fpb" name="status_fpb" required autocomplete="status_fpb">
-                        <option value="<?= old('status_fpb') ?: $fpb['status_fpb']; ?>" selected>Pilih status...</option>
-                        <?php if(session()->get('role')== 4) { ?>
-                        <option value="Diterima Supervisor">Terima</option>
-                        <option value="Ditolak Supervisor">Tolak</option>
-                        <!-- Add more options as needed -->
-                        </select>
-                        <?php } ?>
-                        <?php if(session()->get('role')== 3) { ?>
-                        <option value="Diterima Manager">Terima</option>
-                        <option value="Ditolak Manager">Tolak</option>
-                        <!-- Add more options as needed -->
-                        </select>
-                        <?php } ?>
-                        <?php if(session()->get('role')== 2) { ?>
-                        <option value="Diterima General Manager">Terima</option>
-                        <option value="Ditolak General Manager">Tolak</option>
-                        <!-- Add more options as needed -->
-                        </select>
-                        <?php } ?>
             </div>
             
         <?php

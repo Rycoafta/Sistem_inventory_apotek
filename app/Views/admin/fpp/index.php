@@ -8,7 +8,9 @@ FPP
     <div class="card-header">
         <h3 class="card-title">FPP</h3>
         <div class="card-tools">
-            <a href="<?= route_to('fpp/create') ?>" class="btn btn-sm btn-secondary">Pengajuan Pembelian</a>
+            <?php if(session()->get('role')== 8) { ?>
+            <a href="<?= route_to('fpp/create') ?>" class="btn btn-sm btn-secondary">Pengajuan Permintaan</a>
+            <?php } ?>
         </div>
     </div>
     <!-- /.card-header -->
@@ -87,33 +89,39 @@ FPP
                             <a href="<?= route_to('fpp/show', $fpp['id']) ?>" class="show-button">
                                 <i class="fa-solid fa-eye"></i>
                             </a>
-                            <a href="<?= route_to('fpp/edit', $fpp['id']) ?>" class="edit-button">
-                                <i class="fa-solid fa-marker"></i>
-                            </a>
+                            <?php if(session()->get('role')== 8) { ?>
+                                <?php if($fpp['status_fpp'] == "Supervisor Business & Development Minta Revisi" || $fpp['status_fpp'] == "Manager Business & Development Minta Revisi" || $fpp['status_fpp'] == "General Manager Business & Development Minta Revisi") { ?>
+                                    <a href="<?= route_to('fpp/edit', $fpp['id']) ?>" class="edit-button">
+                                        <i class="fa-solid fa-marker"></i>
+                                    </a>
+                                <?php } ?>
+                            <?php } ?>
                             <!-- Button trigger modal -->
-                            <a href="<?= route_to('fpp/delete', $fpp['id']) ?>" class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm<?= $fpp['id'] ?>">
-                                <i class="fa-solid fa-trash-can"></i>
-                            </a>
-                            <!-- Modal -->
-                            <div class="modal fade bd-example-modal-sm<?= $fpp['id'] ?>" tabindex="-1" role="dialog" aria-hidden="">
-                                <div class="modal-dialog ">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title"><strong>Hapus Data</strong></h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                        </div>
-                                        <div class="modal-body">Apakah Anda yakin ingin menghapus data?</div>
-                                        <div class="modal-footer">
-                                            <form action="<?= route_to('fpp/delete', $fpp['id']) ?>" method="POST">
-                                                <?= csrf_field() ?>
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                <input type="submit" class="btn btn-danger light" name="" id="" value="Hapus">
-                                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Tidak</button>
-                                            </form>
+                            <?php if(session()->get('role')== 5 || session()->get('role')== 6|| session()->get('role')== 7 ){ ?>
+                                <a href="<?= route_to('fpp/delete', $fpp['id']) ?>" class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm<?= $fpp['id'] ?>">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </a>
+                                <!-- Modal -->
+                                <div class="modal fade bd-example-modal-sm<?= $fpp['id'] ?>" tabindex="-1" role="dialog" aria-hidden="">
+                                    <div class="modal-dialog ">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title"><strong>Hapus Data</strong></h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                            </div>
+                                            <div class="modal-body">Apakah Anda yakin ingin menghapus data?</div>
+                                            <div class="modal-footer">
+                                                <form action="<?= route_to('fpp/delete', $fpp['id']) ?>" method="POST">
+                                                    <?= csrf_field() ?>
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <input type="submit" class="btn btn-danger light" name="" id="" value="Hapus">
+                                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Tidak</button>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            <?php } ?>
 
                         </td>
                     </tr>

@@ -39,6 +39,7 @@ $routes->post('/auth/login', 'Auth::doLogin');
 
 // CRUD FPP
 $routes->get('fpp', 'AdminFPPController::index');
+$routes->get('fpp', 'Cetak::index');
 $routes->get('fpp/create', 'AdminFPPController::create');
 $routes->post('fpp/store', 'AdminFPPController::store', ['as' => 'fpp/store']);
 $routes->get('fpp/show/(:segment)', 'AdminFPPController::show/$1', ['as' => 'fpp/show']);
@@ -51,6 +52,7 @@ $routes->get('fpp/reject/(:num)', 'AdminfppController::reject/$1', ['as' => 'fpp
 
 // CRUD FPB
 $routes->get('fpb', 'AdminFPBController::index');
+$routes->get('fpb', 'Cetak::index');
 $routes->get('fpb/create', 'AdminFPBController::create');
 $routes->post('fpb/store', 'AdminFPBController::store', ['as' => 'fpb/store']);
 $routes->get('fpb/show/(:num)', 'AdminFPBController::show/$1', ['as' => 'fpb/show']);

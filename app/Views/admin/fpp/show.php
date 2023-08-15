@@ -5,6 +5,16 @@ Detail Pengajuan Pembelian
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
+<form>
+        <!-- Element-elemen form -->
+        <button type="button" id="btnPrint">Cetak</button>
+    </form>
+
+    <script>
+        document.getElementById("btnPrint").addEventListener("click", function() {
+            window.print();
+        });
+    </script>
 <div class="card card-primary m-2">
     <div class="card-header">
         <h3 class="card-title">Detail Pengajuan Permintaan</h3>

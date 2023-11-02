@@ -4183,7 +4183,7 @@ var FullCalendar = (function (exports) {
     var globalLocales = [];
 
     var MINIMAL_RAW_EN_LOCALE = {
-        code: 'id',
+        code: 'en',
         week: {
             dow: 0,
             doy: 4, // 4 days need to be within the year to be considered the first week
@@ -4225,7 +4225,7 @@ var FullCalendar = (function (exports) {
             return "Show " + eventCnt + " more event" + (eventCnt === 1 ? '' : 's');
         } });
     function organizeRawLocales(explicitRawLocales) {
-        var defaultCode = explicitRawLocales.length > 0 ? explicitRawLocales[0].code : 'id';
+        var defaultCode = explicitRawLocales.length > 0 ? explicitRawLocales[0].code : 'en';
         var allRawLocales = globalLocales.concat(explicitRawLocales);
         var rawLocaleMap = {
             en: RAW_EN_LOCALE,
@@ -4305,7 +4305,7 @@ var FullCalendar = (function (exports) {
     }
     // TODO: more DRY and optimized
     function buildDateEnv$1(settings) {
-        var locale = buildLocale(settings.locale || 'id', organizeRawLocales([]).map); // TODO: don't hardcode 'id' everywhere
+        var locale = buildLocale(settings.locale || 'en', organizeRawLocales([]).map); // TODO: don't hardcode 'en' everywhere
         return new DateEnv(__assign(__assign({ timeZone: BASE_OPTION_DEFAULTS.timeZone, calendarSystem: 'gregory' }, settings), { locale: locale }));
     }
 

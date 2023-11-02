@@ -1,524 +1,173 @@
 <!DOCTYPE html>
-<html lang="id">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PT CNI | <?= $this->renderSection('title') ?></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <<title>Apotek Dua Bersaudara | <?= $this->renderSection('title') ?></title>
 
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="<?= base_url('plugins/fontawesome-free/css/all.min.css') ?>">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Tempusdominus Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="<?= base_url('plugins/icheck-bootstrap/icheck-bootstrap.min.css') ?>">
-    <!-- JQVMap -->
-    <link rel="stylesheet" href="<?= base_url('plugins/jqvmap/jqvmap.min.css') ?>">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="<?= base_url('dist/css/adminlte.min.css') ?>">
-    <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="<?= base_url('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') ?>">
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="<?= base_url('plugins/daterangepicker/daterangepicker.css') ?>">
-    <!-- summernote -->
-    <link rel="stylesheet" href="<?= base_url('plugins/summernote/summernote-bs4.min.css') ?>">
-    <script src="https://kit.fontawesome.com/2a99f4df77.js" crossorigin="anonymous"></script>
-
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="57x57" href="<?= base_url('assets/img/logo_cni.png') ?>">
-    <link rel="apple-touch-icon" sizes="60x60" href="<?= base_url('assets/img/logo_cni.png') ?>">
-    <link rel="apple-touch-icon" sizes="72x72" href="<?= base_url('assets/img/logo_cni.png') ?>">
-    <link rel="apple-touch-icon" sizes="76x76" href="<?= base_url('assets/img/logo_cni.png') ?>">
-    <link rel="apple-touch-icon" sizes="114x114" href="<?= base_url('assets/img/logo_cni.png') ?>">
-    <link rel="apple-touch-icon" sizes="120x120" href="<?= base_url('assets/img/logo_cni.png') ?>">
-    <link rel="apple-touch-icon" sizes="144x144" href="<?= base_url('assets/img/logo_cni.png') ?>">
-    <link rel="apple-touch-icon" sizes="152x152" href="<?= base_url('assets/img/logo_cni.png') ?>">
-    <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url('assets/img/logo_cni.png') ?>">
-    <link rel="icon" type="image/png" sizes="192x192" href="<?= base_url('assets/img/logo_cni.png') ?>">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url('assets/img/logo_cni.png') ?>">
-    <link rel="icon" type="image/png" sizes="96x96" href="<?= base_url('assets/img/logo_cni.png') ?>">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/img/logo_cni.png') ?>">
-    <link rel="manifest" href="<?= base_url('assets/favicon/manifest.json') ?>">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="<?= base_url('plugins/fontawesome-free/css/all.min.css') ?>">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="<?= base_url('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') ?>">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="<?= base_url('plugins/icheck-bootstrap/icheck-bootstrap.min.css') ?>">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="<?= base_url('plugins/jqvmap/jqvmap.min.css') ?>">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="<?= base_url('dist/css/adminlte.min.css') ?>">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="<?= base_url('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') ?>">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="<?= base_url('plugins/daterangepicker/daterangepicker.css') ?>">
+  <!-- summernote -->
+  <link rel="stylesheet" href="<?= base_url('plugins/summernote/summernote-bs4.min.css') ?>">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="<?= base_url('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') ?>">
+  <link rel="stylesheet" href="<?= base_url('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') ?>">
+  <link rel="stylesheet" href="<?= base_url('plugins/datatables-buttons/css/buttons.bootstrap4.min.css') ?>">
 </head>
-
 <body class="hold-transition sidebar-mini layout-fixed">
-    <div class="wrapper">
+<div class="wrapper">
 
-        <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-light" style="background-color : blue;">
-            <!-- Left navbar links -->
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars text-white"></i></a>
-                </li>
-            </ul>
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="<?= base_url('dist/img/AdminLTELogo.png') ?>" alt="AdminLTELogo" height="160" width="160">
+  </div>
 
-            <!-- Right navbar links -->
-            <?php if(session()->get('role')== 1) { ?>
-            <ul class="navbar-nav ml-auto">
-                <li>
-                    <div class="user-panel d-flex">
-                        <div class="image">
-                            <img src="<?= base_url('assets/img/default.png') ?>" class="img-circle elevation-2" alt="User Image">
-                        </div>
-                        <div class="info">
-                            <a href="#" class="d-block text-white">Admin</a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <?php } ?>
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-dark"  style="background-color: #305248;">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="index.php" class="nav-link">Main Page</a>
+      </li>
+    </ul>
 
-            <?php if(session()->get('role')== 2) { ?>
-            <ul class="navbar-nav ml-auto">
-                <li>
-                    <div class="user-panel d-flex">
-                        <div class="image">
-                            <img src="<?= base_url('assets/img/default.png') ?>" class="img-circle elevation-2" alt="User Image">
-                        </div>
-                        <div class="info">
-                            <a href="#" class="d-block text-white">General Manager</a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <?php } ?>
-
-            <?php if(session()->get('role')== 3) { ?>
-            <ul class="navbar-nav ml-auto">
-                <li>
-                    <div class="user-panel d-flex">
-                        <div class="image">
-                            <img src="<?= base_url('assets/img/default.png') ?>" class="img-circle elevation-2" alt="User Image">
-                        </div>
-                        <div class="info">
-                            <a href="#" class="d-block text-white">Manager</a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <?php } ?>
-
-            <?php if(session()->get('role')== 4) { ?>
-            <ul class="navbar-nav ml-auto">
-                <li>
-                    <div class="user-panel d-flex">
-                        <div class="image">
-                            <img src="<?= base_url('assets/img/default.png') ?>" class="img-circle elevation-2" alt="User Image">
-                        </div>
-                        <div class="info">
-                            <a href="#" class="d-block text-white">Supervisor</a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <?php } ?>
-
-            <?php if(session()->get('role')== 5) { ?>
-            <ul class="navbar-nav ml-auto">
-                <li>
-                    <div class="user-panel d-flex">
-                        <div class="image">
-                            <img src="<?= base_url('assets/img/default.png') ?>" class="img-circle elevation-2" alt="User Image">
-                        </div>
-                        <div class="info">
-                            <a href="#" class="d-block text-white">General Manager Business & Development</a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <?php } ?>
-
-            <?php if(session()->get('role')== 6) { ?>
-            <ul class="navbar-nav ml-auto">
-                <li>
-                    <div class="user-panel d-flex">
-                        <div class="image">
-                            <img src="<?= base_url('assets/img/default.png') ?>" class="img-circle elevation-2" alt="User Image">
-                        </div>
-                        <div class="info">
-                            <a href="#" class="d-block text-white">Manager Business & Development</a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <?php } ?>
-
-            <?php if(session()->get('role')== 7) { ?>
-            <ul class="navbar-nav ml-auto">
-                <li>
-                    <div class="user-panel d-flex">
-                        <div class="image">
-                            <img src="<?= base_url('assets/img/default.png') ?>" class="img-circle elevation-2" alt="User Image">
-                        </div>
-                        <div class="info">
-                            <a href="#" class="d-block text-white">Supervisor Business & Development</a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <?php } ?>
-
-            <?php if(session()->get('role')== 8) { ?>
-            <ul class="navbar-nav ml-auto">
-                <li>
-                    <div class="user-panel d-flex">
-                        <div class="image">
-                            <img src="<?= base_url('assets/img/default.png') ?>" class="img-circle elevation-2" alt="User Image">
-                        </div>
-                        <div class="info">
-                            <a href="#" class="d-block text-white">Staff Warehouse</a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <?php } ?>
-
-            <?php if(session()->get('role')== 9) { ?>
-            <ul class="navbar-nav ml-auto">
-                <li>
-                    <div class="user-panel d-flex">
-                        <div class="image">
-                            <img src="<?= base_url('assets/img/default.png') ?>" class="img-circle elevation-2" alt="User Image">
-                        </div>
-                        <div class="info">
-                            <a href="#" class="d-block text-white">Staff</a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <?php } ?>
-        </nav>
-        <!-- /.navbar -->
-
-        <!-- Main Sidebar Container -->
-    <aside class="main-sidebar elevation-4">
-        <!-- Brand Logo -->
-        <a href="#" class="brand-link text-center" style="background-color : grey">
-            <img class="w-100" src="<?= base_url('assets/img/logo_cni.png') ?>" alt="">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown no-arrow my-1">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+            <img class="img-profile rounded-circle"
+                src="<?= base_url('dist/img/profile/undraw_profile.svg') ?>" style="height:2rem; width:2rem;">
         </a>
+        <!-- Dropdown - User Information -->
+        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+            aria-labelledby="userDropdown">
+            <a class="dropdown-item" href="#">
+                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                Profile
+            </a>
+            <a class="dropdown-item" href="#">
+                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                Settings
+            </a>
+            <a class="dropdown-item" href="#">
+                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                Activity Log
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                Logout
+            </a>
+        </div>
+    </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
 
-        <!-- Sidebar -->
-        <div class="sidebar bg-dark">
-            <!-- Sidebar user panel (optional) -->
-         
-            <div class="user-panel mt-3 d-flex">
-                    <div class="info d-block">
-                        <h3>MENU</h3>
-                    </div>
-                </div>
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <div class="brand-link">
+      <img src="<?= base_url('dist/img/AdminLTELogo.png') ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light"> Apotek 2 Saudara</span>
+    </div>
 
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <li class="nav-item">
-                            <a href="/dashboard" class="nav-link text-white">
-                                <i class="nav-icon fas fa-chart-line"></i>
-                                <p>
-                                    Dashboard
-                                </p>
-                            </a>
-                        </li>
-                            <?php if(session()->get('role')== 1) { ?>
-                        <li class="nav-item">
-                            <a class="nav-link text-white">
-                            <i class="nav-icon fas fa-pen-to-square"></i>
-                            <p>
-                                Form
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="/fpb" class="nav-link">
-                                <i class="nav-icon fas fa-toolbox"></i>
-                                <p>FPB</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/fpp" class="nav-link">
-                                <i class="nav-icon fas fa-solid fa-shop"></i>
-                                <p>FPP</p>
-                                </a>
-                            </li>
-                            </ul>
-                            <li class="nav-item">
-                            <a href="/alat" class="nav-link text-white">
-                                <i class="nav-icon fas fa-briefcase"></i>
-                                <p>
-                                    Inventory
-                                </p>
-                            </a>
-                            </li>
-                            <li class="nav-item">
-                            <a href="/history" class="nav-link text-white">
-                                <i class="nav-icon fas fa-clock-rotate-left"></i>
-                                <p>
-                                    History
-                                </p>
-                            </a>
-                            </li>
-                            <li class="nav-item">
-                            <a href="/user" class="nav-link text-white">
-                                <i class="nav-icon fas fa-users"></i>
-                                <p>
-                                    USER
-                                </p>
-                            </a>
-                            </li>
-                        </li>
-                        <?php } ?>
-                        <?php if(session()->get('role')== 2) { ?>
-                        <li class="nav-item">
-                            <a class="nav-link text-white">
-                            <i class="nav-icon fas fa-pen-to-square"></i>
-                            <p>
-                                Form 
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="/fpb" class="nav-link">
-                                <i class="nav-icon fas fa-toolbox"></i>
-                                <p>FPB</p>
-                                </a>
-                            </li>
-                            </ul>
-                            <li class="nav-item">
-                            <a href="/history" class="nav-link text-white">
-                                <i class="nav-icon fas fa-clock-rotate-left"></i>
-                                <p>
-                                    History
-                                </p>
-                            </a>
-                            </li>
-                        </li>
-                        <?php } ?>
-                        <?php if(session()->get('role')== 3) { ?>
-                        <li class="nav-item">
-                            <a class="nav-link text-white">
-                            <i class="nav-icon fas fa-pen-to-square"></i>
-                            <p>
-                                Form 
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="/fpb" class="nav-link">
-                                <i class="nav-icon fas fa-toolbox"></i>
-                                <p>FPB</p>
-                                </a>
-                            </li>
-                            </ul>
-                            <li class="nav-item">
-                            <a href="/history" class="nav-link text-white">
-                                <i class="nav-icon fas fa-clock-rotate-left"></i>
-                                <p>
-                                    History
-                                </p>
-                            </a>
-                            </li>
-                        </li>
-                        <?php } ?>
-                        <?php if(session()->get('role')== 4) { ?>
-                        <li class="nav-item">
-                            <a class="nav-link text-white">
-                            <i class="nav-icon fas fa-pen-to-square"></i>
-                            <p>
-                                Form 
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="/fpb" class="nav-link">
-                                <i class="nav-icon fas fa-toolbox"></i>
-                                <p>FPB</p>
-                                </a>
-                            </li>
-                            </ul>
-                            <li class="nav-item">
-                            <a href="/history" class="nav-link text-white">
-                                <i class="nav-icon fas fa-clock-rotate-left"></i>
-                                <p>
-                                    History
-                                </p>
-                            </a>
-                            </li>
-                        </li>
-                        <?php } ?>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional)
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Alexander Pierce</a>
+        </div>
+      </div> -->
 
-                        <?php if(session()->get('role')== 5) { ?>
-                        <li class="nav-item">
-                            <a class="nav-link text-white">
-                            <i class="nav-icon fas fa-pen-to-square"></i>
-                            <p>
-                                Form 
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="/fpp" class="nav-link">
-                                <i class="nav-icon fas fa-solid fa-shop"></i>
-                                <p>FPP</p>
-                                </a>
-                            </li>
-                            </ul>
-                            <li class="nav-item">
-                            <a href="/history" class="nav-link text-white">
-                                <i class="nav-icon fas fa-clock-rotate-left"></i>
-                                <p>
-                                    History
-                                </p>
-                            </a>
-                            </li>
-                        </li>
-                        <?php } ?>
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
 
-                        <?php if(session()->get('role')== 6) { ?>
-                        <li class="nav-item">
-                            <a class="nav-link text-white">
-                            <i class="nav-icon fas fa-pen-to-square"></i>
-                            <p>
-                                Form 
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="/fpp" class="nav-link">
-                                <i class="nav-icon fas fa-solid fa-shop"></i>
-                                <p>FPP</p>
-                                </a>
-                            </li>
-                            </ul>
-                            <li class="nav-item">
-                            <a href="/history" class="nav-link text-white">
-                                <i class="nav-icon fas fa-clock-rotate-left"></i>
-                                <p>
-                                    History
-                                </p>
-                            </a>
-                            </li>
-                        </li>
-                        <?php } ?>
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item">
+            <a href="/dashboard" class="nav-link">
+              <i class="nav-icon fas fa-home" style="color: #ffffff;"></i>
+              <p>Beranda</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/data_obat" class="nav-link">
+              <i class="nav-icon far fa-folder" style="color: #ffffff;"></i>
+              <p>Data Obat</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/data_masuk" class="nav-link">
+              <i class="nav-icon fas fa-folder-plus" style="color: #ffffff;"></i>
+              <p>Data Masuk</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/laporan" class="nav-link">
+              <i class="nav-icon far fa-file-alt" style="color: #ffffff;"></i>
+              <p>Laporan</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/manajemen_user" class="nav-link">
+              <i class="nav-icon fas fa-user-circle" style="color: #ffffff;"></i>
+              <p>Manajemen User</p>
+            </a>
+          </li>
+          <li class="nav-item fixed-bottom">
+            <a href="/logout" class="nav-link">
+              <i class="nav-icon fas fa-sign-out-alt" style="color: #ffffff;"></i>
+              <p>Logout</p>
+            </a>
+          </li>
+          
+          
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
 
-                        <?php if(session()->get('role')== 7) { ?>
-                        <li class="nav-item">
-                            <a class="nav-link text-white">
-                            <i class="nav-icon fas fa-pen-to-square"></i>
-                            <p>
-                                Form 
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="/fpp" class="nav-link">
-                                <i class="nav-icon fas fa-solid fa-shop"></i>
-                                <p>FPP</p>
-                                </a>
-                            </li>
-                            </ul>
-                            <li class="nav-item">
-                            <a href="/history" class="nav-link text-white">
-                                <i class="nav-icon fas fa-clock-rotate-left"></i>
-                                <p>
-                                    History
-                                </p>
-                            </a>
-                            </li>
-                        </li>
-                        <?php } ?>
-
-                        <?php if(session()->get('role')== 8) { ?>
-                        <li class="nav-item">
-                            <a class="nav-link text-white">
-                            <i class="nav-icon fas fa-pen-to-square"></i>
-                            <p>
-                                Form 
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="/fpb" class="nav-link">
-                                <i class="nav-icon fas fa-toolbox"></i>
-                                <p>FPB</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/fpp" class="nav-link">
-                                <i class="nav-icon fas fa-solid fa-shop"></i>
-                                <p>FPP</p>
-                                </a>
-                            </li>
-                            </ul>
-                            <li class="nav-item">
-                            <a href="/alat" class="nav-link text-white">
-                                <i class="nav-icon fas fa-briefcase"></i>
-                                <p>
-                                    Inventory
-                                </p>
-                            </a>
-                            </li>
-                            <li class="nav-item">
-                            <a href="/history" class="nav-link text-white">
-                                <i class="nav-icon fas fa-clock-rotate-left"></i>
-                                <p>
-                                    History
-                                </p>
-                            </a>
-                            </li>
-                        </li>
-                        <?php } ?>
-
-                        <?php if(session()->get('role')== 9) { ?>
-                        <li class="nav-item">
-                            <a class="nav-link text-white">
-                            <i class="nav-icon fas fa-pen-to-square"></i>
-                            <p>
-                                Form 
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="/fpb" class="nav-link">
-                                <i class="nav-icon fas fa-toolbox"></i>
-                                <p>FPB</p>
-                                </a>
-                            </li>
-                            </ul>
-                        </li>
-                        <?php } ?>
-                    
-                        <li class="nav-item">
-                            <a href="/logout" class="nav-link text-white">
-                                <i class="nav-icon fas fa-sign-out"></i>
-                                <p>
-                                    Logout
-                                </p>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <!-- /.sidebar -->
-    </aside>
-
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <div class="content-header">
                 <div class="container-fluid">
@@ -538,49 +187,87 @@
                 </div><!-- /.container-fluid -->
             </section>
             <!-- /.content -->
-        </div>
-        <footer class="main-footer fixed-bottom text-center">
-            <strong>Copyright &copy; 2023 <a href="#">SDL</a>.</strong>
-            All rights reserved.
-        </footer>
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 3.2.0
     </div>
-    <!-- ./wrapper -->
+  </footer>
 
-    <!-- jQuery -->
-    <script src="<?= base_url('plugins/jquery/jquery.min.js') ?>"></script>
-    <!-- jQuery UI 1.11.4 -->
-    <script src="<?= base_url('plugins/jquery-ui/jquery-ui.min.js') ?>"></script>
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-    <script>
-        $.widget.bridge('uibutton', $.ui.button)
-    </script>
-    <!-- Bootstrap 4 -->
-    <script src="<?= base_url('plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
-    <!-- ChartJS -->
-    <script src="<?= base_url('plugins/chart.js/Chart.min.js') ?>"></script>
-    <!-- Sparkline -->
-    <script src="<?= base_url('plugins/sparklines/sparkline.js') ?>"></script>
-    <!-- JQVMap -->
-    <script src="<?= base_url('plugins/jqvmap/jquery.vmap.min.js') ?>"></script>
-    <script src="<?= base_url('plugins/jqvmap/maps/jquery.vmap.usa.js') ?>"></script>
-    <!-- jQuery Knob Chart -->
-    <script src="<?= base_url('plugins/jquery-knob/jquery.knob.min.js') ?>"></script>
-    <!-- daterangepicker -->
-    <script src="<?= base_url('plugins/moment/moment.min.js') ?>"></script>
-    <script src="<?= base_url('plugins/daterangepicker/daterangepicker.js') ?>"></script>
-    <!-- Tempusdominus Bootstrap 4 -->
-    <script src="<?= base_url('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') ?>"></script>
-    <!-- Summernote -->
-    <script src="<?= base_url('plugins/summernote/summernote-bs4.min.js') ?>"></script>
-    <!-- overlayScrollbars -->
-    <script src="<?= base_url('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') ?>"></script>
-    <!-- AdminLTE App -->
-    <script src="<?= base_url('dist/js/adminlte.js') ?>"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="<?= base_url('dist/js/pages/dashboard.js') ?>"></script>
-    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
-    </script>
-    <?= $this->renderSection('script') ?>
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="<?= base_url('plugins/jquery/jquery.min.js') ?>"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="<?= base_url('plugins/jquery-ui/jquery-ui.min.js') ?>"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="<?= base_url('plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+<!-- ChartJS -->
+<script src="<?= base_url('plugins/chart.js/Chart.min.js') ?>"></script>
+<!-- Sparkline -->
+<script src="<?= base_url('plugins/sparklines/sparkline.js') ?>"></script>
+<!-- JQVMap -->
+<script src="<?= base_url('plugins/jqvmap/jquery.vmap.min.js') ?>"></script>
+<script src="<?= base_url('plugins/jqvmap/maps/jquery.vmap.usa.js') ?>"></script>
+<!-- jQuery Knob Chart -->
+<script src="<?= base_url('plugins/jquery-knob/jquery.knob.min.js') ?>"></script>
+<!-- daterangepicker -->
+<script src="<?= base_url('plugins/moment/moment.min.js') ?>"></script>
+<script src="<?= base_url('plugins/daterangepicker/daterangepicker.js') ?>"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="<?= base_url('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') ?>"></script>
+<!-- Summernote -->
+<script src="<?= base_url('plugins/summernote/summernote-bs4.min.js') ?>"></script>
+<!-- overlayScrollbars -->
+<script src="<?= base_url('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') ?>"></script>
+<!-- AdminLTE App -->
+<script src="<?= base_url('dist/js/adminlte.js') ?>"></script>
+<!-- AdminLTE for demo purposes 
+<script src="<?= base_url('dist/js/demo.js') ?>"></script>-->
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="<?= base_url('dist/js/pages/dashboard.js') ?>"></script>
+<!-- DataTables  & Plugins -->
+<script src="<?= base_url('plugins/datatables/jquery.dataTables.min.js') ?>"></script>
+<script src="<?= base_url('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') ?>"></script>
+<script src="<?= base_url('plugins/datatables-responsive/js/dataTables.responsive.min.js') ?>"></script>
+<script src="<?= base_url('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') ?>"></script>
+<script src="<?= base_url('plugins/datatables-buttons/js/dataTables.buttons.min.js') ?>"></script>
+<script src="<?= base_url('plugins/datatables-buttons/js/buttons.bootstrap4.min.js') ?>"></script>
+<script src="<?= base_url('plugins/jszip/jszip.min.js') ?>"></script>
+<script src="<?= base_url('plugins/pdfmake/pdfmake.min.js') ?>"></script>
+<script src="<?= base_url('plugins/pdfmake/vfs_fonts.js') ?>"></script>
+<script src="<?= base_url('plugins/datatables-buttons/js/buttons.html5.min.js') ?>"></script>
+<script src="<?= base_url('plugins/datatables-buttons/js/buttons.print.min.js') ?>"></script>
+<script src="<?= base_url('plugins/datatables-buttons/js/buttons.colVis.min.js') ?>"></script>
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
 </body>
-
 </html>

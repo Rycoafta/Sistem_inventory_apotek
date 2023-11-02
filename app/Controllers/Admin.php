@@ -18,7 +18,7 @@ class Admin extends BaseController
         }
         
         //cek role dari session
-        if($this->session->get('role') != 1 || $this->session->get('role') != 2 || $this->session->get('role') != 3 || $this->session->get('role') != 4 || $this->session->get('role') != 5 || $this->session->get('role') != 6 || $this->session->get('role') != 7 || $this->session->get('role') != 8 || $this->session->get('role') != 9){
+        if($this->session->get('role') != 1 || $this->session->get('role') != 2){
             return redirect()->to('/user');
         }
         

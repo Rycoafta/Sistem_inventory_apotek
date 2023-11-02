@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateFPBTable extends Migration
+class CreateLaporanTable extends Migration
 {
     public function up()
     {
@@ -14,51 +14,35 @@ class CreateFPBTable extends Migration
                 'constraint'        => 11,
                 'auto_increment'    => true
             ],
+            'kode_transaksi' => [
+                'type'              => 'VARCHAR',
+                'constraint'        => 255,
+            ],
             'tanggal' => [
                 'type'              => 'DATETIME',
                 'null'              => false,
             ],
-            'ref' => [
+            'kode_obat' => [
                 'type'              => 'VARCHAR',
                 'constraint'        => 255
             ],
-            'nama_peminjam' => [
+            'nama_obat' => [
                 'type'              => 'VARCHAR',
                 'constraint'        => 255
             ],
-            'divisi' => [
+            'hb_obat' => [
                 'type'              => 'VARCHAR',
                 'constraint'        => 255
             ],
-            'lokasi_penempatan' => [
+            'hj_obat' => [
                 'type'              => 'VARCHAR',
                 'constraint'        => 255
             ],
-            'kebutuhan_projek' => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 255
-            ],
-            'keterangan' => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 255
-            ],
-            'nama_barang' => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 255
-            ],
-            'tipe' => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 255
-            ],
-            'qty' => [
+            'stok' => [
                 'type'              => 'INT',
                 'constraint'        => 11
             ],
-            'note' => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 255
-            ],
-            'status_fpb' => [
+            'jenis' => [
                 'type'              => 'VARCHAR',
                 'constraint'        => 255
             ],
@@ -66,11 +50,11 @@ class CreateFPBTable extends Migration
 
         $this->forge->addKey('id', true);
 
-        $this->forge->createTable('fpb');
+        $this->forge->createTable('laporan');
     }
 
     public function down()
     {
-        $this->forge->dropTable('fpb');
+        $this->forge->dropTable('laporan');
     }
 }

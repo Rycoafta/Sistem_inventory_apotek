@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateAlatTable extends Migration
+class CreateDataObatTable extends Migration
 {
     public function up()
     {
@@ -14,27 +14,38 @@ class CreateAlatTable extends Migration
                 'constraint'        => 11,
                 'auto_increment'    => true
             ],
-            'kode_alat' => [
+            'kode_obat' => [
                 'type'              => 'VARCHAR',
                 'constraint'        => 255
             ],
-            'nama_alat' => [
+            'nama_obat' => [
+                'type'              => 'VARCHAR',
+                'constraint'        => 255
+            ],
+            'hb_obat' => [
+                'type'              => 'VARCHAR',
+                'constraint'        => 255
+            ],
+            'hj_obat' => [
                 'type'              => 'VARCHAR',
                 'constraint'        => 255
             ],
             'stok' => [
                 'type'              => 'INT',
                 'constraint'        => 11
-            ]
-        ]);
-
+            ],
+            'jenis' => [
+                'type'              => 'VARCHAR',
+                'constraint'        => 255
+            ],
+    ]);
         $this->forge->addKey('id', true);
 
-        $this->forge->createTable('alat');
+        $this->forge->createTable('data_obat');
     }
 
     public function down()
     {
-        $this->forge->dropTable('alat');
+        $this->forge->dropTable('data_obat');
     }
 }

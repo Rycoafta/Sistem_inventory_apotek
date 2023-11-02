@@ -8,10 +8,11 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
+        
+        $this->call('DataMasukSeeder');
+        $this->call('LaporanSeeder');
+        $this->call('DataObatSeeder');
         $this->call('RoleSeeder');
         $this->call('UserSeeder');
-        $this->call('FPBSeeder');
-        $this->call('FPPSeeder');
-        $this->call('AlatSeeder');
     }
 }

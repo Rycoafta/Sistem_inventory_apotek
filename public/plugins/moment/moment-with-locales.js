@@ -2036,7 +2036,7 @@
     }
 
     // pick the locale from the array
-    // try ['en-au', 'en-gb'] as 'en-au', 'en-gb', 'id', as in move through the list trying each
+    // try ['en-au', 'en-gb'] as 'en-au', 'en-gb', 'en', as in move through the list trying each
     // substring from most specific to least, but move to the next array item if it's a more specific variant than the current root
     function chooseLocale(names) {
         var i = 0,
@@ -3899,7 +3899,7 @@
     hooks.defaultFormatUtc = 'YYYY-MM-DDTHH:mm:ss[Z]';
 
     function toString() {
-        return this.clone().locale('id').format('ddd MMM DD YYYY HH:mm:ss [GMT]ZZ');
+        return this.clone().locale('en').format('ddd MMM DD YYYY HH:mm:ss [GMT]ZZ');
     }
 
     function toISOString(keepOffset) {
@@ -4318,7 +4318,7 @@
         var i,
             l,
             date,
-            eras = this._eras || getLocale('id')._eras;
+            eras = this._eras || getLocale('en')._eras;
         for (i = 0, l = eras.length; i < l; ++i) {
             switch (typeof eras[i].since) {
                 case 'string':
@@ -5114,7 +5114,7 @@
         return listWeekdaysImpl(localeSorted, format, index, 'weekdaysMin');
     }
 
-    getSetGlobalLocale('id', {
+    getSetGlobalLocale('en', {
         eras: [
             {
                 since: '0001-01-01',
@@ -18076,7 +18076,7 @@
         },
     });
 
-    hooks.locale('id');
+    hooks.locale('en');
 
     return hooks;
 

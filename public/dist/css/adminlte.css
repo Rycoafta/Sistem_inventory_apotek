@@ -33285,6 +33285,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
 
 .small-box > .inner {
   padding: 10px;
+  color: white;
 }
 
 .small-box > .small-box-footer {

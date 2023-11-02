@@ -8,7 +8,7 @@ class RoleModel extends Model
 {
     protected $table = 'role';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['nama_role'];
+    protected $allowedFields = ['nama'];
 
     public function user()
     {

@@ -56413,11 +56413,11 @@ fontkit.create = function (buffer, postscriptName) {
   throw new Error('Unknown font format');
 };
 
-fontkit.defaultLanguage = 'id';
+fontkit.defaultLanguage = 'en';
 
 fontkit.setDefaultLanguage = function (lang) {
   if (lang === void 0) {
-    lang = 'id';
+    lang = 'en';
   }
 
   fontkit.defaultLanguage = lang;
@@ -56820,7 +56820,7 @@ var MAC_LANGUAGE_ENCODINGS = {
 var LANGUAGES = [// unicode
 [], {
   // macintosh
-  0: 'id',
+  0: 'en',
   30: 'fo',
   60: 'ks',
   90: 'rw',
@@ -56983,7 +56983,7 @@ var LANGUAGES = [// unicode
   0x046E: 'lb',
   0x1C0A: 'es-DO',
   0x3001: 'ar-LB',
-  0x0409: 'id',
+  0x0409: 'en',
   0x042F: 'mk',
   0x300A: 'es-EC',
   0x1001: 'ar-LY',
@@ -69609,7 +69609,7 @@ var TTFFont = (_class$4 = /*#__PURE__*/function () {
 
     if (record) {
       // Attempt to retrieve the entry, depending on which translation is available:
-      return record[lang] || record[this.defaultLanguage] || record[fontkit.defaultLanguage] || record['id'] || record[Object.keys(record)[0]] // Seriously, ANY language would be fine
+      return record[lang] || record[this.defaultLanguage] || record[fontkit.defaultLanguage] || record['en'] || record[Object.keys(record)[0]] // Seriously, ANY language would be fine
       || null;
     }
 

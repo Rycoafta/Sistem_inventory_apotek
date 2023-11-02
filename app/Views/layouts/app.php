@@ -40,25 +40,28 @@
 </head>
 
 <body>
-  <header>
+  <Header style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh;">
+  <div>
+        <h1 class="text-center font-weight-light">Selamat datang di website pengurusan Apotek Dua Bersaudara</h1>
+    </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-2 offset-md-5" style = "margin-top: 425px">
+            <div class="col-md-2 offset-md-5">
                 <div class="card my-5">
                     <a href="/login" class="btn btn-dark btn bg-dark">LOGIN</a>
                 </div>
             </div>
         </div>
     </div>
+  </Header>
+  
     
-
-
-  >
+    
 
   <!-- Footer -->
   <footer class="text-center fixed-bottom py-3">
     <div class="container">
-      <p>© 2023 Your Company. All rights reserved.</p>
+      <p>© 2023 Apotek Dua Bersaudara. All rights reserved.</p>
     </div>
   </footer>
 

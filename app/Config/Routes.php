@@ -64,14 +64,14 @@ $routes->get('fpb/revisi/(:num)', 'AdminFPBController::revisi/$1', ['as' => 'fpb
 $routes->get('fpb/reject/(:num)', 'AdminFPBController::reject/$1', ['as' => 'fpb/reject']);
 $routes->get('fpb/done/(:num)', 'AdminFPBController::done/$1', ['as' => 'fpb/done']);
 
-// CRUD ALAT
-$routes->get('alat', 'AdminAlatController::index');
-$routes->get('alat/create', 'AdminAlatController::create');
-$routes->post('alat/store', 'AdminAlatController::store', ['as' => 'alat/store']);
-$routes->get('alat/show/(:num)', 'AdminAlatController::show/$1', ['as' => 'alat/show']);
-$routes->get('alat/edit/(:num)', 'AdminAlatController::edit/$1', ['as' => 'alat/edit']);
-$routes->post('alat/update/(:num)', 'AdminAlatController::update/$1', ['as' => 'alat/update']);
-$routes->delete('alat/delete/(:num)', 'AdminAlatController::destroy/$1', ['as' => 'alat/delete']);
+// CRUD DATA OBAT
+$routes->get('data_obat', 'AdminDataObatController::index');
+$routes->get('data_obat/create', 'AdminDataObatController::create');
+$routes->post('data_obat/store', 'AdminDataObatController::store', ['as' => 'data_obat/store']);
+$routes->get('data_obat/show/(:num)', 'AdminDataObatController::show/$1', ['as' => 'data_obat/show']);
+$routes->get('data_obat/edit/(:num)', 'AdminDataObatController::edit/$1', ['as' => 'data_obat/edit']);
+$routes->post('data_obat/update/(:num)', 'AdminDataObatController::update/$1', ['as' => 'data_obat/update']);
+$routes->get('data_obat/delete/(:num)', 'AdminDataObatController::destroy/$1', ['as' => 'data_obat/delete']);
 
 // CRUD USER
 $routes->get('user', 'AdminUserController::index');
@@ -81,11 +81,6 @@ $routes->get('user/show/(:num)', 'AdminUserController::show/$1', ['as' => 'user/
 $routes->get('user/edit/(:num)', 'AdminUserController::edit/$1', ['as' => 'user/edit']);
 $routes->post('user/update/(:num)', 'AdminUserController::update/$1', ['as' => 'user/update']);
 $routes->delete('user/delete/(:num)', 'AdminUserController::destroy/$1', ['as' => 'user/delete']);
-
-//CRUD HISTORY
-$routes->get('history', 'AdminHistoryController::index');
-$routes->get('history/show/(:num)', 'AdminHistoryController::show/$1', ['as' => 'history/show']);
-$routes->get('history/show2/(:num)', 'AdminHistoryController::show2/$1', ['as' => 'history/show2']);
 
 /*
  * --------------------------------------------------------------------

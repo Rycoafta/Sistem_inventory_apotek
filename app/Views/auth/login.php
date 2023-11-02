@@ -88,7 +88,7 @@
        
     <div class="container">
         <div class="row">
-            <div class="col-md-6 offset-md-3" style = "margin-top: 220px">
+            <div class="col-md-6 offset-md-3" style = "margin-top: 100px">
                 <div class="card my-5">
 
                     <!-- Checking Error -->
@@ -114,7 +114,7 @@
                     <form class="card-body cardbody-color p-lg-4" method="post" action="/auth/login">
                         <?= csrf_field() ?>
                         <div class="text-center mb-4">
-                            <img src="<?= base_url('assets/img/logo_cni.png') ?>" width="220" alt="">
+                            <img src="<?= base_url('dist/img/AdminLTELogo.png') ?>" width="180" alt="">
                         </div>
                         <div class="mb-3">
                             <input type="text" class="form-control" aria-describedby="emailHelp"
@@ -125,7 +125,7 @@
                             <input type="password" class="form-control" placeholder="Password" id="password" required name="password">
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary px-5 w-100">Login</button>
+                            <button type="submit" class="btn btn-success px-5 w-100">Login</button>
                         </div>
                     </form>
                 </div>

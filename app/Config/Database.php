@@ -29,7 +29,7 @@ class Database extends Config
         'hostname' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'database' => 'sistem-inventory',
+        'database' => 'sistem-inventory-apotek',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,

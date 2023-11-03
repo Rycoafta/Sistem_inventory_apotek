@@ -50,19 +50,15 @@ $routes->get('fpp/status/(:num)', 'AdminfppController::status/$1', ['as' => 'fpp
 $routes->get('fpp/revisi/(:num)', 'AdminfppController::revisi/$1', ['as' => 'fpp/revisi']);
 $routes->get('fpp/reject/(:num)', 'AdminfppController::reject/$1', ['as' => 'fpp/reject']);
 
-// CRUD FPB
-$routes->get('fpb', 'AdminFPBController::index');
-$routes->get('fpb', 'Cetak::index');
-$routes->get('fpb/create', 'AdminFPBController::create');
-$routes->post('fpb/store', 'AdminFPBController::store', ['as' => 'fpb/store']);
-$routes->get('fpb/show/(:num)', 'AdminFPBController::show/$1', ['as' => 'fpb/show']);
-$routes->get('fpb/edit/(:num)', 'AdminFPBController::edit/$1', ['as' => 'fpb/edit']);
-$routes->post('fpb/update/(:num)', 'AdminFPBController::update/$1', ['as' => 'fpb/update']);
-$routes->delete('fpb/delete/(:num)', 'AdminFPBController::destroy/$1', ['as' => 'fpb/delete']);
-$routes->get('fpb/status/(:num)', 'AdminFPBController::status/$1', ['as' => 'fpb/status']);
-$routes->get('fpb/revisi/(:num)', 'AdminFPBController::revisi/$1', ['as' => 'fpb/revisi']);
-$routes->get('fpb/reject/(:num)', 'AdminFPBController::reject/$1', ['as' => 'fpb/reject']);
-$routes->get('fpb/done/(:num)', 'AdminFPBController::done/$1', ['as' => 'fpb/done']);
+// CRUD data_masuk
+$routes->get('data_masuk', 'AdminDataMasukController::index');
+$routes->get('data_masuk', 'Cetak::index');
+$routes->get('data_masuk/create', 'AdminDataMasukController::create');
+$routes->post('data_masuk/store', 'AdminDataMasukController::store', ['as' => 'data_masuk/store']);
+$routes->get('data_masuk/show/(:num)', 'AdminDataMasukController::show/$1', ['as' => 'data_masuk/show']);
+$routes->get('data_masuk/edit/(:num)', 'AdminDataMasukController::edit/$1', ['as' => 'data_masuk/edit']);
+$routes->post('data_masuk/update/(:num)', 'AdminDataMasukController::update/$1', ['as' => 'data_masuk/update']);
+$routes->get('data_masuk/delete/(:num)', 'AdminDataMasukController::destroy/$1', ['as' => 'data_masuk/delete']);
 
 // CRUD DATA OBAT
 $routes->get('data_obat', 'AdminDataObatController::index');

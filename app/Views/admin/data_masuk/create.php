@@ -1,31 +1,31 @@
 <?= $this->extend('layouts/admin/app') ?>
 
 <?= $this->section('title') ?>
-Pengajuan Peminjaman
+INPUT DATA MASUK
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
 <div class="card card-primary m-2">
     <div class="card-header">
-        <h3 class="card-title">PENGAJUAN PERMINTAAN BARANG</h3>
+        <h3 class="card-title">DATA OBAT MASUK</h3>
     </div>
     <!-- /.card-header -->
     <!-- form start -->
-    <form method="POST" action="<?= route_to('fpb/store'); ?>">
+    <form method="POST" action="<?= route_to('data_masuk/store'); ?>">
         <?= csrf_field() ?>
         <div class="card-body">
             <div class="form-group">
-                <label for="id">ID FPB</label>
-                <input type="text" class="form-control" id="id" placeholder="Masukkan ID FPB" value="<?= old('id'); ?>" name="id" required autocomplete="id" autofocus>
-                <?php if (session('errors.id')) : ?>
+                <label for="kode_transaksi">Kode Transaksi</label>
+                <input type="text" class="form-control" id="kode_transaksi" placeholder="Masukkan Kode Transaksi" value="<?= old('kode_transaksi'); ?>" name="kode_transaksi" required autocomplete="kode_transaksi" autofocus>
+                <?php if (session('errors.kode_transaksi')) : ?>
                     <span class="invalid-feedback" role="alert">
-                        <strong><?= session('errors.id') ?></strong>
+                        <strong><?= session('errors.kode_transaksi') ?></strong>
                     </span>
                 <?php endif ?>
             </div>
             <div class="form-group">
                 <label for="tanggal">Tanggal</label>
-                <input type="datetime-local" class="form-control" id="tanggal" placeholder="Masukkan Tanggal" value="<?= old('tanggal'); ?>" name="tanggal" required autocomplete="tanggal">
+                <input type="datetime-local" class="form-control" id="tanggal" placeholder="Masukkan tanggal" value="<?= old('tanggal'); ?>" name="tanggal" required autocomplete="tanggal">
                 <?php if (session('errors.tanggal')) : ?>
                     <span class="invalid-feedback" role="alert">
                         <strong><?= session('errors.tanggal') ?></strong>
@@ -33,105 +33,35 @@ Pengajuan Peminjaman
                 <?php endif ?>
             </div>
             <div class="form-group">
-                <label for="ref">Ref./WO/Tanggal</label>
-                <input type="text" class="form-control" id="ref" placeholder="Masukkan Ref./WO/Tanggal" value="<?= old('ref'); ?>" name="ref" required autocomplete="ref">
-                <?php if (session('errors.ref')) : ?>
+                <label for="obat">Nama Obat</label>
+                <input type="text" class="form-control" id="obat" placeholder="Masukkan Jumlah Stok" value="<?= old('obat'); ?>" name="obat" required autocomplete="obat">
+                <?php if (session('errors.obat')) : ?>
                     <span class="invalid-feedback" role="alert">
-                        <strong><?= session('errors.ref') ?></strong>
+                        <strong><?= session('errors.obat') ?></strong>
                     </span>
                 <?php endif ?>
             </div>
             <div class="form-group">
-                <label for="nama_peminjam">Nama</label>
-                <input type="text" class="form-control" id="nama_peminjam" placeholder="Masukkan Nama" value="<?= old('nama_peminjam'); ?>" name="nama_peminjam" required autocomplete="nama_peminjam">
-                <?php if (session('errors.nama_peminjam')) : ?>
+                <label for="jlh_stok">Jumlah Stok</label>
+                <input type="text" class="form-control" id="jlh_stok" placeholder="Masukkan Jumlah Stok" value="<?= old('jlh_stok'); ?>" name="jlh_stok" required autocomplete="jlh_stok">
+                <?php if (session('errors.jlh_stok')) : ?>
                     <span class="invalid-feedback" role="alert">
-                        <strong><?= session('errors.nama_peminjam') ?></strong>
+                        <strong><?= session('errors.jlh_stok') ?></strong>
                     </span>
                 <?php endif ?>
             </div>
             <div class="form-group">
-                <label for="divisi">Divisi</label>
-                <input type="text" class="form-control" id="divisi" placeholder="Masukkan Divisi" value="<?= old('divisi'); ?>" name="divisi" required autocomplete="divisi">
-                <?php if (session('errors.divisi')) : ?>
+                <label for="jenis">Jenis Obat</label>
+                <input type="text" class="form-control" id="jenis" placeholder="Pilih Jenis Obat" value="<?= old('jenis'); ?>" name="jenis" required autocomplete="jenis">
+                <?php if (session('errors.jenis')) : ?>
                     <span class="invalid-feedback" role="alert">
-                        <strong><?= session('errors.divisi') ?></strong>
+                        <strong><?= session('errors.jenis') ?></strong>
                     </span>
                 <?php endif ?>
-            </div>
-            <div class="form-group">
-                <label for="lokasi_penempatan">Lokasi Penempatan</label>
-                <input type="text" class="form-control" id="lokasi_penempatan" placeholder="Masukkan Lokasi Penempatan" value="<?= old('lokasi_penempatan'); ?>" name="lokasi_penempatan" required autocomplete="lokasi_penempatan">
-                <?php if (session('errors.lokasi_penempatan')) : ?>
-                    <span class="invalid-feedback" role="alert">
-                        <strong><?= session('errors.lokasi_penempatan') ?></strong>
-                    </span>
-                <?php endif ?>
-            </div>
-            <div class="form-group">
-                <label for="kebutuhan_projek">Kebutuhan Projek</label>
-                <input type="text" class="form-control" id="kebutuhan_projek" placeholder="Masukkan Kebutuhan Projek" value="<?= old('kebutuhan_projek'); ?>" name="kebutuhan_projek" required autocomplete="kebutuhan_projek">
-                <?php if (session('errors.kebutuhan_projek')) : ?>
-                    <span class="invalid-feedback" role="alert">
-                        <strong><?= session('errors.kebutuhan_projek') ?></strong>
-                    </span>
-                <?php endif ?>
-            </div>
-            <div class="form-group">
-                <label for="keterangan">Keterangan</label>
-                <input type="text" class="form-control" id="keterangan" placeholder="Masukkan Keterangan" value="<?= old('keterangan'); ?>" name="keterangan" required autocomplete="keterangan">
-                <?php if (session('errors.keterangan')) : ?>
-                    <span class="invalid-feedback" role="alert">
-                        <strong><?= session('errors.keterangan') ?></strong>
-                    </span>
-                <?php endif ?>
-            </div>
-            <div class="row">
-                <div class="form-group col-3 mr-2 text-center">
-                    <label for="nama_barang">Nama Barang</label>
-                    <select class="form-control" id="nama_barang" placeholder="Pilih Nama/Jenis" value="<?= old('nama_barang'); ?>" name="nama_barang" required autocomplete="nama_barang">
-                    <option selected>Pilih...</option>
-                        <?php $i = 1; foreach ($alats as $alat) : ?>
-                        <option><?= $alat['nama_alat'] ?></option>
-                    <?php endforeach; ?>
-                    </select>
-                    <?php if (session('errors.nama_barang')) : ?>
-                    <span class="invalid-feedback" role="alert">
-                        <strong><?= session('errors.nama_barang') ?></strong>
-                    </span>
-                <?php endif ?>
-                </div>
-                <div class="form-group col-3 mr-2 text-center">
-                    <label for="tipe">Tipe</label>
-                    <input type="text" class="form-control" id="tipe" placeholder="Masukkan Tipe" value="<?= old('tipe'); ?>" name="tipe" required autocomplete="tipe">
-                    <?php if (session('errors.tipe')) : ?>
-                    <span class="invalid-feedback" role="alert">
-                        <strong><?= session('errors.tipe') ?></strong>
-                    </span>
-                <?php endif ?>
-                </div>
-                <div class="form-group col-1 mr-2 text-center">
-                    <label for="qty">Qty</label>
-                    <input type="text" class="form-control" id="qty" placeholder="Masukkan Kuantitas" value="<?= old('qty'); ?>" name="qty" required autocomplete="qty">
-                    <?php if (session('errors.qty')) : ?>
-                    <span class="invalid-feedback" role="alert">
-                        <strong><?= session('errors.qty') ?></strong>
-                    </span>
-                <?php endif ?>
-                </div>
-                <div class="form-group col-4 mr-2 text-center">
-                    <label for="note">Note</label>
-                    <input type="text" class="form-control" id="note" placeholder="Masukkan Note" value="<?= old('note'); ?>" name="note" required autocomplete="note">
-                    <?php if (session('errors.note')) : ?>
-                    <span class="invalid-feedback" role="alert">
-                        <strong><?= session('errors.note') ?></strong>
-                    </span>
-                <?php endif ?>
-                </div>  
             </div>
 
             <div class="">
-                <button type="submit" class="btn btn-primary">Ajukan</button>
+                <button type="submit" class="btn btn-primary">Kirim</button>
             </div> 
         </div>
         <!-- /.card-body -->

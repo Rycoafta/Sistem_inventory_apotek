@@ -46,7 +46,10 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="/beranda" class="nav-link">Main Page</a>
+        <a href="/dashboard" class="nav-link">Beranda</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="/kasir" class="nav-link">Kasir</a>
       </li>
     </ul>
 
@@ -141,9 +144,31 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/laporan" class="nav-link">
+            <a class="nav-link">
               <i class="nav-icon far fa-file-alt" style="color: #ffffff;"></i>
-              <p>Laporan</p>
+              <p>Cetak Laporan
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/laporan_data_masuk" class="nav-link">
+                  <i class="nav-icon fas fa-arrow-alt-circle-up" style="color: #ffffff;"></i>
+                  <p>Riwayat Data Masuk</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/laporan_penjualan" class="nav-link">
+                  <i class="nav-icon fas fa-arrow-alt-circle-down" style="color: #ffffff;"></i>
+                  <p>Riwayat Penjualan</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="/kasir" class="nav-link">
+              <i class="nav-icon fas fa-cash-register" style="color: #ffffff;"></i>
+              <p>Kasir</p>
             </a>
           </li>
           <li class="nav-item">
@@ -265,6 +290,9 @@
       "autoWidth": false,
       "responsive": true,
     });
+    $("#example3").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
   });
 </script>
 </body>

@@ -50,12 +50,15 @@ $routes->get('fpp/status/(:num)', 'AdminfppController::status/$1', ['as' => 'fpp
 $routes->get('fpp/revisi/(:num)', 'AdminfppController::revisi/$1', ['as' => 'fpp/revisi']);
 $routes->get('fpp/reject/(:num)', 'AdminfppController::reject/$1', ['as' => 'fpp/reject']);
 
-// CRUD data_masuk
+// CRUD LAPORAN DATA MASUK
+$routes->get('laporan_data_masuk', 'AdminLaporanDataMasukController::index');
+$routes->get('laporan_data_masuk', 'Cetak::index');
+
+// CRUD DATA MASUK
 $routes->get('data_masuk', 'AdminDataMasukController::index');
 $routes->get('data_masuk', 'Cetak::index');
 $routes->get('data_masuk/create', 'AdminDataMasukController::create');
 $routes->post('data_masuk/store', 'AdminDataMasukController::store', ['as' => 'data_masuk/store']);
-$routes->get('data_masuk/show/(:num)', 'AdminDataMasukController::show/$1', ['as' => 'data_masuk/show']);
 $routes->get('data_masuk/edit/(:num)', 'AdminDataMasukController::edit/$1', ['as' => 'data_masuk/edit']);
 $routes->post('data_masuk/update/(:num)', 'AdminDataMasukController::update/$1', ['as' => 'data_masuk/update']);
 $routes->get('data_masuk/delete/(:num)', 'AdminDataMasukController::destroy/$1', ['as' => 'data_masuk/delete']);

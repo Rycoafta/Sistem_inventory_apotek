@@ -20,7 +20,7 @@ class AdminDataObatController extends BaseController
     }
 
     public function store()
-{
+    {
     $validationRules = [
         'kode_obat' => 'required',
         'nama_obat' => 'required',
@@ -56,7 +56,6 @@ class AdminDataObatController extends BaseController
         'nama_obat' => $this->request->getPost('nama_obat'),
         'hb_obat' => $this->request->getPost('hb_obat'),
         'hj_obat' => $this->request->getPost('hj_obat'),
-        'stok' => $this->request->getPost('stok'),
         'jenis' => $this->request->getPost('jenis'),
     ];
 
@@ -64,7 +63,7 @@ class AdminDataObatController extends BaseController
     $dataObatModel->insert($data);
 
     return redirect()->to('/data_obat');
-}
+    }
 
     public function show($id)
     {
@@ -123,7 +122,6 @@ class AdminDataObatController extends BaseController
             'nama_obat' => $this->request->getPost('nama_obat'),
             'hb_obat' => $this->request->getPost('hb_obat'),
             'hj_obat' => $this->request->getPost('hj_obat'),
-            'stok' => $this->request->getPost('stok'),
             'jenis' => $this->request->getPost('jenis'),
         ];
 

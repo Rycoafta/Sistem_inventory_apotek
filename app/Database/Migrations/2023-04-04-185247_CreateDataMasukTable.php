@@ -22,6 +22,10 @@ class CreateDataMasukTable extends Migration
                 'type'              => 'DATETIME',
                 'null'              => false,
             ],
+            'tanggal_kadaluarsa' => [
+                'type'              => 'DATE',
+                'null'              => false,
+            ],
             'obat' => [
                 'type'              => 'VARCHAR',
                 'constraint'        => 255
@@ -29,10 +33,6 @@ class CreateDataMasukTable extends Migration
             'jlh_stok' => [
                 'type'              => 'INT',
                 'constraint'        => 11
-            ],
-            'jenis' => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 255
             ],
         ]);
 

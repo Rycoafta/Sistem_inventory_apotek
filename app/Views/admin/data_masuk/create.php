@@ -5,9 +5,13 @@ INPUT DATA MASUK
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-<div class="card card-primary m-2">
-    <div class="card-header">
-        <h3 class="card-title">DATA OBAT MASUK</h3>
+<div class="card m-3">
+    <div class="card-header" >
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="card-title">Input Data Obat Masuk</p>
+            </div>
+        </div>
     </div>
     <!-- /.card-header -->
     <!-- form start -->
@@ -24,7 +28,7 @@ INPUT DATA MASUK
                 <?php endif ?>
             </div>
             <div class="form-group">
-                <label for="tanggal">Tanggal</label>
+                <label for="tanggal">Tanggal Masuk</label>
                 <input type="datetime-local" class="form-control" id="tanggal" placeholder="Masukkan tanggal" value="<?= old('tanggal'); ?>" name="tanggal" required autocomplete="tanggal">
                 <?php if (session('errors.tanggal')) : ?>
                     <span class="invalid-feedback" role="alert">
@@ -33,8 +37,22 @@ INPUT DATA MASUK
                 <?php endif ?>
             </div>
             <div class="form-group">
+                <label for="tanggal_kadaluarsa">Tanggal Kadaluarsa</label>
+                <input type="date" class="form-control" id="tanggal_kadaluarsa" placeholder="Masukkan tanggal kadaluarsa" value="<?= old('tanggal_kadaluarsa'); ?>" name="tanggal_kadaluarsa" required autocomplete="tanggal_kadaluarsa">
+                <?php if (session('errors.tanggal_kadaluarsa')) : ?>
+                    <span class="invalid-feedback" role="alert">
+                        <strong><?= session('errors.tanggal_kadaluarsa') ?></strong>
+                    </span>
+                <?php endif ?>
+            </div>
+            <div class="form-group">
                 <label for="obat">Nama Obat</label>
-                <input type="text" class="form-control" id="obat" placeholder="Masukkan Jumlah Stok" value="<?= old('obat'); ?>" name="obat" required autocomplete="obat">
+                <select class="form-control" id="obat" value="<?= old('obat'); ?>" name="obat" required autocomplete="obat">
+                <option selected>Pilih...</option>
+                        <?php $i = 1; foreach ($datamasuk as $dataMasuk) : ?>
+                        <option><?= $dataMasuk['nama_obat'] ?></option>
+                    <?php endforeach; ?>
+                </select>
                 <?php if (session('errors.obat')) : ?>
                     <span class="invalid-feedback" role="alert">
                         <strong><?= session('errors.obat') ?></strong>
@@ -43,19 +61,10 @@ INPUT DATA MASUK
             </div>
             <div class="form-group">
                 <label for="jlh_stok">Jumlah Stok</label>
-                <input type="text" class="form-control" id="jlh_stok" placeholder="Masukkan Jumlah Stok" value="<?= old('jlh_stok'); ?>" name="jlh_stok" required autocomplete="jlh_stok">
+                <input type="number" class="form-control" id="jlh_stok" placeholder="Masukkan Jumlah Stok" value="<?= old('jlh_stok'); ?>" name="jlh_stok" required autocomplete="jlh_stok">
                 <?php if (session('errors.jlh_stok')) : ?>
                     <span class="invalid-feedback" role="alert">
                         <strong><?= session('errors.jlh_stok') ?></strong>
-                    </span>
-                <?php endif ?>
-            </div>
-            <div class="form-group">
-                <label for="jenis">Jenis Obat</label>
-                <input type="text" class="form-control" id="jenis" placeholder="Pilih Jenis Obat" value="<?= old('jenis'); ?>" name="jenis" required autocomplete="jenis">
-                <?php if (session('errors.jenis')) : ?>
-                    <span class="invalid-feedback" role="alert">
-                        <strong><?= session('errors.jenis') ?></strong>
                     </span>
                 <?php endif ?>
             </div>

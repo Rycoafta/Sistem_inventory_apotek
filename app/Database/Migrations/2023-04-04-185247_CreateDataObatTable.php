@@ -32,7 +32,7 @@ class CreateDataObatTable extends Migration
             ],
             'stok' => [
                 'type'              => 'INT',
-                'constraint'        => 11
+                'constraint'        => 11,
             ],
             'jenis' => [
                 'type'              => 'VARCHAR',

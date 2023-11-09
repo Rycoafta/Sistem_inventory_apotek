@@ -54,15 +54,6 @@ INPUT OBAT
             <?php endif ?>
         </div>
         <div class="form-group">
-            <label for="stok">Jumlah Stok</label>
-            <input type="number" class="form-control" id="stok" placeholder="Masukkan Total Stok" value="<?= old('stok'); ?>" name="stok" required autocomplete="stok">
-            <?php if (session('errors.stok')) : ?>
-                <span class="invalid-feedback" role="alert">
-                    <strong><?= session('errors.stok') ?></strong>
-                </span>
-            <?php endif ?>
-        </div>
-        <div class="form-group">
             <label for="jenis">Jenis</label>
             <input type="text" class="form-control" id="jenis" placeholder="Pilih Jenis" value="<?= old('jenis'); ?>" name="jenis" required autocomplete="jenis">
             <?php if (session('errors.jenis')) : ?>

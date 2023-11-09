@@ -3,19 +3,22 @@
 namespace App\Controllers;
 
 use App\Models\DataMasukModel;
+use App\Models\DataObatModel;
 
 class AdminDataMasukController extends BaseController
 {
     public function index()
     {
-        $dataMasukModel = new DataMasukModel();
+        $dataMasukModel = new DataObatModel();
         $datamasuk = $dataMasukModel->findAll();
         return view('admin/data_masuk/index', ['datamasuk' => $datamasuk]);
     }
 
     public function create()
     {
-        return view('admin/data_masuk/create');
+        $dataMasukModel = new DataObatModel();
+        $datamasuk = $dataMasukModel->findAll();
+        return view('admin/data_masuk/create', ['datamasuk' => $datamasuk]);
     }
 
     public function store()
@@ -23,9 +26,9 @@ class AdminDataMasukController extends BaseController
         $validationRules = [
             'kode_transaksi' => 'required',
             'tanggal' => 'required',
+            'tanggal_kadaluarsa' => 'required',
             'obat' => 'required',
             'jlh_stok' => 'required',
-            'jenis' => 'required',
         ];
 
         $validationMessages = [
@@ -35,14 +38,14 @@ class AdminDataMasukController extends BaseController
             'tanggal' => [
                 'required' => 'Tanggal harus diisi.',
             ],
+            'tanggal_kadaluarsa' => [
+                'required' => 'Tanggal harus diisi.',
+            ],
             'obat' => [
                 'required' => 'Nama Obat harus diisi.',
             ],
             'jlh_stok' => [
                 'required' => 'Jumlah Stok harus diisi.',
-            ],
-            'jenis' => [
-                'required' => 'Jenis harus diisi.',
             ]
         ];
         
@@ -53,33 +56,46 @@ class AdminDataMasukController extends BaseController
         $data = [
             'kode_transaksi' => $this->request->getVar('kode_transaksi'),
             'tanggal' => $this->request->getVar('tanggal'),
+            'tanggal_kadaluarsa' => $this->request->getVar('tanggal_kadaluarsa'),
             'obat' => $this->request->getVar('obat'),
             'jlh_stok' => $this->request->getVar('jlh_stok'),
-            'jenis' => $this->request->getVar('jenis'),
-            'created_at' => date('Y-m-d H:i:s')
         ];
         
         $dataMasukModel = new DataMasukModel();
         $dataMasukModel->insert($data);
 
-        return redirect()->to('/data_masuk');
-    }
+        $dataObatModel = new DataObatModel();
+        $dataobat = $dataObatModel->findAll();
 
-    public function show($id)
-    {
-        $dataMasukModel = new DataMasukModel();
-        $datamasuk = $dataMasukModel->find($id);
-
-        if (!$datamasuk) {
-            return redirect()->back()->with('error', 'Data Masuk not found.');
+        if (!$dataobat) {
+            return redirect()->back()->with('error', 'Obat not found.');
         }
 
-        return view('admin/data_masuk/show', compact('datamasuk'));
+        $obatData = null;
+        $masukData = null;
+        foreach ($dataobat as $dataObat) {
+            if ($dataObat['nama_obat'] == $data['obat']) {
+                $obatData = $dataObat;
+                break;
+            }
+        }
+
+        if ($obatData && $data) {
+            $data_2 = [
+                'stok' => $obatData['stok'] + $data['jlh_stok'],
+            ];
+
+            $dataObatModel->update($obatData['id'], $data_2);
+
+            return redirect()->to('/data_masuk')->with('success', 'Obat berhasil ditambahkan.');
+        } else {
+            return redirect()->back()->with('error', 'Obat not found.');
+        }
     }
 
     public function edit($id)
     {
-        $dataMasukModel = new DataMasukModel();
+        $dataMasukModel = new DataObatModel();
         $datamasuk = $dataMasukModel->find($id);
 
         if (!$datamasuk) {
@@ -92,29 +108,13 @@ class AdminDataMasukController extends BaseController
     public function update($id)
     {
         $validationRules = [
-            'kode_transaksi' => "required",
-            'tanggal' => 'required',
-            'obat' => 'required',
-            'jlh_stok' => 'required',
-            'jenis' => 'required',
+            'stok' => 'required',
         ];
 
         $validationMessages = [
-            'kode_transaksi' => [
-                'required' => 'kode transaksi harus diisi.',
-            ],
-            'tanggal' => [
-                'required' => 'tanggal harus diisi.',
-            ],
-            'obat' => [
-                'required' => 'Nama obat harus diisi.',
-            ],
-            'jlh_stok' => [
+            'stok' => [
                 'required' => 'jumlah stok harus diisi.',
             ],
-            'jenis' => [
-                'required' => 'jenis harus diisi.',
-            ]
         ];
 
         $validation = \Config\Services::validation();
@@ -125,15 +125,10 @@ class AdminDataMasukController extends BaseController
         }
 
         $data = [
-            'kode_transaksi' => $this->request->getPost('kode_transaksi'),
-            'tanggal' => $this->request->getPost('tanggal'),
-            'obat' => $this->request->getPost('obat'),
-            'jlh_stok' => $this->request->getPost('jlh_stok'),
-            'jenis' => $this->request->getPost('jenis'),
-            'updated_at' => date('Y-m-d H:i:s')
+            'stok' => $this->request->getPost('stok'),
         ];
 
-        $dataMasukModel = new DataMasukModel();
+        $dataMasukModel = new DataObatModel();
         $datamasuk = $dataMasukModel->find($id);
 
         if (!$datamasuk) {

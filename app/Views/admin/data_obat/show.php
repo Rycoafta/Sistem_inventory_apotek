@@ -33,10 +33,6 @@ DETAIL
             <input type="text" class="form-control" id="hj_obat" value="<?= $dataObat['hj_obat']; ?>" readonly>
         </div>
         <div class="form-group">
-            <label for="stok">Jumlah Stok</label>
-            <input type="number" class="form-control" id="stok" value="<?= $dataObat['stok']; ?>" readonly>
-        </div>
-        <div class="form-group">
             <label for="jenis">Jenis</label>
             <input type="text" class="form-control" id="jenis" value="<?= $dataObat['jenis']; ?>" readonly>
         </div>

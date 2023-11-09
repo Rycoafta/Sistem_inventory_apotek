@@ -42,7 +42,7 @@ Beranda
               <div class="inner text-white">
                 <h3>700</h3>
 
-                <p>Laporan</p>
+                <p>Penjualan Hari ini</p>
               </div>
               <div class="icon">
                 <i class="fas fa-file-alt"></i>
@@ -58,7 +58,7 @@ Beranda
               <div class="inner">
                 <h3>10</h3>
 
-                <p>Laporan Obat Masuk</p>
+                <p>Obat Masuk Hari ini</p>
               </div>
               <div class="icon">
                 <i class="fas fa-file-import"></i>

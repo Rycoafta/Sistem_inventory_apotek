@@ -23,12 +23,12 @@ class CreateDataObatTable extends Migration
                 'constraint'        => 255
             ],
             'hb_obat' => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 255
+                'type'              => 'INT',
+                'constraint'        => 11
             ],
             'hj_obat' => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 255
+                'type'              => 'INT',
+                'constraint'        => 11
             ],
             'stok' => [
                 'type'              => 'INT',

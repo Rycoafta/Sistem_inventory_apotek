@@ -14,7 +14,7 @@ class CreateLaporanTable extends Migration
                 'constraint'        => 11,
                 'auto_increment'    => true
             ],
-            'kode_transaksi' => [
+            'kode_penjualan' => [
                 'type'              => 'VARCHAR',
                 'constraint'        => 255,
             ],
@@ -22,29 +22,17 @@ class CreateLaporanTable extends Migration
                 'type'              => 'DATETIME',
                 'null'              => false,
             ],
-            'kode_obat' => [
+            'name_obat' => [
                 'type'              => 'VARCHAR',
                 'constraint'        => 255
             ],
-            'nama_obat' => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 255
-            ],
-            'hb_obat' => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 255
-            ],
-            'hj_obat' => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 255
-            ],
-            'stok' => [
+            'qty' => [
                 'type'              => 'INT',
                 'constraint'        => 11
             ],
-            'jenis' => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 255
+            'harga' => [
+                'type'              => 'INT',
+                'constraint'        => 11
             ],
         ]);
 

@@ -37,18 +37,9 @@ $routes->get('/logout', 'Auth::logout');
 
 $routes->post('/auth/login', 'Auth::doLogin');
 
-// CRUD FPP
-$routes->get('fpp', 'AdminFPPController::index');
-$routes->get('fpp', 'Cetak::index');
-$routes->get('fpp/create', 'AdminFPPController::create');
-$routes->post('fpp/store', 'AdminFPPController::store', ['as' => 'fpp/store']);
-$routes->get('fpp/show/(:segment)', 'AdminFPPController::show/$1', ['as' => 'fpp/show']);
-$routes->get('fpp/edit/(:segment)', 'AdminFPPController::edit/$1', ['as' => 'fpp/edit']);
-$routes->post('fpp/update/(:segment)', 'AdminFPPController::update/$1', ['as' => 'fpp/update']);
-$routes->delete('fpp/delete/(:segment)', 'AdminFPPController::destroy/$1', ['as' => 'fpp/delete']);
-$routes->get('fpp/status/(:num)', 'AdminfppController::status/$1', ['as' => 'fpp/status']);
-$routes->get('fpp/revisi/(:num)', 'AdminfppController::revisi/$1', ['as' => 'fpp/revisi']);
-$routes->get('fpp/reject/(:num)', 'AdminfppController::reject/$1', ['as' => 'fpp/reject']);
+// CRUD LAPORAN PENJUALAN
+$routes->get('laporan_penjualan', 'AdminLaporanPenjualanController::index');
+$routes->get('laporan_penjualan', 'Cetak::index');
 
 // CRUD LAPORAN DATA MASUK
 $routes->get('laporan_data_masuk', 'AdminLaporanDataMasukController::index');
@@ -56,7 +47,6 @@ $routes->get('laporan_data_masuk', 'Cetak::index');
 
 // CRUD DATA MASUK
 $routes->get('data_masuk', 'AdminDataMasukController::index');
-$routes->get('data_masuk', 'Cetak::index');
 $routes->get('data_masuk/create', 'AdminDataMasukController::create');
 $routes->post('data_masuk/store', 'AdminDataMasukController::store', ['as' => 'data_masuk/store']);
 $routes->get('data_masuk/edit/(:num)', 'AdminDataMasukController::edit/$1', ['as' => 'data_masuk/edit']);

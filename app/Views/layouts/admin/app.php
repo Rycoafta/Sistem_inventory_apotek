@@ -172,7 +172,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/manajemen_user" class="nav-link">
+            <a href="/user" class="nav-link">
               <i class="nav-icon fas fa-user-circle" style="color: #ffffff;"></i>
               <p>Manajemen User</p>
             </a>

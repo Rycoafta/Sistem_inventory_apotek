@@ -71,6 +71,9 @@ $routes->get('user/edit/(:num)', 'AdminUserController::edit/$1', ['as' => 'user/
 $routes->post('user/update/(:num)', 'AdminUserController::update/$1', ['as' => 'user/update']);
 $routes->delete('user/delete/(:num)', 'AdminUserController::destroy/$1', ['as' => 'user/delete']);
 
+// CRUD KASIR
+$routes->get('kasir', 'AdminKasirController::index');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

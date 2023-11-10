@@ -20,11 +20,11 @@ class CreateKasirTable extends Migration
             ],
             'bayar' => [
                 'type'              => 'INT',
-                'constraint'              => 11,
+                'constraint'        => 11,
             ],
             'kembali' => [
                 'type'              => 'INT',
-                'constraint'              => 11,
+                'constraint'        => 11,
             ]
         ]);
 

@@ -5,9 +5,13 @@ EDIT AKUN
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-<div class="card card-primary m-2">
-    <div class="card-header">
-        <h3 class="card-title">EDIT AKUN</h3>
+<div class="card m-3">
+    <div class="card-header" >
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="card-title">Edit Akun</p>
+            </div>
+        </div>
     </div>
     <!-- /.card-header -->
     <!-- form start -->
@@ -49,7 +53,7 @@ EDIT AKUN
                 <option value="2">User</option>
                 <!-- Add more options as needed -->
                 </select>
-    <?php if (session('error.role')) : ?>
+                <?php if (session('error.role')) : ?>
                     <span class="invalid-feedback" role="alert">
                         <strong><?= session('error.role') ?></strong>
                     </span>
@@ -58,7 +62,7 @@ EDIT AKUN
         </div>  
         <!-- /.card-body -->
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Simpan</button>
+            <button type="submit" class="btn btn-success">Simpan</button>
             <a href="<?= route_to('user'); ?>" class="btn btn-secondary">Batal</a>
         </div>
     </form>

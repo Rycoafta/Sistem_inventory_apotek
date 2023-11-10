@@ -8,12 +8,12 @@ USER
     <div class="card-header">
         <h3 class="card-title">List Akun</h3>
         <div class="card-tools">
-            <a href="<?= route_to('user/create') ?>" class="btn btn-sm btn-secondary">Buat Akun</a>
+            <a class="btn btn-success float-right" href="<?= route_to('user/create') ?>">Buat Akun</a>
         </div>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-        <table id="example1" class="table table-bordered table-striped">
+        <table id="example3" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>No</th>
@@ -33,15 +33,15 @@ USER
                         <td><?= $user['role'] ?></td>
                  
                         <td class="manage-row">
-                            <a href="<?= route_to('user/show', $user['id']) ?>" class="show-button">
-                                <i class="fa-solid fa-eye"></i>
+                            <a href="<?= route_to('user/show', $user['id']) ?>" class="show-button badge badge-light">
+                                <i class="fas fa-eye" style="color: #005eff;"></i>
                             </a>
-                            <a href="<?= route_to('user/edit', $user['id']) ?>" class="edit-button">
-                                <i class="fa-solid fa-marker"></i>
+                            <a href="<?= route_to('user/edit', $user['id']) ?>" class="edit-button badge badge-light">
+                                <i class="fas fa-edit" style="color: #005eff;"></i>
                             </a>
                             <!-- Button trigger modal -->
-                            <a href="<?= route_to('user/delete', $user['id']) ?>" class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm<?= $user['id'] ?>">
-                                <i class="fa-solid fa-trash-can"></i>
+                            <a href="<?= route_to('user/delete', $user['id']) ?>" class="delete-button badge badge-light" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm<?= $user['id'] ?>">
+                                <i class="fas fa-trash-alt" style="color: #005eff;"></i>
                             </a>
                             <!-- Modal -->
                             <div class="modal fade bd-example-modal-sm<?= $user['id'] ?>" tabindex="-1" role="dialog" aria-hidden="">
@@ -81,39 +81,4 @@ USER
     </div>
     <!-- /.card-body -->
 </div>
-<?= $this->endSection() ?>
-
-<?= $this->section('script') ?>
-<script>
-    $(function() {
-        $("#example1").DataTable({
-            "responsive": true,
-            "lengthChange": true,
-            "autoWidth": false,
-            "buttons": ["csv", "excel", "pdf", "print"]
-        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-        });
-    });
-</script>
-<!-- DataTables  & Plugins -->
-<script src="<?= base_url('plugins/datatables/jquery.dataTables.min.js') ?>"></script>
-<script src="<?= base_url('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') ?>"></script>
-<script src="<?= base_url('plugins/datatables-responsive/js/dataTables.responsive.min.js') ?>"></script>
-<script src="<?= base_url('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') ?>"></script>
-<script src="<?= base_url('plugins/datatables-buttons/js/dataTables.buttons.min.js') ?>"></script>
-<script src="<?= base_url('plugins/datatables-buttons/js/buttons.bootstrap4.min.js') ?>"></script>
-<script src="<?= base_url('plugins/jszip/jszip.min.js') ?>"></script>
-<script src="<?= base_url('plugins/pdfmake/pdfmake.min.js') ?>"></script>
-<script src="<?= base_url('plugins/pdfmake/vfs_fonts.js') ?>"></script>
-<script src="<?= base_url('plugins/datatables-buttons/js/buttons.html5.min.js') ?>"></script>
-<script src="<?= base_url('plugins/datatables-buttons/js/buttons.print.min.js') ?>"></script>
-<script src="<?= base_url('plugins/datatables-buttons/js/buttons.colVis.min.js') ?>"></script>
 <?= $this->endSection() ?>

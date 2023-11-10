@@ -9,7 +9,15 @@ class AdminKasirController extends BaseController
     public function index()
     {
         $kasirModel = new KasirModel();
-        $kasir = $KasirModel->findAll();
+        $kasir = $kasirModel->findAll();
+        
+        return view('admin/kasir/index', ['kasir' => $kasir]);
+    }
+
+    public function store()
+    {
+        $kasirModel = new KasirModel();
+        $kasir = $kasirModel->findAll();
         
         $validationRules = [
             'total' => 'required',

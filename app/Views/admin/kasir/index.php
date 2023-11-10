@@ -6,16 +6,16 @@ Inventory
 <?= $this->section('content') ?>
 <div class="card m-3">
     <div class="card-header">
-    <div class="row">
-    <div class="col-lg-12">
-        <p class="card-title">Kasir</p>
-    </div>
-    </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="card-title">Kasir</p>
+            </div>
+        </div>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-    <table id="example3" class="table table-bordered table-striped">
-        <thead>
+        <table id="example3" class="table table-bordered table-striped">
+            <thead>
                 <tr>
                     <th>Kode</th>
                     <th>Nama</th>
@@ -26,13 +26,13 @@ Inventory
         </thead>
         <tbody>
             <?php $i = 1;
-            foreach ($dataobat as $dataObat) : ?>
+            foreach ($kasir as $Kasir) : ?>
                 <tr>
                     <td><?= $i++ ?></td>
-                    <td><?= $dataObat['kode_obat'] ?></td>
-                    <td><?= $dataObat['nama_obat'] ?></td>
-                    <td>Rp.<?= $dataObat['jenis'] ?></td>
-                    <td>Rp.<?= $dataObat['hj_obat'] ?></td>
+                    <td><?= $Kasir['kode_obat'] ?></td>
+                    <td><?= $Kasir['nama_obat'] ?></td>
+                    <td>Rp.<?= $Kasir['jenis'] ?></td>
+                    <td>Rp.<?= $Kasir['hj_obat'] ?></td>
                     <td>
                         <div class="container">
                             <div class="row">
@@ -56,26 +56,27 @@ Inventory
             </tfoot>
         </table>
     </div>
-
-    <form>
-              <div class="form-group">
+    <div class="card-body">
+        <form method="POST" action="<?= route_to('kasir/store'); ?>">
+            <?= csrf_field() ?>
+            <div class="form-group">
                 <label for="exampleInputPassword1">Total</label>
                 <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Rp." readonly>
-              </div>
-              <div class="form-group">
+            </div>
+                <div class="form-group">
                 <label for="exampleInputPassword1">Bayar</label>
                 <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Rp.">
-              </div>
-              <div class="form-group">
+            </div>
+            <div class="form-group">
                 <label for="exampleInputPassword1">Kembali</label>
                 <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Rp." readonly>
-              </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary mb-2">Konfirmasi</button>
-                    <button type="submit" class="btn btn-danger mb-2">Batal</button>
-                </div>
-              </form>
-              </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success mb-2">Konfirmasi</button>
+                <a href="<?= route_to('kasir'); ?>" class="btn btn-danger mb-2">Batal</a>
+            </div>
+        </form>
+    </div>
     <!-- /.card-body -->
 </div>
 <?= $this->endSection() ?>

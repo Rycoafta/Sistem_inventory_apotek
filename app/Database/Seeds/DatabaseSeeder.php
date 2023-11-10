@@ -11,7 +11,6 @@ class DatabaseSeeder extends Seeder
         
         $this->call('DataMasukSeeder');
         $this->call('LaporanSeeder');
-        $this->call('DataMasukSeeder');
         $this->call('DataObatSeeder');
         $this->call('RoleSeeder');
         $this->call('UserSeeder');

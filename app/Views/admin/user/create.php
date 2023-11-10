@@ -5,9 +5,13 @@ TAMBAH AKUN
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-<div class="card card-primary m-2">
-    <div class="card-header">
-        <h3 class="card-title">TAMBAH AKUN</h3>
+<div class="card m-3">
+    <div class="card-header" >
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="card-title">Tambah Akun</p>
+            </div>
+        </div>
     </div>
     <!-- /.card-header -->
     <!-- form start -->
@@ -46,14 +50,7 @@ TAMBAH AKUN
                 <select class="form-control <?= session('errors.role') ? 'is-invalid' : ''; ?>" id="role" name="role" required autocomplete="role">
                     <option value="" selected>Select Role</option>
                     <option value="1">Admin</option>
-                    <option value="2">General Manager</option>
-                    <option value="3">Manager</option>
-                    <option value="4">Supervisor</option>
-                    <option value="5">General Manager Business & Development</option>
-                    <option value="6">Manager Business & Development</option>
-                    <option value="7">Supervisor Business & Development</option>
-                    <option value="8">Staff Warehouse</option>
-                    <option value="9">Staff</option>
+                    <option value="2">Staff</option>
 
                     <!-- Add more options as needed -->
                 </select>
@@ -65,7 +62,7 @@ TAMBAH AKUN
             </div>
             
             <div class="">
-                <button type="submit" class="btn btn-primary">Tambahkan</button>
+                <button type="submit" class="btn btn-success">Tambahkan</button>
             </div>
         </div>
         <!-- /.card-body -->

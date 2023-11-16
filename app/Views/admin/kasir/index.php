@@ -28,10 +28,9 @@ Inventory
             <?php $i = 1;
             foreach ($kasir as $Kasir) : ?>
                 <tr>
-                    <td><?= $i++ ?></td>
                     <td><?= $Kasir['kode_obat'] ?></td>
                     <td><?= $Kasir['nama_obat'] ?></td>
-                    <td>Rp.<?= $Kasir['jenis'] ?></td>
+                    <td><?= $Kasir['jenis'] ?></td>
                     <td>Rp.<?= $Kasir['hj_obat'] ?></td>
                     <td>
                         <div class="container">
@@ -40,7 +39,6 @@ Inventory
                             </div>
                         </div>
                     </td>
-
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -56,6 +54,18 @@ Inventory
             </tfoot>
         </table>
     </div>
+
+    <table id="example3" class="table table-bordered table-striped">
+        <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Nama Produk</th>
+                    <th>Jumlah Beli</th>
+                    <th>Harga</th>
+                    <th>Aksi</th>
+                </tr>
+        </thead>
+    </table>
     <div class="card-body">
         <form method="POST" action="<?= route_to('kasir/store'); ?>">
             <?= csrf_field() ?>

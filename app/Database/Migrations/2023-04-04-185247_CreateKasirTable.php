@@ -25,7 +25,7 @@ class CreateKasirTable extends Migration
             'kembali' => [
                 'type'              => 'INT',
                 'constraint'        => 11,
-            ]
+            ], 
         ]);
 
         $this->forge->addKey('id', true);

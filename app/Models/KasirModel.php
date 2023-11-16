@@ -8,5 +8,5 @@ class KasirModel extends Model
 {
     protected $table = 'kasir';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['total', 'bayar', 'kembali'];
+    protected $allowedFields = ['total', 'bayar', 'kembali', 'qty'];
 }

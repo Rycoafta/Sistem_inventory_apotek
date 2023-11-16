@@ -3,13 +3,16 @@
 namespace App\Controllers;
 
 use App\Models\KasirModel;
+use App\Models\DataObatModel;
+
 
 class AdminKasirController extends BaseController
 {
     public function index()
     {
-        $kasirModel = new KasirModel();
+        $kasirModel = new DataObatModel();
         $kasir = $kasirModel->findAll();
+
         
         return view('admin/kasir/index', ['kasir' => $kasir]);
     }
@@ -52,4 +55,5 @@ class AdminKasirController extends BaseController
     
         return view('admin/kasir/index', ['kasir' => $kasir]);
     }
+
 }

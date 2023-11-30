@@ -23,6 +23,7 @@ Obat Masuk
                 <th>Nama Obat</th>
                 <th>Qty</th>
                 <th>Harga</th>
+                <th>Pelanggan</th>
             </tr>
         </thead>
         <tbody>
@@ -35,6 +36,7 @@ Obat Masuk
                     <td><?= $penjualan['name_obat'] ?></td>
                     <td><?= $penjualan['qty'] ?></td>
                     <td><?= $penjualan['harga'] ?></td>
+                    <td><?= $penjualan['nama_pembeli'] ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
@@ -46,6 +48,7 @@ Obat Masuk
                     <th>Nama Obat</th>
                     <th>Qty</th>
                     <th>Harga</th>
+                    <th>Pelanggan</th>
                 </tr>
             </tfoot>
         </table>

@@ -19,8 +19,12 @@ class CreateLaporanTable extends Migration
                 'constraint'        => 255,
             ],
             'tanggal' => [
-                'type'              => 'DATETIME',
+                'type'              => 'DATE',
                 'null'              => false,
+            ],
+            'kode_obat' => [
+                'type'              => 'VARCHAR',
+                'constraint'        => 255
             ],
             'name_obat' => [
                 'type'              => 'VARCHAR',
@@ -33,6 +37,10 @@ class CreateLaporanTable extends Migration
             'harga' => [
                 'type'              => 'INT',
                 'constraint'        => 11
+            ],
+            'nama_pembeli' => [
+                'type'              => 'VARCHAR',
+                'constraint'        => 255
             ],
         ]);
 

@@ -73,7 +73,12 @@ $routes->delete('user/delete/(:num)', 'AdminUserController::destroy/$1', ['as' =
 
 // CRUD KASIR
 $routes->get('kasir', 'AdminKasirController::index');
-$routes->post('kasir/store', 'AdminKasirController::store', ['as' => 'kasir/store']);
+$routes->post('kasir', 'AdminKasirController::index');
+$routes->post('kasir/tambah', 'AdminKasirController::tambah', ['as' => 'kasir/tambah']);
+$routes->post('kasir/hitung', 'AdminKasirController::hitung', ['as' => 'kasir/hitung']);
+$routes->post('kasir/print', 'AdminKasirController::print', ['as' => 'kasir/print']);
+$routes->get('kasir/store', 'AdminKasirController::store', ['as' => 'kasir/store']);
+$routes->get('kasir/delete/(:num)', 'AdminKasirController::destroy/$1', ['as' => 'kasir/delete']);
 
 /*
  * --------------------------------------------------------------------

@@ -19,7 +19,7 @@ class CreateDataMasukTable extends Migration
                 'constraint'        => 255,
             ],
             'tanggal' => [
-                'type'              => 'DATETIME',
+                'type'              => 'DATE',
                 'null'              => false,
             ],
             'tanggal_kadaluarsa' => [

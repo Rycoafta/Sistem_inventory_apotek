@@ -237,6 +237,7 @@
 <!-- daterangepicker -->
 <script src="<?= base_url('plugins/moment/moment.min.js') ?>"></script>
 <script src="<?= base_url('plugins/daterangepicker/daterangepicker.js') ?>"></script>
+<script src="<?= base_url('plugins/daterangepicker/daterangepicker.css') ?>"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="<?= base_url('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') ?>"></script>
 <!-- Summernote -->

@@ -29,12 +29,7 @@ INPUT DATA MASUK
             </div>
             <div class="form-group">
                 <label for="tanggal">Tanggal Masuk</label>
-                <input type="datetime-local" class="form-control" id="tanggal" placeholder="Masukkan tanggal" value="<?= old('tanggal'); ?>" name="tanggal" required autocomplete="tanggal">
-                <?php if (session('errors.tanggal')) : ?>
-                    <span class="invalid-feedback" role="alert">
-                        <strong><?= session('errors.tanggal') ?></strong>
-                    </span>
-                <?php endif ?>
+                <input type="date" class="form-control" id="tanggal" placeholder="Masukkan tanggal" value="<?= date('Y-m-d'); ?>" name="tanggal" readonly>
             </div>
             <div class="form-group">
                 <label for="tanggal_kadaluarsa">Tanggal Kadaluarsa</label>

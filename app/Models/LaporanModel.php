@@ -8,5 +8,5 @@ class LaporanModel extends Model
 {
     protected $table = 'laporan';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['kode_penjualan', 'tanggal', 'name_obat', 'qty', 'harga'];
+    protected $allowedFields = ['kode_penjualan', 'tanggal', 'kode_obat', 'name_obat', 'qty', 'harga', 'nama_pembeli'];
 }

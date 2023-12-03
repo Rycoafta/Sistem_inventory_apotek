@@ -22,10 +22,6 @@ class CreateLaporanTable extends Migration
                 'type'              => 'DATE',
                 'null'              => false,
             ],
-            'kode_obat' => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 255
-            ],
             'name_obat' => [
                 'type'              => 'VARCHAR',
                 'constraint'        => 255
@@ -37,10 +33,6 @@ class CreateLaporanTable extends Migration
             'harga' => [
                 'type'              => 'INT',
                 'constraint'        => 11
-            ],
-            'nama_pembeli' => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 255
             ],
         ]);
 

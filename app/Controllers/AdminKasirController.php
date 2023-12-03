@@ -11,158 +11,96 @@ class AdminKasirController extends BaseController
 {
     public function index()
     {
-        $dataobatModel = new DataObatModel();
-        $dataobat = $dataobatModel->findAll();
-
-        $kasirModel = new KasirModel();
+        $kasirModel = new DataObatModel();
         $kasir = $kasirModel->findAll();
 
-        $data = [
-            'bayar' => $this->request->getVar('bayar'),
-        ];
         
-        $grandtotal = 0;
-        foreach ($kasir as $jumlah) {
-            $harga = $jumlah['price'];
-
-            $grandtotal = $grandtotal + $harga;
-        }
-
-        $total = [
-            'grandtotal' => $grandtotal
-        ];
-
-        $hitung = [
-            'bayar' => $this->request->getVar('bayar'),
-            'kembali' => $data['bayar'] - $total['grandtotal'],
-        ];
-
-        return view('admin/kasir/index', [
-            'dataobat' => $dataobat,
-            'kasir' => $kasir,
-            'total' => $total,
-            'hitung' => $hitung
-        ]);
-
-    }
-
-    public function tambah()
-    {
-        $dataobatModel = new DataObatModel();
-        $dataobat = $dataobatModel->findAll();
-        $kasirModel = new KasirModel();
-
-        $validationRules = [
-            'faktur' => 'required',
-            'obat' => 'required',
-            'qty' => 'required',
-            'nama_pembeli' => 'required',
-        ];
-
-        $validationMessages = [
-            'faktur' => [
-                'required' => 'Obat harus diisi.',
-            ],
-            'obat' => [
-                'required' => 'Obat harus diisi.',
-            ],
-            'qty' => [
-                'required' => 'Qty harus diisi.',
-            ],
-            'nama_pembeli' => [
-                'required' => 'Qty harus diisi.',
-            ],
-        ];
-        
-        if (!$this->validate($validationRules, $validationMessages)) {
-            return redirect()->back()->withInput()->with('validation', $this->validator);
-        }
-
-        $data = [
-            'faktur' => $this->request->getVar('faktur'),
-            'obat' => $this->request->getVar('obat'),
-            'qty' => $this->request->getVar('qty'),
-            'nama_pembeli' => $this->request->getVar('nama_pembeli'),
-        ];
-        
-        $obatData = null;
-        foreach ($dataobat as $dataObat) {
-            if ($dataObat['nama_obat'] == $data['obat']) {
-                $obatData = $dataObat;
-                break;
-            }
-        }
-
-        if ($obatData && $obatData['stok'] >= $data['qty']) {
-            $data = [
-                'faktur' => $this->request->getVar('faktur'),
-                'tanggal' => $this->request->getVar('tanggal'),
-                'obat' => $this->request->getVar('obat'),
-                'qty' => $this->request->getVar('qty'),
-                'nama_pembeli' => $this->request->getVar('nama_pembeli'),
-                'kode_obat' => $obatData['kode_obat'],
-                'price' => $obatData['hj_obat'] * $data['qty'],
-            ];
-
-            $kasirModel->insert($data);
-
-            return redirect()->to('/kasir');
-        } else {
-            return redirect()->to('/kasir')->with('error', 'Stok Obat Tidak Mencukupi!');
-        }
+        return view('admin/kasir/index', ['kasir' => $kasir]);
     }
 
     public function store()
-    {
-        $kasirModel = new KasirModel();
-        $kasir = $kasirModel->findAll();
-
-        $dataobatModel = new DataObatModel();
-        $dataobat = $dataobatModel->findAll();
-
-        $salesData = [];
-
-        foreach ($kasir as $kasirItem) {
-            foreach ($dataobat as $dataobatItem) {
-                if ($dataobatItem['kode_obat'] == $kasirItem['kode_obat'] && $dataobatItem['stok'] >= $kasirItem['qty']) {
-                    $data = [
-                        'kode_penjualan' => $kasirItem['faktur'],
-                        'tanggal' => $kasirItem['tanggal'],
-                        'kode_obat' => $kasirItem['kode_obat'],
-                        'name_obat' => $kasirItem['obat'],
-                        'qty' => $kasirItem['qty'],
-                        'harga' => $kasirItem['price'],
-                        'nama_pembeli' => $kasirItem['nama_pembeli'],
-                    ];
-
-                    $data_2 = [
-                        'stok' => $dataobatItem['stok'] - $kasirItem['qty'],
-                    ];
-
-                    $dataobatModel->update($dataobatItem['id'], $data_2);
-
-                    $salesData[] = $data;
-                }
-            }
-        }
-
-        if (!empty($salesData)) {
-            $laporanModel = new LaporanModel();
-            $laporanModel->insertBatch($salesData);
-
-            $kasirModel->emptyTable();
-
-            return redirect()->to('/kasir');
-        } else {
-            return redirect()->to('/kasir')->with('error', 'Stok is not enough for one or more items.');
-        }
-    }
+    {        
+        $validationRules = [
+            'total' => 'required',
+            'bayar' => 'required',
+            'kembalian' => 'required'
+        ];
     
-    public function destroy($id)
-    {
-        $kasirModel = new KasirModel();
-        $kasirModel->delete($id);
+        $validationMessages = [
+            'total' => [
+                'required' => 'total harus diisi.'
+            ],
+            'bayar' => [
+                'required' => 'bayar harus diisi.'
+            ],
+            'kembalian' => [
+                'required' => 'kembali harus diisi'
+            ]
+        ];
+    
+        if (!$this->validate($validationRules, $validationMessages)) {
+            return redirect()->back()->withInput()->with('validation', $this->validator);
+        }
+    
+        $data = [
+            'total' => $this->request->getPost('total'),
+            'bayar' => $this->request->getPost('bayar'),
+            'kembali' => $this->request->getPost('kembalian'),
+        ];
 
-        return redirect()->to('/kasir');
+        // cart is an array of objects
+        $cart = $this->request->getPost('cart');
+        foreach ($cart as $item) {
+            $data['kode'] = $item['kode'];
+            $data['jumlah'] = $item['jumlah'];
+            // insert to laporan
+            $laporanModel = new LaporanModel();
+            $data_laporan = [
+                'tanggal' => date('Y-m-d'),
+                'kode_penjualan' => $this->generateCode(),
+                'name_obat' => $this->getNameObat($item['kode']),
+                'qty' => $item['jumlah'],
+                'harga' => $item['harga'] * $item['jumlah'],
+            ];
+            $laporanModel->insert($data_laporan);
+
+            // min stock
+            $dataObatModel = new DataObatModel();
+            $dataObat = $dataObatModel->where('kode_obat', $item['kode'])->first();
+            $dataObat['stok'] -= $item['jumlah'];
+            $dataObatModel->update($dataObat['id'], $dataObat);
+
+        }
+    
+        $kasirModel = new KasirModel();
+        $kasirModel->insert($data);
+    
+        return $this->response->setJSON(['status' => 'success']);
     }
+
+    public function generateCode()
+    {
+        $laporanModel = new LaporanModel();
+        $lastLaporan = $laporanModel->orderBy('id', 'DESC')->first();
+        // format KP-YEAR-0000001
+        $lastKode = $lastLaporan['kode_penjualan'];
+        $lastKode = substr($lastKode, 9, 7);
+        $lastKode = intval($lastKode);
+        // if year is different, reset lastKode to 1
+        if (date('Y') != substr($lastLaporan['kode_penjualan'], 3, 4)) {
+            $lastKode = 0;
+        }
+        $lastKode += 1;
+        $lastKode = str_pad($lastKode, 7, '0', STR_PAD_LEFT);
+        $newKode = 'KP-' . date('Y') . '-' . $lastKode;
+        return $newKode;
+    }
+
+    public function getNameObat($kode)
+    {
+        $dataObatModel = new DataObatModel();
+        $dataObat = $dataObatModel->where('kode_obat', $kode)->first();
+        return $dataObat['nama_obat'];
+    }
+
 }

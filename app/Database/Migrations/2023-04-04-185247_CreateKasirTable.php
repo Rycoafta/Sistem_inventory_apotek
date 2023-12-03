@@ -14,34 +14,18 @@ class CreateKasirTable extends Migration
                 'constraint'        => 11,
                 'auto_increment'    => true
             ],
-            'faktur' => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 255
-            ],
-            'tanggal' => [
-                'type'              => 'DATE',
-                'null'              => false,
-            ],
-            'kode_obat' => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 255
-            ],
-            'obat' => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 255
-            ],
-            'qty' => [
+            'total' => [
                 'type'              => 'INT',
                 'constraint'        => 11,
             ],
-            'price' => [
+            'bayar' => [
                 'type'              => 'INT',
                 'constraint'        => 11,
             ],
-            'nama_pembeli' => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 255
-            ],
+            'kembali' => [
+                'type'              => 'INT',
+                'constraint'        => 11,
+            ], 
         ]);
 
         $this->forge->addKey('id', true);

@@ -19,9 +19,9 @@ Inventory
                 <tr>
                     <th>Kode</th>
                     <th>Nama</th>
-                    <th>Jenis</th>
                     <th hidden></th>
                     <th>Harga</th>
+                    <th>Keterangan</th>
                     <th>Aksi</th>
                 </tr>
         </thead>
@@ -31,9 +31,9 @@ Inventory
                 <tr id="<?= $Kasir['kode_obat'] ?>">
                     <td><?= $Kasir['kode_obat'] ?></td>
                     <td><?= $Kasir['nama_obat'] ?></td>
-                    <td><?= $Kasir['jenis'] ?></td>
-                    <td hidden><?= $Kasir['hj_obat'] ?></td>
                     <td>Rp.<?= $Kasir['hj_obat'] ?></td>
+                    <td hidden><?= $Kasir['hj_obat'] ?></td>
+                    <td><?= $Kasir['jenis'] ?></td>
                     <td>
                         <div class="container">
                             <div class="row">
@@ -49,8 +49,8 @@ Inventory
                 <tr>
                     <th>Kode</th>
                     <th>Nama</th>
-                    <th>Jenis</th>
                     <th>Harga</th>
+                    <th>Keterangan</th>
                     <th>Aksi</th>
                 </tr>
             </tfoot>

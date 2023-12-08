@@ -23,7 +23,7 @@ Beranda
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-success">
+            <div class="small-box bg-info">
               <div class="inner">
                 <h3><?= $datamasuk ?></h3>
 
@@ -38,7 +38,7 @@ Beranda
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-warning">
+            <div class="small-box bg-info">
               <div class="inner text-white">
                 <h3><?= $laporan ?></h3>
 
@@ -54,7 +54,7 @@ Beranda
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-danger">
+            <div class="small-box bg-info">
               <div class="inner">
                 <h3>Rp. <?= $laba ?></h3>
 
@@ -69,4 +69,68 @@ Beranda
           <!-- ./col -->
         </div>
         <!-- /.row -->
+    <?php if($masukdata) { ?>
+      <div class="card bg-danger">
+        <div class="card-header">
+        <h3 class="card-title">Terdapat Stok Obat Yang Kadaluarsa</h3>
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
+            </button>
+          </div>
+          <!-- /.card-tools -->
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+          Mohon Untuk Segera Periksa! (Abaikan Pesan Ini Jika Tidak Ada Obat Yang Kadaluarsa)
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+      <?php } ?>
+  <div class="card m-3">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-lg-12">
+            <p class="card-title">Daftar Kadaluarsa</p>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+    <table id="example3" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Kode Transaksi</th>
+                <th>Tanggal Masuk</th>
+                <th>Tanggal Kadaluarsa</th>
+                <th>Nama Obat</th>
+                <th>Pembaruan Stok</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php $i = 1;
+            foreach ($masukdata as $masukdata) : ?>
+                <tr>
+                    <td><?= $i++ ?></td>
+                    <td><?= $masukdata['kode_transaksi'] ?></td>
+                    <td><?= $masukdata['tanggal'] ?></td>
+                    <td><?= $masukdata['tanggal_kadaluarsa'] ?></td>
+                    <td><?= $masukdata['obat'] ?></td>
+                    <td><?= $masukdata['jlh_stok'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+            <tfoot>
+                <tr>
+                    <th>No</th>
+                    <th>Kode Transaksi</th>
+                    <th>Tanggal Masuk</th>
+                    <th>Tanggal Kadaluarsa</th>
+                    <th>Nama Obat</th>
+                    <th>Pembaruan Stok</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+  </div>
 <?= $this->endSection() ?>

@@ -13,23 +13,25 @@ class AdminDashboardController extends BaseController
     {
         $userModel = new UsersModel();
         $user = $userModel->findAll();
-
+        
         $dataobatModel = new DataObatModel();
-
+        
         $datamasukModel = new DataMasukModel();
         $masuktoday = $datamasukModel->where('tanggal', date('Y-m-d'))->countAllResults();
-
+        $masukdata = $datamasukModel->where('tanggal_kadaluarsa', date('Y-m-d'))->find();
+        
         $laporanModel = new LaporanModel();
         $laporantoday = $laporanModel->where('tanggal', date('Y-m-d'))->countAllResults();
-
+        
         $labatoday = $laporanModel->selectSum('harga')->where('tanggal', date('Y-m-d'))->get()->getRow()->harga;
-
+        
         return view('admin/dashboard', [
             'user' => $user,
             'dataobat' => $dataobatModel->countAll(),
             'datamasuk' => $masuktoday,
             'laporan' => $laporantoday,
-            'laba' => $labatoday
+            'laba' => $labatoday,
+            'masukdata' => $masukdata
         ]);
     }
 }

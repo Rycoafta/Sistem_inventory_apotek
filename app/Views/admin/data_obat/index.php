@@ -23,7 +23,7 @@ Inventory
                 <th>Nama Obat</th>
                 <th>Harga Beli</th>
                 <th>Harga Jual</th>
-                <th>Jenis</th>
+                <th>Keterangan</th>
                 <th>Option</th>
             </tr>
         </thead>
@@ -81,7 +81,7 @@ Inventory
                     <th>Nama Obat</th>
                     <th>Harga Beli</th>
                     <th>Harga Jual</th>
-                    <th>Jenis</th>
+                    <th>Keterangan</th>
                     <th>Option</th>
                 </tr>
             </tfoot>

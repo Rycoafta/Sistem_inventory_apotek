@@ -14,8 +14,14 @@ class AdminKasirController extends BaseController
         $kasirModel = new DataObatModel();
         $kasir = $kasirModel->findAll();
 
-        
-        return view('admin/kasir/index', ['kasir' => $kasir]);
+        // get last id kasir
+        $lastKasir = $kasirModel->orderBy('id', 'DESC')->first();
+        $lastId = $lastKasir['id'];
+        $lastId = intval($lastId);
+        $lastId += 1;
+        $lastId = str_pad($lastId, 4, '0', STR_PAD_LEFT);
+
+        return view('admin/kasir/index', ['kasir' => $kasir, 'lastId' => $lastId]);
     }
 
     public function store()

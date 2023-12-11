@@ -23,6 +23,7 @@ class Filters extends BaseConfig
         'secureheaders' => SecureHeaders::class,
         
         'Auth' => \App\Filters\Auth::class,
+        'KasirAuth' => \App\Filters\KasirAuth::class,
     ];
 
     /**

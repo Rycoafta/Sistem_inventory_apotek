@@ -29,6 +29,12 @@
   <link rel="stylesheet" href="<?= base_url('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') ?>">
   <link rel="stylesheet" href="<?= base_url('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') ?>">
   <link rel="stylesheet" href="<?= base_url('plugins/datatables-buttons/css/buttons.bootstrap4.min.css') ?>">
+
+  <!-- <style>
+    @page { size: 75mm 100mm } /* output size */
+    #printArea { width: 75mm } /* width of content within the page */
+    @media print { #printArea { width: 75mm } } /* fix for Chrome */
+  </style> -->
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -118,6 +124,8 @@
               <p>Beranda</p>
             </a>
           </li>
+          <!-- if role 1 -->
+          <?php if(session()->get('role')== 1) { ?>
           <li class="nav-item">
             <a href="/data_obat" class="nav-link">
               <i class="nav-icon far fa-folder" style="color: #ffffff;"></i>
@@ -152,18 +160,21 @@
               </li>
             </ul>
           </li>
+          <?php } ?>
           <li class="nav-item">
             <a href="/kasir" class="nav-link">
               <i class="nav-icon fas fa-cash-register" style="color: #ffffff;"></i>
               <p>Kasir</p>
             </a>
           </li>
+          <?php if(session()->get('role')== 1) { ?>
           <li class="nav-item">
             <a href="/user" class="nav-link">
               <i class="nav-icon fas fa-user-circle" style="color: #ffffff;"></i>
               <p>Manajemen User</p>
             </a>
           </li>
+          <?php } ?>
           <li class="nav-item">
             <a href="/logout" class="nav-link">
               <i class="nav-icon fas fa-sign-out-alt" style="color: #ffffff;"></i>

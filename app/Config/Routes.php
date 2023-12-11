@@ -30,50 +30,57 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('/dashboard', 'AdminDashboardController::index');
 
 $routes->get('/login', 'Auth::login');
 $routes->get('/logout', 'Auth::logout');
 
 $routes->post('/auth/login', 'Auth::doLogin');
 
-// CRUD LAPORAN PENJUALAN
-$routes->get('laporan_penjualan', 'AdminLaporanPenjualanController::index');
-$routes->get('laporan_penjualan', 'Cetak::index');
+$routes->group('', ['filter' => 'Auth'], static function($routes) {
+    $routes->get('/dashboard', 'AdminDashboardController::index');
 
-// CRUD LAPORAN DATA MASUK
-$routes->get('laporan_data_masuk', 'AdminLaporanDataMasukController::index');
-$routes->get('laporan_data_masuk', 'Cetak::index');
+    // CRUD KASIR
+    $routes->get('kasir', 'AdminKasirController::index');
+    $routes->post('kasir/store', 'AdminKasirController::store', ['as' => 'kasir/store']);
 
-// CRUD DATA MASUK
-$routes->get('data_masuk', 'AdminDataMasukController::index');
-$routes->get('data_masuk/create', 'AdminDataMasukController::create');
-$routes->post('data_masuk/store', 'AdminDataMasukController::store', ['as' => 'data_masuk/store']);
-$routes->get('data_masuk/edit/(:num)', 'AdminDataMasukController::edit/$1', ['as' => 'data_masuk/edit']);
-$routes->post('data_masuk/update/(:num)', 'AdminDataMasukController::update/$1', ['as' => 'data_masuk/update']);
-$routes->get('data_masuk/delete/(:num)', 'AdminDataMasukController::destroy/$1', ['as' => 'data_masuk/delete']);
+    $routes->group('', ['filter' => 'KasirAuth'], static function($routes){
+        // CRUD LAPORAN PENJUALAN
+        $routes->get('laporan_penjualan', 'AdminLaporanPenjualanController::index');
+        $routes->get('laporan_penjualan', 'Cetak::index');
 
-// CRUD DATA OBAT
-$routes->get('data_obat', 'AdminDataObatController::index');
-$routes->get('data_obat/create', 'AdminDataObatController::create');
-$routes->post('data_obat/store', 'AdminDataObatController::store', ['as' => 'data_obat/store']);
-$routes->get('data_obat/show/(:num)', 'AdminDataObatController::show/$1', ['as' => 'data_obat/show']);
-$routes->get('data_obat/edit/(:num)', 'AdminDataObatController::edit/$1', ['as' => 'data_obat/edit']);
-$routes->post('data_obat/update/(:num)', 'AdminDataObatController::update/$1', ['as' => 'data_obat/update']);
-$routes->get('data_obat/delete/(:num)', 'AdminDataObatController::destroy/$1', ['as' => 'data_obat/delete']);
+        // CRUD LAPORAN DATA MASUK
+        $routes->get('laporan_data_masuk', 'AdminLaporanDataMasukController::index');
+        $routes->get('laporan_data_masuk', 'Cetak::index');
 
-// CRUD USER
-$routes->get('user', 'AdminUserController::index');
-$routes->get('user/create', 'AdminUserController::create');
-$routes->post('user/store', 'AdminUserController::store', ['as' => 'user/store']);
-$routes->get('user/show/(:num)', 'AdminUserController::show/$1', ['as' => 'user/show']);
-$routes->get('user/edit/(:num)', 'AdminUserController::edit/$1', ['as' => 'user/edit']);
-$routes->post('user/update/(:num)', 'AdminUserController::update/$1', ['as' => 'user/update']);
-$routes->delete('user/delete/(:num)', 'AdminUserController::destroy/$1', ['as' => 'user/delete']);
+        // CRUD DATA MASUK
+        $routes->get('data_masuk', 'AdminDataMasukController::index');
+        $routes->get('data_masuk/create', 'AdminDataMasukController::create');
+        $routes->post('data_masuk/store', 'AdminDataMasukController::store', ['as' => 'data_masuk/store']);
+        $routes->get('data_masuk/edit/(:num)', 'AdminDataMasukController::edit/$1', ['as' => 'data_masuk/edit']);
+        $routes->post('data_masuk/update/(:num)', 'AdminDataMasukController::update/$1', ['as' => 'data_masuk/update']);
+        $routes->get('data_masuk/delete/(:num)', 'AdminDataMasukController::destroy/$1', ['as' => 'data_masuk/delete']);
 
-// CRUD KASIR
-$routes->get('kasir', 'AdminKasirController::index');
-$routes->post('kasir/store', 'AdminKasirController::store', ['as' => 'kasir/store']);
+        // CRUD DATA OBAT
+        $routes->get('data_obat', 'AdminDataObatController::index');
+        $routes->get('data_obat/create', 'AdminDataObatController::create');
+        $routes->post('data_obat/store', 'AdminDataObatController::store', ['as' => 'data_obat/store']);
+        $routes->get('data_obat/show/(:num)', 'AdminDataObatController::show/$1', ['as' => 'data_obat/show']);
+        $routes->get('data_obat/edit/(:num)', 'AdminDataObatController::edit/$1', ['as' => 'data_obat/edit']);
+        $routes->post('data_obat/update/(:num)', 'AdminDataObatController::update/$1', ['as' => 'data_obat/update']);
+        $routes->get('data_obat/delete/(:num)', 'AdminDataObatController::destroy/$1', ['as' => 'data_obat/delete']);
+
+        // CRUD USER
+        $routes->get('user', 'AdminUserController::index');
+        $routes->get('user/create', 'AdminUserController::create');
+        $routes->post('user/store', 'AdminUserController::store', ['as' => 'user/store']);
+        $routes->get('user/show/(:num)', 'AdminUserController::show/$1', ['as' => 'user/show']);
+        $routes->get('user/edit/(:num)', 'AdminUserController::edit/$1', ['as' => 'user/edit']);
+        $routes->post('user/update/(:num)', 'AdminUserController::update/$1', ['as' => 'user/update']);
+        $routes->delete('user/delete/(:num)', 'AdminUserController::destroy/$1', ['as' => 'user/delete']);
+    });
+});
+
+
 
 /*
  * --------------------------------------------------------------------

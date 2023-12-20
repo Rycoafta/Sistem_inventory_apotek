@@ -52,7 +52,7 @@ EDIT
             <?php endif ?>
         </div>
         <div class="form-group">
-            <label for="jenis">Jenis</label>
+            <label for="jenis">Keterangan</label>
             <input type="text" class="form-control" id="jenis" value="<?= old('jenis') ?: $dataObat['jenis']; ?>" name="jenis" required autofocus>
             <?php if (session('errors.jenis')) : ?>
                 <span class="invalid-feedback" role="alert">

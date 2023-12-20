@@ -33,7 +33,7 @@ DETAIL
             <input type="text" class="form-control" id="hj_obat" value="<?= $dataObat['hj_obat']; ?>" readonly>
         </div>
         <div class="form-group">
-            <label for="jenis">Jenis</label>
+            <label for="jenis">Keterangan</label>
             <input type="text" class="form-control" id="jenis" value="<?= $dataObat['jenis']; ?>" readonly>
         </div>
         <div class="form-group">

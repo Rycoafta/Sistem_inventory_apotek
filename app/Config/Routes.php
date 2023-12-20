@@ -76,7 +76,7 @@ $routes->group('', ['filter' => 'Auth'], static function($routes) {
         $routes->get('user/show/(:num)', 'AdminUserController::show/$1', ['as' => 'user/show']);
         $routes->get('user/edit/(:num)', 'AdminUserController::edit/$1', ['as' => 'user/edit']);
         $routes->post('user/update/(:num)', 'AdminUserController::update/$1', ['as' => 'user/update']);
-        $routes->delete('user/delete/(:num)', 'AdminUserController::destroy/$1', ['as' => 'user/delete']);
+        $routes->get('user/delete/(:num)', 'AdminUserController::destroy/$1', ['as' => 'user/delete']);
     });
 });
 

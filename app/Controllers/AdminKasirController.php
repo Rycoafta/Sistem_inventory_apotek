@@ -25,13 +25,13 @@ class AdminKasirController extends BaseController
     }
 
     public function store()
-    {        
+    {
         $validationRules = [
             'total' => 'required',
             'bayar' => 'required',
             'kembalian' => 'required'
         ];
-    
+
         $validationMessages = [
             'total' => [
                 'required' => 'total harus diisi.'
@@ -43,23 +43,31 @@ class AdminKasirController extends BaseController
                 'required' => 'kembali harus diisi'
             ]
         ];
-    
+
         if (!$this->validate($validationRules, $validationMessages)) {
             return redirect()->back()->withInput()->with('validation', $this->validator);
         }
-    
-        $data = [
-            'total' => $this->request->getPost('total'),
-            'bayar' => $this->request->getPost('bayar'),
-            'kembali' => $this->request->getPost('kembalian'),
-        ];
 
-        // cart is an array of objects
         $cart = $this->request->getPost('cart');
+
         foreach ($cart as $item) {
-            $data['kode'] = $item['kode'];
-            $data['jumlah'] = $item['jumlah'];
-            // insert to laporan
+            $dataObatModel = new DataObatModel();
+            $dataObat = $dataObatModel->where('kode_obat', $item['kode'])->first();
+
+            // Check if stock is sufficient
+            if ($dataObat['stok'] < $item['jumlah']) {
+                return $this->response->setJSON(['status' => 'error', 'message' => 'Stok Tidak Mencukupi ' . $this->getNameObat($item['kode'])]);
+            }
+
+            // Proceed with insertion and update
+            $data = [
+                'total' => $this->request->getPost('total'),
+                'bayar' => $this->request->getPost('bayar'),
+                'kembali' => $this->request->getPost('kembalian'),
+                'kode' => $item['kode'],
+                'jumlah' => $item['jumlah'],
+            ];
+
             $laporanModel = new LaporanModel();
             $data_laporan = [
                 'tanggal' => date('Y-m-d'),
@@ -70,17 +78,14 @@ class AdminKasirController extends BaseController
             ];
             $laporanModel->insert($data_laporan);
 
-            // min stock
-            $dataObatModel = new DataObatModel();
-            $dataObat = $dataObatModel->where('kode_obat', $item['kode'])->first();
+            // Update stock
             $dataObat['stok'] -= $item['jumlah'];
             $dataObatModel->update($dataObat['id'], $dataObat);
-
         }
-    
+
         $kasirModel = new KasirModel();
         $kasirModel->insert($data);
-    
+
         return $this->response->setJSON(['status' => 'success']);
     }
 

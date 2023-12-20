@@ -37,7 +37,7 @@ EDIT AKUN
                 <?php endif ?>
             </div>
             <div class="form-group">
-                <label for="password">Password (ubah jika perlu)</label>
+                <label for="password">Password</label>
                 <input type="text" class="form-control <?= session('error.password') ? 'is-invalid' : ''; ?>" id="password" value="" name="password" autofocus>
                 <?php if (session('error.password')) : ?>
                     <span class="invalid-feedback" role="alert">

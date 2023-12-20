@@ -54,8 +54,8 @@ INPUT OBAT
             <?php endif ?>
         </div>
         <div class="form-group">
-            <label for="jenis">Jenis</label>
-            <input type="text" class="form-control" id="jenis" placeholder="Pilih Jenis" value="<?= old('jenis'); ?>" name="jenis" required autocomplete="jenis">
+            <label for="jenis">Keterangan</label>
+            <input type="text" class="form-control" id="jenis" placeholder="Pilih Keterangan" value="<?= old('jenis'); ?>" name="jenis" required autocomplete="jenis">
             <?php if (session('errors.jenis')) : ?>
                 <span class="invalid-feedback" role="alert">
                     <strong><?= session('errors.jenis') ?></strong>

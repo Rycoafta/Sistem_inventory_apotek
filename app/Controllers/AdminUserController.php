@@ -134,16 +134,6 @@ class AdminUserController extends BaseController
                 'role' => $this->request->getPost('role'),
             ];  
         }
-        // Hash password menggunakan password_hash()
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-        $data = [
-            'username' => $this->request->getPost('username'),
-            'email' => $this->request->getPost('email'),
-            'password' => $hashedPassword,
-            'image' => $this->request->getPost('image'),
-            'role' => $this->request->getPost('role'),
-        ];
         
         $userModel = new UsersModel();
         $user = $userModel->find($id);
